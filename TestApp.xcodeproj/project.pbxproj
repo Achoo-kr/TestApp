@@ -29,6 +29,11 @@
 		364B6D912A879EEB005E4856 /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D902A879EEB005E4856 /* NavView.swift */; };
 		364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D922A87A846005E4856 /* MainViewModel.swift */; };
 		364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D942A87AA08005E4856 /* LocationManager.swift */; };
+		36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */; };
+		36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5A2A90EB9E001EA6AB /* Color.swift */; };
+		36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */; };
+		36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5E2A90EBD9001EA6AB /* CardView.swift */; };
+		36E13B612A90EBF8001EA6AB /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B602A90EBF8001EA6AB /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +111,11 @@
 		364B6D902A879EEB005E4856 /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
 		364B6D922A87A846005E4856 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		364B6D942A87AA08005E4856 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoView.swift; sourceTree = "<group>"; };
+		36E13B5A2A90EB9E001EA6AB /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionBlockView.swift; sourceTree = "<group>"; };
+		36E13B5E2A90EBD9001EA6AB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		36E13B602A90EBF8001EA6AB /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +234,7 @@
 			children = (
 				27860E0C2A8FDBB300D76697 /* DaumMap.framework */,
 				2734BF332A8FCBDF0009FBA9 /* DaumMap.embeddedframework */,
+				36E13B592A90EB8F001EA6AB /* Extension */,
 				364B6D8B2A879E1B005E4856 /* Info.plist */,
 				364B6D842A879C3C005E4856 /* Application */,
 				364B6D732A879AE6005E4856 /* ViewModel */,
@@ -291,6 +302,7 @@
 		364B6D862A879CB9005E4856 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				36E13B562A90EB57001EA6AB /* DrivingInfoView */,
 				364B6D882A879CFB005E4856 /* Map */,
 				364B6D872A879CF9005E4856 /* Nav */,
 			);
@@ -315,6 +327,25 @@
 				27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		36E13B562A90EB57001EA6AB /* DrivingInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */,
+				36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */,
+				36E13B5E2A90EBD9001EA6AB /* CardView.swift */,
+				36E13B602A90EBF8001EA6AB /* ButtonView.swift */,
+			);
+			path = DrivingInfoView;
+			sourceTree = "<group>";
+		};
+		36E13B592A90EB8F001EA6AB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				36E13B5A2A90EB9E001EA6AB /* Color.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,18 +426,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				2734BF862A8FCD270009FBA9 /* KakaoMapVCWrapper.swift in Sources */,
+
+				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
+
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
+				36E13B612A90EBF8001EA6AB /* ButtonView.swift in Sources */,
+				36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */,
 				364B6D8A2A879D0E005E4856 /* MapView.swift in Sources */,
 				364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */,
 				364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */,
+
 				27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */,
 				27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */,
+				36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */,
+        
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
 				364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */,
 				364B6D912A879EEB005E4856 /* NavView.swift in Sources */,
+				36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
