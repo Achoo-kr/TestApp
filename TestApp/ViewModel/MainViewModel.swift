@@ -14,15 +14,15 @@ class MainViewModel: ObservableObject {
     @Published var active: Bool = false
     @Published var endX: CGFloat = 0
     @Published var endY: CGFloat = 0
-    @Published var currentLocation: CLLocation?
-    
-    private var locationService = LocationManager()
-    
-    init() {
-        locationService.locationUpdateHandler = { [weak self] location in
-            self?.currentLocation = location
-        }
-    }
+//    @Published var currentLocation: CLLocation?
+//
+//    private var locationService = LocationManager()
+//
+//    init() {
+//        locationService.locationUpdateHandler = { [weak self] location in
+//            self?.currentLocation = location
+//        }
+//    }
 
 }
 
