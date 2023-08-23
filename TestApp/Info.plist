@@ -2,6 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneClassName</key>
+					<string>UIWindowScene</string>
+					<key>UISceneConfigurationName</key>
+					<string>Phone</string>
+					<key>UISceneDelegateClassName</key>
+					<string>MyAppWindowSceneDelegate</string>
+				</dict>
+			</array>
+			<key>CPTemplateApplicationSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneClassName</key>
+					<string>CPTemplateApplicationScene</string>
+					<key>UISceneConfigurationName</key>
+					<string>Template Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>TestApp.CarPlaySceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>KAKAO_APP_KEY</key>
 	<string>923b28d9b3a43a58017321fb76583ace</string>
 	<key>NSAppTransportSecurity</key>
