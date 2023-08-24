@@ -33,6 +33,7 @@
 		3690B9872A9682B600BD3850 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690B9862A9682B600BD3850 /* CarPlaySceneDelegate.swift */; };
 		3690B9892A9682C900BD3850 /* CarplayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690B9882A9682C900BD3850 /* CarplayContentView.swift */; };
 		3690B98B2A96862000BD3850 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3690B98A2A96862000BD3850 /* Entitlements.plist */; };
+		3690B98D2A97DBFD00BD3850 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690B98C2A97DBFD00BD3850 /* SceneDelegate.swift */; };
 		36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */; };
 		36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5A2A90EB9E001EA6AB /* Color.swift */; };
 		36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */; };
@@ -119,6 +120,7 @@
 		3690B9862A9682B600BD3850 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		3690B9882A9682C900BD3850 /* CarplayContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarplayContentView.swift; sourceTree = "<group>"; };
 		3690B98A2A96862000BD3850 /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		3690B98C2A97DBFD00BD3850 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoView.swift; sourceTree = "<group>"; };
 		36E13B5A2A90EB9E001EA6AB /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionBlockView.swift; sourceTree = "<group>"; };
@@ -242,13 +244,13 @@
 		364B6D622A879A67005E4856 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				364B6D842A879C3C005E4856 /* Application */,
 				3690B9852A96829600BD3850 /* Car */,
 				27860E0C2A8FDBB300D76697 /* DaumMap.framework */,
 				2734BF332A8FCBDF0009FBA9 /* DaumMap.embeddedframework */,
 				36E13B592A90EB8F001EA6AB /* Extension */,
 				364B6D8B2A879E1B005E4856 /* Info.plist */,
 				3690B98A2A96862000BD3850 /* Entitlements.plist */,
-				364B6D842A879C3C005E4856 /* Application */,
 				364B6D732A879AE6005E4856 /* ViewModel */,
 				364B6D792A879B25005E4856 /* Components */,
 				364B6D852A879C4A005E4856 /* Sources */,
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				364B6D632A879A67005E4856 /* TestAppApp.swift */,
+				3690B98C2A97DBFD00BD3850 /* SceneDelegate.swift */,
 				2734BF882A8FCE8C0009FBA9 /* TestApp_Bridging_Header.h */,
 				364B6D652A879A67005E4856 /* ContentView.swift */,
 			);
@@ -463,6 +466,7 @@
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
+				3690B98D2A97DBFD00BD3850 /* SceneDelegate.swift in Sources */,
 				364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */,
 				364B6D912A879EEB005E4856 /* NavView.swift in Sources */,
 				3690B9872A9682B600BD3850 /* CarPlaySceneDelegate.swift in Sources */,
@@ -604,7 +608,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TestApp",
@@ -628,12 +632,15 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "네모톤 카플레이 Driving Task";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = TestApp/Application/TestApp_Bridging_Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -652,7 +659,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TestApp",
@@ -676,11 +683,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "네모톤 카플레이 Driving Task";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = TestApp/Application/TestApp_Bridging_Header.h;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
