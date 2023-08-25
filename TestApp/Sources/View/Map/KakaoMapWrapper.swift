@@ -109,7 +109,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         
         // 마커 생성
         let marker = MTMapPOIItem()
-        marker.markerType = .redPin
+        marker.markerType = MTMapPOIItemMarkerType.redPin
         marker.mapPoint = mapPoint
         mapView.add(marker)
     }

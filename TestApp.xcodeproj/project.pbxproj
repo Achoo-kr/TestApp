@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712FEB72A98D3C600795346 /* MapSearchBar.swift */; };
 		2734BF782A8FCBFA0009FBA9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF772A8FCBFA0009FBA9 /* OpenGLES.framework */; };
 		2734BF7A2A8FCC050009FBA9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF792A8FCC050009FBA9 /* SystemConfiguration.framework */; };
 		2734BF7C2A8FCC0E0009FBA9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF7B2A8FCC0E0009FBA9 /* CoreLocation.framework */; };
@@ -15,6 +16,13 @@
 		2734BF822A8FCC260009FBA9 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF812A8FCC260009FBA9 /* libxml2.tbd */; };
 		2734BF842A8FCC2D0009FBA9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF832A8FCC2D0009FBA9 /* libsqlite3.tbd */; };
 		2734BF862A8FCD270009FBA9 /* KakaoMapVCWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2734BF852A8FCD270009FBA9 /* KakaoMapVCWrapper.swift */; };
+		2767441F2A97DF2200784C9D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2767441E2A97DF2200784C9D /* FirebaseDatabase */; };
+		276744212A97DF2200784C9D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 276744202A97DF2200784C9D /* FirebaseDatabaseSwift */; };
+		276744232A97DF2200784C9D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 276744222A97DF2200784C9D /* FirebaseFirestore */; };
+		276744252A97DF2200784C9D /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 276744242A97DF2200784C9D /* FirebaseFirestoreCombine-Community */; };
+		276744272A97DF2200784C9D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 276744262A97DF2200784C9D /* FirebaseFirestoreSwift */; };
+		276744292A97DF2200784C9D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 276744282A97DF2200784C9D /* FirebaseStorage */; };
+		2767442B2A97DF2200784C9D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2767442A2A97DF2200784C9D /* FirebaseStorageCombine-Community */; };
 		27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D752A879B04005E4856 /* Coordinate.swift */; };
 		27860E0E2A8FDBC000D76697 /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27860E0C2A8FDBB300D76697 /* DaumMap.framework */; };
 		27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */; };
@@ -50,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2712FEB72A98D3C600795346 /* MapSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchBar.swift; sourceTree = "<group>"; };
 		2734BF352A8FCBDF0009FBA9 /* map_pinup_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pinup_custom@3x.png"; sourceTree = "<group>"; };
 		2734BF362A8FCBDF0009FBA9 /* map_pin_custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_custom.png; sourceTree = "<group>"; };
 		2734BF372A8FCBDF0009FBA9 /* shadow_balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_balloon.png; sourceTree = "<group>"; };
@@ -94,6 +103,7 @@
 		2734BF832A8FCC2D0009FBA9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2734BF852A8FCD270009FBA9 /* KakaoMapVCWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapVCWrapper.swift; sourceTree = "<group>"; };
 		2734BF882A8FCE8C0009FBA9 /* TestApp_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestApp_Bridging_Header.h; sourceTree = "<group>"; };
+		2767442E2A97E28900784C9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27860E0C2A8FDBB300D76697 /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapWrapper.swift; sourceTree = "<group>"; };
 		364B6D602A879A67005E4856 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,16 +133,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276744212A97DF2200784C9D /* FirebaseDatabaseSwift in Frameworks */,
+				276744232A97DF2200784C9D /* FirebaseFirestore in Frameworks */,
 				2734BF842A8FCC2D0009FBA9 /* libsqlite3.tbd in Frameworks */,
 				2734BF822A8FCC260009FBA9 /* libxml2.tbd in Frameworks */,
 				2734BF802A8FCC200009FBA9 /* libc++.tbd in Frameworks */,
+				276744292A97DF2200784C9D /* FirebaseStorage in Frameworks */,
+				2767442B2A97DF2200784C9D /* FirebaseStorageCombine-Community in Frameworks */,
+				276744272A97DF2200784C9D /* FirebaseFirestoreSwift in Frameworks */,
 				2734BF7E2A8FCC160009FBA9 /* QuartzCore.framework in Frameworks */,
 				2734BF7C2A8FCC0E0009FBA9 /* CoreLocation.framework in Frameworks */,
 				2734BF7A2A8FCC050009FBA9 /* SystemConfiguration.framework in Frameworks */,
 				2734BF782A8FCBFA0009FBA9 /* OpenGLES.framework in Frameworks */,
 				364B6D802A879BF5005E4856 /* KNSDK in Frameworks */,
+				2767441F2A97DF2200784C9D /* FirebaseDatabase in Frameworks */,
 				27860E0E2A8FDBC000D76697 /* DaumMap.framework in Frameworks */,
 				364B6D832A879C03005E4856 /* Alamofire in Frameworks */,
+				276744252A97DF2200784C9D /* FirebaseFirestoreCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +253,7 @@
 				2734BF332A8FCBDF0009FBA9 /* DaumMap.embeddedframework */,
 				36E13B592A90EB8F001EA6AB /* Extension */,
 				364B6D8B2A879E1B005E4856 /* Info.plist */,
+				2767442E2A97E28900784C9D /* GoogleService-Info.plist */,
 				364B6D842A879C3C005E4856 /* Application */,
 				364B6D732A879AE6005E4856 /* ViewModel */,
 				364B6D792A879B25005E4856 /* Components */,
@@ -323,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				364B6D892A879D0E005E4856 /* MapView.swift */,
+				2712FEB72A98D3C600795346 /* MapSearchBar.swift */,
 				2734BF852A8FCD270009FBA9 /* KakaoMapVCWrapper.swift */,
 				27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */,
 			);
@@ -368,6 +387,13 @@
 			packageProductDependencies = (
 				364B6D7F2A879BF5005E4856 /* KNSDK */,
 				364B6D822A879C03005E4856 /* Alamofire */,
+				2767441E2A97DF2200784C9D /* FirebaseDatabase */,
+				276744202A97DF2200784C9D /* FirebaseDatabaseSwift */,
+				276744222A97DF2200784C9D /* FirebaseFirestore */,
+				276744242A97DF2200784C9D /* FirebaseFirestoreCombine-Community */,
+				276744262A97DF2200784C9D /* FirebaseFirestoreSwift */,
+				276744282A97DF2200784C9D /* FirebaseStorage */,
+				2767442A2A97DF2200784C9D /* FirebaseStorageCombine-Community */,
 			);
 			productName = TestApp;
 			productReference = 364B6D602A879A67005E4856 /* TestApp.app */;
@@ -401,6 +427,7 @@
 			packageReferences = (
 				364B6D7E2A879BF5005E4856 /* XCRemoteSwiftPackageReference "KNSDK-UI" */,
 				364B6D812A879C03005E4856 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 364B6D612A879A67005E4856 /* Products */;
 			projectDirPath = "";
@@ -426,22 +453,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				2734BF862A8FCD270009FBA9 /* KakaoMapVCWrapper.swift in Sources */,
-
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
-
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
 				36E13B612A90EBF8001EA6AB /* ButtonView.swift in Sources */,
 				36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */,
 				364B6D8A2A879D0E005E4856 /* MapView.swift in Sources */,
 				364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */,
 				364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */,
-
+				2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */,
 				27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */,
 				27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */,
 				36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */,
-        
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
@@ -490,6 +513,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -551,6 +575,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -563,6 +588,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -577,11 +603,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = K9NKZR257N;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TestApp",
@@ -603,6 +631,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = IcyChoo.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = TestApp/Application/TestApp_Bridging_Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -619,11 +648,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = K9NKZR257N;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TestApp",
@@ -645,6 +676,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = IcyChoo.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = TestApp/Application/TestApp_Bridging_Header.h;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -677,6 +709,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		364B6D7E2A879BF5005E4856 /* XCRemoteSwiftPackageReference "KNSDK-UI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakaomob/KNSDK-UI.git";
@@ -696,6 +736,41 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2767441E2A97DF2200784C9D /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		276744202A97DF2200784C9D /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		276744222A97DF2200784C9D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		276744242A97DF2200784C9D /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		276744262A97DF2200784C9D /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		276744282A97DF2200784C9D /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		2767442A2A97DF2200784C9D /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
 		364B6D7F2A879BF5005E4856 /* KNSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 364B6D7E2A879BF5005E4856 /* XCRemoteSwiftPackageReference "KNSDK-UI" */;
