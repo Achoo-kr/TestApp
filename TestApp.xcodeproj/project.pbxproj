@@ -29,6 +29,8 @@
 		364B6D912A879EEB005E4856 /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D902A879EEB005E4856 /* NavView.swift */; };
 		364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D922A87A846005E4856 /* MainViewModel.swift */; };
 		364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D942A87AA08005E4856 /* LocationManager.swift */; };
+		36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */; };
+		36C341FC2A98CE4E002EAC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364B6D672A879A69005E4856 /* Assets.xcassets */; };
 		36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */; };
 		36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5A2A90EB9E001EA6AB /* Color.swift */; };
 		36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */; };
@@ -111,6 +113,8 @@
 		364B6D902A879EEB005E4856 /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
 		364B6D922A87A846005E4856 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		364B6D942A87AA08005E4856 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		36C341F82A98BDB1002EAC8F /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
+		36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoView.swift; sourceTree = "<group>"; };
 		36E13B5A2A90EB9E001EA6AB /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionBlockView.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 		364B6D572A879A67005E4856 = {
 			isa = PBXGroup;
 			children = (
+				36C341F92A98BE92002EAC8F /* CarPlay */,
 				364B6D622A879A67005E4856 /* TestApp */,
 				364B6D612A879A67005E4856 /* Products */,
 				2734BF762A8FCBFA0009FBA9 /* Frameworks */,
@@ -232,6 +237,7 @@
 		364B6D622A879A67005E4856 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				36C341F82A98BDB1002EAC8F /* TestApp.entitlements */,
 				27860E0C2A8FDBB300D76697 /* DaumMap.framework */,
 				2734BF332A8FCBDF0009FBA9 /* DaumMap.embeddedframework */,
 				36E13B592A90EB8F001EA6AB /* Extension */,
@@ -329,6 +335,14 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		36C341F92A98BE92002EAC8F /* CarPlay */ = {
+			isa = PBXGroup;
+			children = (
+				36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */,
+			);
+			path = CarPlay;
+			sourceTree = "<group>";
+		};
 		36E13B562A90EB57001EA6AB /* DrivingInfoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36C341FC2A98CE4E002EAC8F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,27 +441,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				2734BF862A8FCD270009FBA9 /* KakaoMapVCWrapper.swift in Sources */,
-
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
-
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
 				36E13B612A90EBF8001EA6AB /* ButtonView.swift in Sources */,
 				36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */,
 				364B6D8A2A879D0E005E4856 /* MapView.swift in Sources */,
 				364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */,
 				364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */,
-
 				27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */,
 				27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */,
 				36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */,
-        
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
 				364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */,
 				364B6D912A879EEB005E4856 /* NavView.swift in Sources */,
+				36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */,
 				36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,10 +588,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
-				DEVELOPMENT_TEAM = K9NKZR257N;
+				DEVELOPMENT_TEAM = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
@@ -619,10 +632,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
-				DEVELOPMENT_TEAM = K9NKZR257N;
+				DEVELOPMENT_TEAM = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
