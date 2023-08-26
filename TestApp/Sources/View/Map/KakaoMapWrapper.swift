@@ -109,7 +109,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         
         // 마커 생성
         let marker = MTMapPOIItem()
-        marker.markerType = .redPin
+        marker.markerType = MTMapPOIItemMarkerType.redPin
         marker.mapPoint = mapPoint
         mapView.add(marker)
     }
@@ -127,4 +127,6 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         //
     }
     
+    // kakaomap://route?sp=37.537229,127.005515&ep=37.4979502,127.0276368&by=CAR
+    // https://roniruny.tistory.com/171
 }
