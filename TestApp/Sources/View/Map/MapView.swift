@@ -9,11 +9,13 @@ import SwiftUI
 
 struct MapView: View {
     
+    @State var searchText: String = ""
+    
     var body: some View {
 //        KakaoMapVCWrapper()
         ZStack {
             ZStack {
-                MapSearchBar()
+                TextField("도착지를 입력해주세요", text: $searchText)
             }.zIndex(1)
             KakaoMapWrapper()
         }

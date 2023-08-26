@@ -19,6 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct TestAppApp: App {
+    
     var body: some Scene {
         
         WindowGroup {

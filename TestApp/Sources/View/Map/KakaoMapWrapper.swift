@@ -127,4 +127,6 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         //
     }
     
+    // kakaomap://route?sp=37.537229,127.005515&ep=37.4979502,127.0276368&by=CAR
+    // https://roniruny.tistory.com/171
 }
