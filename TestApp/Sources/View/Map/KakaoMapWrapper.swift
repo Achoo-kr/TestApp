@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import UIKit
+import KakaoMapsSDK
+import KakaoMapsSDK_SPM
 
 struct KakaoMapWrapper: UIViewRepresentable {
     
@@ -24,21 +26,24 @@ struct KakaoMapWrapper: UIViewRepresentable {
     }
 }
 
-final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocationManagerDelegate, MTMapReverseGeoCoderDelegate {
+final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapReverseGeoCoderDelegate, CLLocationManagerDelegate {
     static let shared = Coordinator()
     
-    var view = MTMapView(frame: .zero)
+    let view = MTMapView(frame: .zero)
     var locationManager: CLLocationManager?
     var geoCoder: MTMapReverseGeoCoder!
-    var authorizationStatus: CLAuthorizationStatus = .notDetermined
-    var address: String = ""
+    var currentGeoCoder: MTMapReverseGeoCoder!
     
     @Published var coord: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
-    
+    @Published var address: String = ""
+    @Published var currentAddress: [String] = ["서울 중구 태평로1가 31"]
+    @Published var isLocationDataLoaded: Bool = false
+
     override init() {
         super.init()
-        
+        view.showCurrentLocationMarker = true
+        //view.currentLocationTrackingMode = .onWithoutHeading
         view.baseMapType = .standard
         view.delegate = self
     }
@@ -47,27 +52,21 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         view
     }
     
+    deinit {
+        print("Coordinator deinit!")
+    }
+    
     func checkIfLocationServicesIsEnabled() {
         DispatchQueue.global().async {
             if CLLocationManager.locationServicesEnabled() {
                 DispatchQueue.main.async { [self] in
                     self.locationManager = CLLocationManager()
                     self.locationManager!.delegate = self
-                    self.locationManager!.desiredAccuracy = kCLLocationAccuracyBest
                     self.checkLocationAuthorization()
                 }
             } else {
                 print("Show an alert letting them know this is off and to go turn i on.")
             }
-        }
-    }
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        authorizationStatus = manager.authorizationStatus
-        if authorizationStatus == .authorizedWhenInUse {
-            view.currentLocationTrackingMode = .onWithoutHeading
-            view.showCurrentLocationMarker = true
-            
         }
     }
     
@@ -80,19 +79,22 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         case .restricted:
             print("Your location is restricted likely due to parental controls.")
         case .denied:
-            print("You have denied this app location permission. Go into settings to change it.")
+            print("You have denied this app location permission. Go into setting to change it.")
         case .authorizedAlways, .authorizedWhenInUse:
             print("Success")
             coord = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
             print("LocationManager-coord: \(coord)")
             userLocation = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
             print("LocationManager-userLocation: \(userLocation)")
-            locationManager.startUpdatingLocation()
             fetchCurrentUserLocation()
-            print(address)
+            isLocationDataLoaded = true
         @unknown default:
             break
         }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization()
     }
     
     func fetchCurrentUserLocation() {
@@ -101,29 +103,24 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         view.setMapCenter(userMapPoint, animated: true)
         view.animate(with: cameraUpdate)
         print("fetchCurrentUserLocation() 실행!")
-        
     }
     
     // MARK: - 지도 롱탭 시 이벤트 발생 메서드
     func mapView(_ mapView: MTMapView!, longPressOn mapPoint: MTMapPoint!) {
         print("롱탭 이벤트 발생!")
-        fetchCurrentUserLocation()
-        view.setMapCenter(mapPoint, animated: true)
-        
+        mapView.setMapCenter(mapPoint, animated: true)
         // 마커 생성
         let marker = MTMapPOIItem()
         marker.markerType = MTMapPOIItemMarkerType.redPin
         marker.mapPoint = mapPoint
         mapView.add(marker)
         view.add(marker)
-        print(mapPoint.mapPointGeo())
-        print(address)
     }
     
     // MARK: - 현 위치 트래킹 함수
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
         let currentLocation = location?.mapPointGeo()
-        if let latitude = currentLocation?.latitude, let longitude = currentLocation?.longitude{
+        if let latitude = currentLocation?.latitude, let longitude = currentLocation?.longitude {
             print("MTMapView updateCurrentLocation (\(latitude),\(longitude)) accuracy (\(accuracy))")
         }
     }
@@ -138,6 +135,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
             withOpenAPIKey: "923b28d9b3a43a58017321fb76583ace")
         
         self.geoCoder = geoCoder
+        
         geoCoder?.startFindingAddress()
     }
     
@@ -145,6 +143,11 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
     func mtMapReverseGeoCoder(_ rGeoCoder: MTMapReverseGeoCoder!, foundAddress addressString: String!) {
         guard let addressString = addressString else { return }
         address = addressString
+        // FIXME: - 임시적인 로직(리팩토링 필요)
+        guard currentAddress.count == 3 else {
+            currentAddress.insert(address, at: 1)
+            return
+        }
     }
     
     // MARK: - 주소 문자열 생성 실패 시 에러 핸들링
@@ -152,9 +155,9 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         print(error.localizedDescription)
     }
     
-//    func mapView(_ mapView: MTMapView!, centerPointMovedTo mapCenterPoint: MTMapPoint!) {
-//        print(address)
-//    }
+    func mapView(_ mapView: MTMapView!, centerPointMovedTo mapCenterPoint: MTMapPoint!) {
+        mtMapReverseGeoCoder(geoCoder, foundAddress: address)
+    }
     
     // MARK: - 마커 생성 메서드
     func makeMarker(at mapPoint: MTMapPoint) {

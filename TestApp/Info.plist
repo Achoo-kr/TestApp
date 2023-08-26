@@ -2,22 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIApplicationSupportsMultipleScenes</key>
-	<false/>
-	<key>UISceneConfigurations</key>
-	<dict>
-		<key>CPTemplateApplicationSceneSessionRoleApplication</key>
-		<array>
-			<dict>
-				<key>UISceneClassName</key>
-				<string>CPTemplateApplicationScene</string>
-				<key>UISceneDelegateClassName</key>
-				<string>$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate</string>
-				<key>UISceneConfigurationName</key>
-				<string>CarPlay</string>
-			</dict>
-		</array>
-	</dict>
 	<key>KAKAO_APP_KEY</key>
 	<string>923b28d9b3a43a58017321fb76583ace</string>
 	<key>NSAppTransportSecurity</key>
@@ -38,6 +22,22 @@
 				<string>TLSv1.0</string>
 			</dict>
 		</dict>
+	</dict>
+	<key>UIApplicationSupportsMultipleScenes</key>
+	<false/>
+	<key>UISceneConfigurations</key>
+	<dict>
+		<key>CPTemplateApplicationSceneSessionRoleApplication</key>
+		<array>
+			<dict>
+				<key>UISceneClassName</key>
+				<string>CPTemplateApplicationScene</string>
+				<key>UISceneConfigurationName</key>
+				<string>CarPlay</string>
+				<key>UISceneDelegateClassName</key>
+				<string>$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate</string>
+			</dict>
+		</array>
 	</dict>
 </dict>
 </plist>
