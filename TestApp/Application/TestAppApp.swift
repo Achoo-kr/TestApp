@@ -21,12 +21,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct TestAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var mainViewModel = MainViewModel()
-    
+    @StateObject var appViewModel = AppViewModel()
+
     var body: some Scene {
         
         WindowGroup {
-//            ContentView()
-            CarRegistrationView(mainViewModel: mainViewModel)
+            ContentView(viewModel: appViewModel)
+//            CarRegistrationView(mainViewModel: mainViewModel)
         }
     }
 }

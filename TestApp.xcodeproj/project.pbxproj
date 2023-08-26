@@ -26,7 +26,6 @@
 		27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D752A879B04005E4856 /* Coordinate.swift */; };
 		27860E0E2A8FDBC000D76697 /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27860E0C2A8FDBB300D76697 /* DaumMap.framework */; };
 		278866D12A99E0FF00C4947C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278866D02A99E0FF00C4947C /* UserInfo.swift */; };
-		278866D32A99FD8200C4947C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278866D22A99FD8200C4947C /* GoogleService-Info.plist */; };
 		27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */; };
 		364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D632A879A67005E4856 /* TestAppApp.swift */; };
 		364B6D662A879A67005E4856 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D652A879A67005E4856 /* ContentView.swift */; };
@@ -46,6 +45,8 @@
 		366E1DBF2A99E03000C8EB13 /* DrivingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DBE2A99E03000C8EB13 /* DrivingHistoryView.swift */; };
 		366E1DC72A9A195200C8EB13 /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DC62A9A195200C8EB13 /* DropDownMenu.swift */; };
 		366E1DC92A9A1E6800C8EB13 /* DownloadedHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DC82A9A1E6800C8EB13 /* DownloadedHistoryView.swift */; };
+		366E1DCB2A9A24A800C8EB13 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DCA2A9A24A800C8EB13 /* AppViewModel.swift */; };
+		366E1DCD2A9A251800C8EB13 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DCC2A9A251800C8EB13 /* MainView.swift */; };
 		36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */; };
 		36C341FC2A98CE4E002EAC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364B6D672A879A69005E4856 /* Assets.xcassets */; };
 		36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */; };
@@ -116,7 +117,6 @@
 		2734BF882A8FCE8C0009FBA9 /* TestApp_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestApp_Bridging_Header.h; sourceTree = "<group>"; };
 		27860E0C2A8FDBB300D76697 /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		278866D02A99E0FF00C4947C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		278866D22A99FD8200C4947C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapWrapper.swift; sourceTree = "<group>"; };
 		364B6D602A879A67005E4856 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364B6D632A879A67005E4856 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
@@ -140,6 +140,8 @@
 		366E1DBE2A99E03000C8EB13 /* DrivingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingHistoryView.swift; sourceTree = "<group>"; };
 		366E1DC62A9A195200C8EB13 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		366E1DC82A9A1E6800C8EB13 /* DownloadedHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedHistoryView.swift; sourceTree = "<group>"; };
+		366E1DCA2A9A24A800C8EB13 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		366E1DCC2A9A251800C8EB13 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		36C341F82A98BDB1002EAC8F /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			children = (
 				364B6D922A87A846005E4856 /* MainViewModel.swift */,
 				366E1DB72A997AE700C8EB13 /* CarRegistrationViewModel.swift */,
+				366E1DCA2A9A24A800C8EB13 /* AppViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				364B6D632A879A67005E4856 /* TestAppApp.swift */,
 				2734BF882A8FCE8C0009FBA9 /* TestApp_Bridging_Header.h */,
 				364B6D652A879A67005E4856 /* ContentView.swift */,
+				366E1DCC2A9A251800C8EB13 /* MainView.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -510,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2734BF862A8FCD270009FBA9 /* KakaoMapVCWrapper.swift in Sources */,
+				366E1DCD2A9A251800C8EB13 /* MainView.swift in Sources */,
 				366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */,
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
@@ -529,6 +534,7 @@
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
+				366E1DCB2A9A24A800C8EB13 /* AppViewModel.swift in Sources */,
 				364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */,
 				366E1DB62A9976E700C8EB13 /* CarRegistrationView.swift in Sources */,
 				364B6D912A879EEB005E4856 /* NavView.swift in Sources */,
