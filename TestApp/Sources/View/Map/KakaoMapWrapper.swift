@@ -24,13 +24,14 @@ struct KakaoMapWrapper: UIViewRepresentable {
     }
 }
 
-final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocationManagerDelegate {
+final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocationManagerDelegate, MTMapReverseGeoCoderDelegate {
     static let shared = Coordinator()
     
     var view = MTMapView(frame: .zero)
     var locationManager: CLLocationManager?
-//    var mapView: MTMapView?
+    var geoCoder: MTMapReverseGeoCoder!
     var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    var address: String = ""
     
     @Published var coord: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
@@ -88,6 +89,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
             print("LocationManager-userLocation: \(userLocation)")
             locationManager.startUpdatingLocation()
             fetchCurrentUserLocation()
+            print(address)
         @unknown default:
             break
         }
@@ -99,6 +101,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         view.setMapCenter(userMapPoint, animated: true)
         view.animate(with: cameraUpdate)
         print("fetchCurrentUserLocation() 실행!")
+        
     }
     
     // MARK: - 지도 롱탭 시 이벤트 발생 메서드
@@ -112,11 +115,47 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, CLLocati
         marker.markerType = MTMapPOIItemMarkerType.redPin
         marker.mapPoint = mapPoint
         mapView.add(marker)
+        view.add(marker)
+        print(mapPoint.mapPointGeo())
+        print(address)
     }
     
+    // MARK: - 현 위치 트래킹 함수
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        //
+        let currentLocation = location?.mapPointGeo()
+        if let latitude = currentLocation?.latitude, let longitude = currentLocation?.longitude{
+            print("MTMapView updateCurrentLocation (\(latitude),\(longitude)) accuracy (\(accuracy))")
+        }
     }
+    
+    // MARK: - 위도, 경도 좌표 -> 주소 변환
+    func mapView(_ mapView: MTMapView!, finishedMapMoveAnimation mapCenterPoint: MTMapPoint!) {
+        let geoCoder = MTMapReverseGeoCoder(
+            mapPoint: MTMapPoint(geoCoord: MTMapPointGeo(
+                latitude: mapCenterPoint.mapPointGeo().latitude,
+                longitude: mapCenterPoint.mapPointGeo().longitude)),
+            with: self,
+            withOpenAPIKey: "923b28d9b3a43a58017321fb76583ace")
+        
+        self.geoCoder = geoCoder
+        geoCoder?.startFindingAddress()
+    }
+    
+    // MARK: - 좌표를 통해 얻은 주소 문자열값을 얻기 위한 함수
+    func mtMapReverseGeoCoder(_ rGeoCoder: MTMapReverseGeoCoder!, foundAddress addressString: String!) {
+        guard let addressString = addressString else { return }
+        address = addressString
+    }
+    
+    // MARK: - 주소 문자열 생성 실패 시 에러 핸들링
+    func mtMapReverseGeoCoder(_ rGeoCoder: MTMapReverseGeoCoder!, failedToFindAddressWithError error: Error!) {
+        print(error.localizedDescription)
+    }
+    
+//    func mapView(_ mapView: MTMapView!, centerPointMovedTo mapCenterPoint: MTMapPoint!) {
+//        print(address)
+//    }
+    
     // MARK: - 마커 생성 메서드
     func makeMarker(at mapPoint: MTMapPoint) {
         //
