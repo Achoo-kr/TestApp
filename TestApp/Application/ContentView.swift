@@ -9,19 +9,23 @@ import SwiftUI
 
 
 struct ContentView: View {
+    
+
+    
     @ObservedObject var viewModel: AppViewModel
+    
     var body: some View {
         VStack {            
             TabView(selection: self.$viewModel.selectedTab) {
-//                MainView()
-//                    .tabItem {
-//                        VStack{
-//                            Image(systemName: "car")
-//                            Text("내비")
-//                        }
-//                        .foregroundColor(.representColor)
-//                    }
-//                    .tag(Tab.one)
+                MapView()
+                    .tabItem {
+                        VStack{
+                            Image(systemName: "car")
+                            Text("내비")
+                        }
+                        .foregroundColor(.representColor)
+                    }
+                    .tag(Tab.one)
                 CardView()
                     .tabItem {
                         VStack{
