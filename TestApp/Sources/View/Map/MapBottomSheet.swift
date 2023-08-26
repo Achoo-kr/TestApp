@@ -13,7 +13,7 @@ struct MapBottomSheet: View {
     var currentAddress: String
     var body: some View {
         ZStack {
-            Color(.systemBackground)
+            Color(UIColor(.paneColor))
             VStack(spacing: 0) {
                 HStack {
                     Image("StartMapMarker")
