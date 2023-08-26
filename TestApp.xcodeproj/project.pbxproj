@@ -27,7 +27,6 @@
 		27860E0E2A8FDBC000D76697 /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27860E0C2A8FDBB300D76697 /* DaumMap.framework */; };
 		278866D12A99E0FF00C4947C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278866D02A99E0FF00C4947C /* UserInfo.swift */; };
 		278866D52A9A37A300C4947C /* MapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278866D42A9A37A300C4947C /* MapBottomSheet.swift */; };
-		278866D72A9A429500C4947C /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278866D62A9A429500C4947C /* BottomSheet.swift */; };
 		27B2A3782A9A6D010070BB57 /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 27B2A3772A9A6D010070BB57 /* KakaoMapsSDK_SPM */; };
 		27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */; };
 		364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D632A879A67005E4856 /* TestAppApp.swift */; };
@@ -121,7 +120,6 @@
 		27860E0C2A8FDBB300D76697 /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		278866D02A99E0FF00C4947C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		278866D42A9A37A300C4947C /* MapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomSheet.swift; sourceTree = "<group>"; };
-		278866D62A9A429500C4947C /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapWrapper.swift; sourceTree = "<group>"; };
 		364B6D602A879A67005E4856 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364B6D632A879A67005E4856 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
@@ -380,7 +378,6 @@
 			children = (
 				364B6D892A879D0E005E4856 /* MapView.swift */,
 				278866D42A9A37A300C4947C /* MapBottomSheet.swift */,
-				278866D62A9A429500C4947C /* BottomSheet.swift */,
 				2712FEB72A98D3C600795346 /* MapSearchBar.swift */,
 				2734BF852A8FCD270009FBA9 /* KakaoMapVCWrapper.swift */,
 				27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */,
@@ -526,7 +523,6 @@
 				2734BF862A8FCD270009FBA9 /* KakaoMapVCWrapper.swift in Sources */,
 				366E1DCD2A9A251800C8EB13 /* MainView.swift in Sources */,
 				366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */,
-				278866D72A9A429500C4947C /* BottomSheet.swift in Sources */,
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
 				366E1DC92A9A1E6800C8EB13 /* DownloadedHistoryView.swift in Sources */,

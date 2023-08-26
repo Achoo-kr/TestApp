@@ -9,6 +9,11 @@ import SwiftUI
 import CoreLocation
 
 struct MainView: View {
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color.white)
+    }
+    
     @StateObject private var viewModel = MainViewModel()
     
     var body: some View {

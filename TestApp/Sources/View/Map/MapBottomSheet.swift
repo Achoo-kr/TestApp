@@ -14,27 +14,40 @@ struct MapBottomSheet: View {
     var body: some View {
         ZStack {
             Color(.systemBackground)
-            VStack(alignment: .leading) {
+            VStack(spacing: 0) {
                 HStack {
+                    Image("StartMapMarker")
+                        .padding(.trailing, -10)
                     Text("현위치:")
+                        .bold()
                     Text("\(currentAddress)")
                     Spacer()
                 }
-                .padding(.bottom)
                 
                 HStack {
+                    Image("EndMapMarker")
+                        .padding(.trailing, -10)
                     Text("목적지:")
+                        .bold()
                     Text("\(address)")
                     Spacer()
                 }
                 
+                HStack {
+                    CustomButton {
+                        //
+                    } content: {
+                        Text("안내시작")
+                    }
+                }
+                Spacer()
             }
-            .padding(.leading, 10)
+            .font(.title3)
+            .padding(10)
             
         }
         .cornerRadius(10)
         .frame(width: UIScreen.main.bounds.width, height: 150, alignment: .leading)
-//        .background(Color(.systemRed))
     }
 }
 

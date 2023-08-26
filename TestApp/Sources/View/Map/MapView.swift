@@ -11,7 +11,7 @@ struct MapView: View {
     
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var searchText: String = ""
-    @State var isShowingSheet: Bool = false
+    
     var body: some View {
         ZStack {
             ZStack {
@@ -20,20 +20,25 @@ struct MapView: View {
                         .textFieldStyle(.roundedBorder)
                         .padding(.top, 30)
                         .padding(.horizontal)
-                        Spacer()
+                    Spacer()
                     MapBottomSheet(address: coordinator.address,
                                    currentAddress: coordinator.isLocationDataLoaded ? coordinator.currentAddress[1] : coordinator.currentAddress[0])
                 }
-            }.zIndex(1)
+            }
+            .zIndex(1)
+            // FIXME: - 하단 탭바 이슈(가려짐)
+            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
+            
+            // 도착 이미지 마커
+            Image("MapMarker")
+                .zIndex(1)
             
             KakaoMapWrapper()
+                .ignoresSafeArea(.all, edges: .top)
         }
-        .task {
-            //
+        .onAppear {
+            coordinator.checkIfLocationServicesIsEnabled()
         }
-            .onAppear {
-                coordinator.checkIfLocationServicesIsEnabled()
-            }
     }
 }
 
