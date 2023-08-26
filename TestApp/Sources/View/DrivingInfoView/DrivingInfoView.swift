@@ -18,30 +18,19 @@ struct DrivingInfoView: View {
                     Spacer()
                 }
                 .padding(.vertical)
+                
                 HStack {
                     Text("운행 목적")
                         .foregroundColor(.representColor)
-                    
-                    Text("출장")
-                    Spacer()
-                    Button {
-                        //
-                    } label: {
-                        Image("DropDownImage")
-                    }
+                    DropDownMenu(menus: ["출장", "출퇴근", "몰라"])
                 }
+                
                 Divider()
                 HStack {
                     Text("차량 선택")
                         .foregroundColor(.representColor)
-                    
-                    Text("[법인]360노9959")
-                    Spacer()
-                    Button {
-                        //
-                    } label: {
-                        Image("DropDownImage")
-                    }
+                    DropDownMenu(menus: ["출장", "출퇴근", "몰라"])
+
                 }
                 Divider()
                 HStack(alignment: .top) {
@@ -176,6 +165,7 @@ struct DrivingInfoView: View {
                                     .foregroundColor(.black)
                             }
                         }
+                        .padding(.trailing, 3)
                     }
                 }
                 
@@ -189,6 +179,7 @@ struct DrivingInfoView: View {
             }
             .padding(.vertical)
         }
+//        .navigationTitle("운행정보")
     }
 }
 
