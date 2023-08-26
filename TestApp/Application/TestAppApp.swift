@@ -22,7 +22,11 @@ struct TestAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var mainViewModel = MainViewModel()
     @StateObject var appViewModel = AppViewModel()
-
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color.white)
+    }
+    
     var body: some Scene {
         
         WindowGroup {
