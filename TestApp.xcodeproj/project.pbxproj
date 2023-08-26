@@ -37,11 +37,16 @@
 		364B6D912A879EEB005E4856 /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D902A879EEB005E4856 /* NavView.swift */; };
 		364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D922A87A846005E4856 /* MainViewModel.swift */; };
 		364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D942A87AA08005E4856 /* LocationManager.swift */; };
+		366E1DB62A9976E700C8EB13 /* CarRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DB52A9976E700C8EB13 /* CarRegistrationView.swift */; };
+		366E1DB82A997AE700C8EB13 /* CarRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DB72A997AE700C8EB13 /* CarRegistrationViewModel.swift */; };
+		366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DB92A997D1E00C8EB13 /* CarInfo.swift */; };
+		36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */; };
+		36C341FC2A98CE4E002EAC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364B6D672A879A69005E4856 /* Assets.xcassets */; };
 		36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */; };
 		36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5A2A90EB9E001EA6AB /* Color.swift */; };
 		36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */; };
 		36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B5E2A90EBD9001EA6AB /* CardView.swift */; };
-		36E13B612A90EBF8001EA6AB /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B602A90EBF8001EA6AB /* ButtonView.swift */; };
+		36E13B612A90EBF8001EA6AB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B602A90EBF8001EA6AB /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,11 +126,16 @@
 		364B6D902A879EEB005E4856 /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
 		364B6D922A87A846005E4856 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		364B6D942A87AA08005E4856 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		366E1DB52A9976E700C8EB13 /* CarRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRegistrationView.swift; sourceTree = "<group>"; };
+		366E1DB72A997AE700C8EB13 /* CarRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRegistrationViewModel.swift; sourceTree = "<group>"; };
+		366E1DB92A997D1E00C8EB13 /* CarInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfo.swift; sourceTree = "<group>"; };
+		36C341F82A98BDB1002EAC8F /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
+		36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoView.swift; sourceTree = "<group>"; };
 		36E13B5A2A90EB9E001EA6AB /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionBlockView.swift; sourceTree = "<group>"; };
 		36E13B5E2A90EBD9001EA6AB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		36E13B602A90EBF8001EA6AB /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		36E13B602A90EBF8001EA6AB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +242,7 @@
 		364B6D572A879A67005E4856 = {
 			isa = PBXGroup;
 			children = (
+				36C341F92A98BE92002EAC8F /* CarPlay */,
 				364B6D622A879A67005E4856 /* TestApp */,
 				364B6D612A879A67005E4856 /* Products */,
 				2734BF762A8FCBFA0009FBA9 /* Frameworks */,
@@ -249,6 +260,7 @@
 		364B6D622A879A67005E4856 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				36C341F82A98BDB1002EAC8F /* TestApp.entitlements */,
 				27860E0C2A8FDBB300D76697 /* DaumMap.framework */,
 				2734BF332A8FCBDF0009FBA9 /* DaumMap.embeddedframework */,
 				36E13B592A90EB8F001EA6AB /* Extension */,
@@ -276,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				364B6D922A87A846005E4856 /* MainViewModel.swift */,
+				366E1DB72A997AE700C8EB13 /* CarRegistrationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -285,6 +298,7 @@
 			children = (
 				364B6D752A879B04005E4856 /* Coordinate.swift */,
 				364B6D772A879B14005E4856 /* DrivingInfo.swift */,
+				366E1DB92A997D1E00C8EB13 /* CarInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +334,7 @@
 		364B6D862A879CB9005E4856 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				366E1DB42A9976A800C8EB13 /* CarRegistration */,
 				36E13B562A90EB57001EA6AB /* DrivingInfoView */,
 				364B6D882A879CFB005E4856 /* Map */,
 				364B6D872A879CF9005E4856 /* Nav */,
@@ -348,13 +363,29 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		366E1DB42A9976A800C8EB13 /* CarRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				366E1DB52A9976E700C8EB13 /* CarRegistrationView.swift */,
+			);
+			path = CarRegistration;
+			sourceTree = "<group>";
+		};
+		36C341F92A98BE92002EAC8F /* CarPlay */ = {
+			isa = PBXGroup;
+			children = (
+				36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */,
+			);
+			path = CarPlay;
+			sourceTree = "<group>";
+		};
 		36E13B562A90EB57001EA6AB /* DrivingInfoView */ = {
 			isa = PBXGroup;
 			children = (
 				36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */,
 				36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */,
 				36E13B5E2A90EBD9001EA6AB /* CardView.swift */,
-				36E13B602A90EBF8001EA6AB /* ButtonView.swift */,
+				36E13B602A90EBF8001EA6AB /* CustomButton.swift */,
 			);
 			path = DrivingInfoView;
 			sourceTree = "<group>";
@@ -443,6 +474,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36C341FC2A98CE4E002EAC8F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,11 +486,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2734BF862A8FCD270009FBA9 /* KakaoMapVCWrapper.swift in Sources */,
+				366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */,
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
-				36E13B612A90EBF8001EA6AB /* ButtonView.swift in Sources */,
+				36E13B612A90EBF8001EA6AB /* CustomButton.swift in Sources */,
 				36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */,
 				364B6D8A2A879D0E005E4856 /* MapView.swift in Sources */,
+				366E1DB82A997AE700C8EB13 /* CarRegistrationViewModel.swift in Sources */,
 				364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */,
 				364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */,
 				2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */,
@@ -469,7 +503,9 @@
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
 				364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */,
+				366E1DB62A9976E700C8EB13 /* CarRegistrationView.swift in Sources */,
 				364B6D912A879EEB005E4856 /* NavView.swift in Sources */,
+				36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */,
 				36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,10 +640,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
-				DEVELOPMENT_TEAM = K9NKZR257N;
+				DEVELOPMENT_TEAM = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -649,10 +687,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
-				DEVELOPMENT_TEAM = K9NKZR257N;
+				DEVELOPMENT_TEAM = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (

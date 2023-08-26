@@ -24,7 +24,7 @@ struct TestAppApp: App {
         
         WindowGroup {
 //            ContentView()
-            MapView()
+            CarRegistrationView()
         }
     }
 }
