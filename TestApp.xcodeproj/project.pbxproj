@@ -25,6 +25,8 @@
 		2767442B2A97DF2200784C9D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2767442A2A97DF2200784C9D /* FirebaseStorageCombine-Community */; };
 		27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D752A879B04005E4856 /* Coordinate.swift */; };
 		27860E0E2A8FDBC000D76697 /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27860E0C2A8FDBB300D76697 /* DaumMap.framework */; };
+		278866D12A99E0FF00C4947C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278866D02A99E0FF00C4947C /* UserInfo.swift */; };
+		278866D32A99FD8200C4947C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278866D22A99FD8200C4947C /* GoogleService-Info.plist */; };
 		27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */; };
 		364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D632A879A67005E4856 /* TestAppApp.swift */; };
 		364B6D662A879A67005E4856 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D652A879A67005E4856 /* ContentView.swift */; };
@@ -108,8 +110,9 @@
 		2734BF832A8FCC2D0009FBA9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2734BF852A8FCD270009FBA9 /* KakaoMapVCWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapVCWrapper.swift; sourceTree = "<group>"; };
 		2734BF882A8FCE8C0009FBA9 /* TestApp_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestApp_Bridging_Header.h; sourceTree = "<group>"; };
-		2767442E2A97E28900784C9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27860E0C2A8FDBB300D76697 /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
+		278866D02A99E0FF00C4947C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		278866D22A99FD8200C4947C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapWrapper.swift; sourceTree = "<group>"; };
 		364B6D602A879A67005E4856 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364B6D632A879A67005E4856 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
@@ -265,7 +268,7 @@
 				2734BF332A8FCBDF0009FBA9 /* DaumMap.embeddedframework */,
 				36E13B592A90EB8F001EA6AB /* Extension */,
 				364B6D8B2A879E1B005E4856 /* Info.plist */,
-				2767442E2A97E28900784C9D /* GoogleService-Info.plist */,
+				278866D22A99FD8200C4947C /* GoogleService-Info.plist */,
 				364B6D842A879C3C005E4856 /* Application */,
 				364B6D732A879AE6005E4856 /* ViewModel */,
 				364B6D792A879B25005E4856 /* Components */,
@@ -299,6 +302,7 @@
 				364B6D752A879B04005E4856 /* Coordinate.swift */,
 				364B6D772A879B14005E4856 /* DrivingInfo.swift */,
 				366E1DB92A997D1E00C8EB13 /* CarInfo.swift */,
+				278866D02A99E0FF00C4947C /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36C341FC2A98CE4E002EAC8F /* Assets.xcassets in Resources */,
+				278866D32A99FD8200C4947C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +496,7 @@
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
 				36E13B612A90EBF8001EA6AB /* CustomButton.swift in Sources */,
 				36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */,
+				278866D12A99E0FF00C4947C /* UserInfo.swift in Sources */,
 				364B6D8A2A879D0E005E4856 /* MapView.swift in Sources */,
 				366E1DB82A997AE700C8EB13 /* CarRegistrationViewModel.swift in Sources */,
 				364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */,
@@ -639,9 +645,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
@@ -686,9 +692,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
