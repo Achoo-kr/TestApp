@@ -6,48 +6,47 @@
 //
 
 import SwiftUI
-import CoreLocation
 
 
 struct ContentView: View {
-    @StateObject private var viewModel = MainViewModel()
-    
+    @ObservedObject var viewModel: AppViewModel
     var body: some View {
-        NavView(active: $viewModel.active,
-                startDest: "현재 위치",
-                startX: 321286,
-                startY: 533707,
-//                    startX: CGFloat(location.coordinate.longitude),
-//                    startY: CGFloat(location.coordinate.latitude),
-                endDest: "도착 위치",
-                endX: 321525,
-                endY: 532951)
-        .ignoresSafeArea()
- 
-//        if let location = viewModel.currentLocation {
-//            NavView(active: $viewModel.active,
-//                    startDest: "현재 위치",
-//                    startX: 321286,
-//                    startY: 533707,
-////                    startX: CGFloat(location.coordinate.longitude),
-////                    startY: CGFloat(location.coordinate.latitude),
-//                    endDest: "도착 위치",
-//                    endX: 321525,
-//                    endY: 532951)
-//            .ignoresSafeArea()
-//            .onAppear{
-//                print(viewModel.currentLocation)
-//            }
-//        } else {
-//            Text("위치 정보를 가져오는 중...")
-//                .ignoresSafeArea()
-//        }
-            
+        VStack {            
+            TabView(selection: self.$viewModel.selectedTab) {
+//                MainView()
+//                    .tabItem {
+//                        VStack{
+//                            Image(systemName: "car")
+//                            Text("내비")
+//                        }
+//                        .foregroundColor(.representColor)
+//                    }
+//                    .tag(Tab.one)
+                CardView()
+                    .tabItem {
+                        VStack{
+                            Image(systemName: "square.text.square.fill")
+                            Text("운행내역")
+                        }
+                        .foregroundColor(.representColor)
+                    }
+                    .tag(Tab.two)
+                DrivingHistoryView()
+                    .tabItem {
+                        VStack{
+                            Image(systemName: "doc.on.clipboard")
+                            Text("운행일지")
+                        }
+                        .foregroundColor(.representColor)
+                    }
+                    .tag(Tab.three)
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: AppViewModel())
     }
 }
