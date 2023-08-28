@@ -34,7 +34,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
     var geoCoder: MTMapReverseGeoCoder!
     var currentGeoCoder: MTMapReverseGeoCoder!
     
-    @Published var coord: (Double, Double) = (0.0, 0.0)
+    @Published var destination: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
     @Published var address: String = ""
     @Published var currentAddress: [String] = ["서울 중구 태평로1가 31"]
@@ -82,8 +82,8 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
             print("You have denied this app location permission. Go into setting to change it.")
         case .authorizedAlways, .authorizedWhenInUse:
             print("Success")
-            coord = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
-            print("LocationManager-coord: \(coord)")
+            destination = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
+            print("LocationManager-coord: \(destination)")
             userLocation = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
             print("LocationManager-userLocation: \(userLocation)")
             fetchCurrentUserLocation()

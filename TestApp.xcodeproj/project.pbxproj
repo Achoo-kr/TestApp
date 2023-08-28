@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712FEB72A98D3C600795346 /* MapSearchBar.swift */; };
+		27162B7C2A9CB61600AEFD3A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27162B7B2A9CB61600AEFD3A /* TestView.swift */; };
 		2734BF782A8FCBFA0009FBA9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF772A8FCBFA0009FBA9 /* OpenGLES.framework */; };
 		2734BF7A2A8FCC050009FBA9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF792A8FCC050009FBA9 /* SystemConfiguration.framework */; };
 		2734BF7C2A8FCC0E0009FBA9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF7B2A8FCC0E0009FBA9 /* CoreLocation.framework */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		2712FEB72A98D3C600795346 /* MapSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchBar.swift; sourceTree = "<group>"; };
+		27162B7B2A9CB61600AEFD3A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		2734BF352A8FCBDF0009FBA9 /* map_pinup_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pinup_custom@3x.png"; sourceTree = "<group>"; };
 		2734BF362A8FCBDF0009FBA9 /* map_pin_custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_custom.png; sourceTree = "<group>"; };
 		2734BF372A8FCBDF0009FBA9 /* shadow_balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_balloon.png; sourceTree = "<group>"; };
@@ -183,6 +185,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27162B7A2A9CB5FE00AEFD3A /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				27162B7B2A9CB61600AEFD3A /* TestView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		2734BF332A8FCBDF0009FBA9 /* DaumMap.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +293,7 @@
 				36E13B592A90EB8F001EA6AB /* Extension */,
 				364B6D8B2A879E1B005E4856 /* Info.plist */,
 				366E1DBB2A99DE1F00C8EB13 /* GoogleService-Info.plist */,
+				27162B7A2A9CB5FE00AEFD3A /* Test */,
 				364B6D842A879C3C005E4856 /* Application */,
 				364B6D732A879AE6005E4856 /* ViewModel */,
 				364B6D792A879B25005E4856 /* Components */,
@@ -526,6 +537,7 @@
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
 				366E1DC92A9A1E6800C8EB13 /* DownloadedHistoryView.swift in Sources */,
+				27162B7C2A9CB61600AEFD3A /* TestView.swift in Sources */,
 				36E13B612A90EBF8001EA6AB /* CustomButton.swift in Sources */,
 				36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */,
 				278866D12A99E0FF00C4947C /* UserInfo.swift in Sources */,
