@@ -10,6 +10,8 @@ import SwiftUI
 struct MapBottomSheet: View {
     
     @EnvironmentObject var mainViewModel: MainViewModel
+    @StateObject var naviCoordinator: NaviCoordinator = NaviCoordinator.shared
+    @StateObject var coordinator: Coordinator = Coordinator.shared
     //@StateObject var mainViewModel: MainViewModel
     
     var address: String
@@ -40,6 +42,15 @@ struct MapBottomSheet: View {
                     HStack {
                         CustomButton {
                             mainViewModel.active = true
+                            naviCoordinator.startNavigate(
+                                startDest: coordinator.currentAddress[1],
+                                startX: coordinator.userLocation.1,
+                                startY: coordinator.userLocation.0,
+                                endDest: coordinator.address,
+                                endX: coordinator.destination.1,
+                                endY: coordinator.destination.0,
+                                startAddress: coordinator.currentAddress[1],
+                                endAddress: coordinator.address)
                         } content: {
                             Text("안내시작")
                         }

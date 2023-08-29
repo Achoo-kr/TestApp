@@ -7,6 +7,7 @@
 
 import SwiftUI
 import KNSDKBundle
+import AVFAudio
 
 struct KakoNavWrapper: UIViewRepresentable {
 
@@ -43,38 +44,52 @@ final class NaviCoordinator: NSObject, ObservableObject, KNSDKDelegate, KNGuidan
     // 카카오내비 설정 및 뷰 설정
     override init() {
         super.init()
-        guidance.guideStateDelegate = self
-        guidance.routeGuideDelegate = self
-        guidance.voiceGuideDelegate = self
-        guidance.safetyGuideDelegate = self
-        guidance.locationGuideDelegate = self
-        guidance.citsGuideDelegate = self
-        view.stateDelegate = self
-        view.guideStateDelegate = self
+
     }
     
     func getKakaoNaiView() -> KNNaviView {
+        
+        
         return view
     }
     
     deinit {
         print("Coordinator deinit!")
     }
-    
-    func startNavigate() {
-        let startPos = KNSDK.sharedInstance()?.convertWGS84ToKATEC(withLongitude: coordinator.userLocation.1, latitude: coordinator.userLocation.0)
-        let goalPos = KNSDK.sharedInstance()?.convertWGS84ToKATEC(withLongitude: coordinator.destination.1, latitude: coordinator.destination.0)
+    /*
+     //    var startDest: String = ""
+     //    var startX: CGFloat = 0.0
+     //    var startY: CGFloat = 0.0
+     //    var endDest: String = ""
+     //    var endX: CGFloat = 0.0
+     //    var endY: CGFloat = 0.0
+     //    var startAddress: String = ""
+     //    var endAddress: String = ""
+     */
+    func startNavigate(startDest:String, startX: Double, startY: Double, endDest: String, endX: Double, endY: Double, startAddress: String, endAddress: String) {
+ 
         // KNNaviView 초기화 및 설정
-        KNSDK.sharedInstance()?.initialize(withAppKey: "923b28d9b3a43a58017321fb76583ace", clientVersion: "1.0", completion: { [self] error in
+        KNSDK.sharedInstance()?.initialize(withAppKey: "923b28d9b3a43a58017321fb76583ace", clientVersion: "1.0", userKey: "1", completion: { [self] error in
             if let error = error {
-                print("KNSDK Init Failed(\(error.code), \(error.msg))")
+                print("KNSDK Init Failed(\(String(describing: error.code)), \(String(describing: error.msg)))")
             } else {
-                let startPos = KNSDK.sharedInstance()?.convertWGS84ToKATEC(withLongitude: coordinator.userLocation.1, latitude: coordinator.userLocation.0)
-                let goalPos = KNSDK.sharedInstance()?.convertWGS84ToKATEC(withLongitude: coordinator.destination.1, latitude: coordinator.destination.0)
-                let start = KNPOI(name: coordinator.currentAddress[1], pos: startPos ?? IntPoint(), address: coordinator.currentAddress[1])
-                let goal = KNPOI(name: coordinator.address, pos: goalPos ?? IntPoint())
+                print("인증 성공")
+                do {
+                    let session = AVAudioSession.sharedInstance()
+                    try session.setActive(false)
+                    let category: AVAudioSession.CategoryOptions = AVAudioSession.CategoryOptions.mixWithOthers
+                    try session.setMode(AVAudioSession.Mode.default)
+                    try session.setCategory((AVAudioSession.Category.playback), options: category)
+                    try session.setActive(true)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                // 출발지 설정
+                let startPos = KNSDK.sharedInstance()?.convertWGS84ToKATEC(withLongitude: startX, latitude: startY)
+                let goalPos = KNSDK.sharedInstance()?.convertWGS84ToKATEC(withLongitude: endX, latitude: endY)
+                let start = KNPOI(name: startDest, pos: startPos ?? IntPoint(), address: startAddress)
+                let goal = KNPOI(name: endDest, pos: goalPos ?? IntPoint(), address: endAddress)
                 
-                print(start, goal)
                 // 경로 생성 및 요청
                 KNSDK.sharedInstance()?.makeTrip(withStart: start, goal: goal, vias: []) { error, trip in
                     if let error = error {
@@ -86,9 +101,22 @@ final class NaviCoordinator: NSObject, ObservableObject, KNSDKDelegate, KNGuidan
                                 print("Request Failed(\(error.code), \(error.msg))")
                             } else {
                                 print("Request 성공")
-                                KNSDK.sharedInstance()?.sharedGuidance()
-                                if let route = routes?.first {
-                                    view = KNNaviView(guidance: self.guidance, trip: trip, routeOption: .recommand, avoidOption: .zero)
+                                if let guidance = KNSDK.sharedInstance()?.sharedGuidance() {
+                                    guidance.guideStateDelegate = self
+                                    guidance.routeGuideDelegate = self
+                                    guidance.voiceGuideDelegate = self
+                                    guidance.safetyGuideDelegate = self
+                                    guidance.locationGuideDelegate = self
+                                    guidance.citsGuideDelegate = self
+    //                                view.stateDelegate = self
+    //                                view.guideStateDelegate = self
+                                    self.view = KNNaviView.init(guidance: guidance, trip: trip, routeOption: KNRoutePriority.recommand, avoidOption: KNRouteAvoidOption.none.rawValue)
+                                    self.view.frame = self.view.bounds
+                                    self.view.guideStateDelegate = self
+                                    self.view.stateDelegate = self
+//                                    self->_activate(true);
+                                    self.view.sndVolume(1)
+//                                    self.view.addSubview(self.view)
                                 }
                             }
                         })
