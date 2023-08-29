@@ -8,74 +8,21 @@
 import SwiftUI
 
 struct DrivingHistoryView: View {
-
+    @State private var selectedNum: Int = 0
+    let options = ["다운로드","저장된 파일"]
     var body: some View {
-        VStack{
-            HStack {
-                Image(systemName: "doc.text.magnifyingglass")
-                    .foregroundColor(.representColor)
-                Text("양식")
-                    .foregroundColor(.black)
-                DropDownMenu(menus: ["출장", "출퇴근", "몰라"])
-                    .padding(7)
-                    .cornerRadius(8)
-                    .overlay(RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.black, lineWidth: 1))
-                
-            }.padding()
-            Divider()
-            HStack {
-                Image(systemName: "doc.text.magnifyingglass")
-                    .foregroundColor(.representColor)
-                Text("양식")
-                    .foregroundColor(.black)
-                DropDownMenu(menus: ["출장", "출퇴근", "몰라"])
-                    .padding(7)
-                    .cornerRadius(8)
-                    .overlay(RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.black, lineWidth: 1))
-                
+        
+        VStack {
+            CustomSegmentedControl(preselectedIndex: $selectedNum, options: options)
+            
+            if selectedNum == 0 {
+                DownloadHistoryView()
+            } else if selectedNum == 1 {
+                DownloadedHistoryView()
             }
-            .padding()
-            Divider()
-            HStack {
-                Image(systemName: "doc.text.magnifyingglass")
-                    .foregroundColor(.representColor)
-                Text("양식")
-                    .foregroundColor(.black)
-                DropDownMenu(menus: ["출장", "출퇴근", "몰라"])
-                    .padding(7)
-                    .cornerRadius(8)
-                    .overlay(RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.black, lineWidth: 1))
-                
-            }
-            .padding()
-            Divider()
-            HStack {
-                Image(systemName: "doc.text.magnifyingglass")
-                    .foregroundColor(.representColor)
-                Text("양식")
-                    .foregroundColor(.black)
-                DropDownMenu(menus: ["출장", "출퇴근", "몰라"])
-                    .padding(7)
-                    .cornerRadius(8)
-                    .overlay(RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.black, lineWidth: 1))
-                
-            }
-            .padding()
             
             Spacer()
-            
-            CustomButton {
-                //
-            } content: {
-                Text("다운로드")
-            }
-
         }
-        .padding()
     }
 }
 

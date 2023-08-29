@@ -48,7 +48,7 @@ struct CarRegistrationView: View {
                 .padding(.horizontal, 50)
                 Spacer()
                 CustomButton(action: {
-                    carRegVM.getCarInfo(registratedNum: "328오4668", ownerName: "추재학") { carName in
+                    carRegVM.getCarInfo(registratedNum: carNum, ownerName: ownerName) { carName in
                         if let name = carName {
                             print("차이름: \(name)")
                         } else {
@@ -59,7 +59,7 @@ struct CarRegistrationView: View {
 //                                                            ownerName: ownerName,
 //                                                            carNumber: carNum))
                 }) {
-                    Text("첫 번째 버튼")
+                    Text("등록하기")
                 }
                 .padding(.bottom, 50)
             }

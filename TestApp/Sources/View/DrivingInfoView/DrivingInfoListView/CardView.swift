@@ -71,13 +71,13 @@ struct CardView: View {
                     }
                     .padding(.leading)
                     Spacer()
-                    Button {
-                        //
+                    
+                    NavigationLink {
+                        DrivingInfoView()
                     } label: {
                         Image("ButtonLayer")
                             .padding(.trailing)
                     }
-
 
                 }
                 .padding(.bottom, 20)

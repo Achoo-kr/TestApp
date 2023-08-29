@@ -50,6 +50,10 @@
 		366E1DC92A9A1E6800C8EB13 /* DownloadedHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DC82A9A1E6800C8EB13 /* DownloadedHistoryView.swift */; };
 		366E1DCB2A9A24A800C8EB13 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DCA2A9A24A800C8EB13 /* AppViewModel.swift */; };
 		366E1DCD2A9A251800C8EB13 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DCC2A9A251800C8EB13 /* MainView.swift */; };
+		366E1DD02A9DC61500C8EB13 /* DrivingInfoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DCF2A9DC61500C8EB13 /* DrivingInfoListView.swift */; };
+		366E1DD22A9DD6B800C8EB13 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DD12A9DD6B800C8EB13 /* CustomSegmentedControl.swift */; };
+		366E1DD42A9DD93C00C8EB13 /* DownloadHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DD32A9DD93C00C8EB13 /* DownloadHistoryView.swift */; };
+		366E1DD62A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DD52A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift */; };
 		36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */; };
 		36C341FC2A98CE4E002EAC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364B6D672A879A69005E4856 /* Assets.xcassets */; };
 		36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */; };
@@ -147,6 +151,10 @@
 		366E1DC82A9A1E6800C8EB13 /* DownloadedHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedHistoryView.swift; sourceTree = "<group>"; };
 		366E1DCA2A9A24A800C8EB13 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		366E1DCC2A9A251800C8EB13 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		366E1DCF2A9DC61500C8EB13 /* DrivingInfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoListView.swift; sourceTree = "<group>"; };
+		366E1DD12A9DD6B800C8EB13 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		366E1DD32A9DD93C00C8EB13 /* DownloadHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHistoryView.swift; sourceTree = "<group>"; };
+		366E1DD52A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedHistoryRow.swift; sourceTree = "<group>"; };
 		36C341F82A98BDB1002EAC8F /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoView.swift; sourceTree = "<group>"; };
@@ -408,10 +416,23 @@
 			isa = PBXGroup;
 			children = (
 				366E1DBE2A99E03000C8EB13 /* DrivingHistoryView.swift */,
-				366E1DC62A9A195200C8EB13 /* DropDownMenu.swift */,
+				366E1DD32A9DD93C00C8EB13 /* DownloadHistoryView.swift */,
 				366E1DC82A9A1E6800C8EB13 /* DownloadedHistoryView.swift */,
+				366E1DC62A9A195200C8EB13 /* DropDownMenu.swift */,
+				366E1DD12A9DD6B800C8EB13 /* CustomSegmentedControl.swift */,
+				366E1DD52A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift */,
 			);
 			path = DrivingHistory;
+			sourceTree = "<group>";
+		};
+		366E1DCE2A9DC5EE00C8EB13 /* DrivingInfoListView */ = {
+			isa = PBXGroup;
+			children = (
+				366E1DCF2A9DC61500C8EB13 /* DrivingInfoListView.swift */,
+				36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */,
+				36E13B5E2A90EBD9001EA6AB /* CardView.swift */,
+			);
+			path = DrivingInfoListView;
 			sourceTree = "<group>";
 		};
 		36C341F92A98BE92002EAC8F /* CarPlay */ = {
@@ -425,9 +446,8 @@
 		36E13B562A90EB57001EA6AB /* DrivingInfoView */ = {
 			isa = PBXGroup;
 			children = (
+				366E1DCE2A9DC5EE00C8EB13 /* DrivingInfoListView */,
 				36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */,
-				36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */,
-				36E13B5E2A90EBD9001EA6AB /* CardView.swift */,
 				36E13B602A90EBF8001EA6AB /* CustomButton.swift */,
 			);
 			path = DrivingInfoView;
@@ -532,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2734BF862A8FCD270009FBA9 /* KakaoMapVCWrapper.swift in Sources */,
+				366E1DD42A9DD93C00C8EB13 /* DownloadHistoryView.swift in Sources */,
 				366E1DCD2A9A251800C8EB13 /* MainView.swift in Sources */,
 				366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */,
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
@@ -546,6 +567,7 @@
 				278866D52A9A37A300C4947C /* MapBottomSheet.swift in Sources */,
 				364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */,
 				366E1DBF2A99E03000C8EB13 /* DrivingHistoryView.swift in Sources */,
+				366E1DD22A9DD6B800C8EB13 /* CustomSegmentedControl.swift in Sources */,
 				364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */,
 				2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */,
 				27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */,
@@ -560,6 +582,8 @@
 				364B6D912A879EEB005E4856 /* NavView.swift in Sources */,
 				36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */,
 				36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */,
+				366E1DD02A9DC61500C8EB13 /* DrivingInfoListView.swift in Sources */,
+				366E1DD62A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift in Sources */,
 				366E1DC72A9A195200C8EB13 /* DropDownMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

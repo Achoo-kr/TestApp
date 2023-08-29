@@ -31,8 +31,8 @@ struct TestAppApp: App {
     var body: some Scene {
         
         WindowGroup {
-//            ContentView(viewModel: appViewModel)
-            CarRegistrationView(carRegVM: carRegVM, mainViewModel: mainViewModel)
+            ContentView(viewModel: appViewModel)
+//            CarRegistrationView(carRegVM: carRegVM, mainViewModel: mainViewModel)
 //            TestView()
         }
     }
