@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TestNavigationView: View {
+struct MainView: View {
     
     @StateObject private var coordinator: Coordinator = Coordinator.shared
     @EnvironmentObject var viewModel: MainViewModel
@@ -32,6 +32,6 @@ struct TestNavigationView: View {
 
 struct TestNavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        TestNavigationView()
+        MainView()
     }
 }

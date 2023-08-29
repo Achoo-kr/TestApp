@@ -10,7 +10,6 @@ import SwiftUI
 struct MapBottomSheet: View {
     
     @EnvironmentObject var mainViewModel: MainViewModel
-    @StateObject var naviCoordinator: NaviCoordinator = NaviCoordinator.shared
     @StateObject var coordinator: Coordinator = Coordinator.shared
     //@StateObject var mainViewModel: MainViewModel
     
