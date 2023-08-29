@@ -9,42 +9,45 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
-
-    
     @ObservedObject var viewModel: AppViewModel
+    @ObservedObject var mainVM: MainViewModel
+    @StateObject var carRegVM = CarRegistrationViewModel()
+    @AppStorage("carName") var carName: String = ""
     
     var body: some View {
-        VStack {            
-            TabView(selection: self.$viewModel.selectedTab) {
-//                MainView()
-                MainView()
-                    .tabItem {
-                        VStack{
-                            Image(systemName: "car")
-                            Text("내비")
+        if carName == ""{
+            CarRegistrationView(carRegVM: carRegVM, mainViewModel: mainVM)
+        }else {
+            VStack {
+                TabView(selection: self.$viewModel.selectedTab) {
+                    MainView()
+                        .tabItem {
+                            VStack{
+                                Image(systemName: "car")
+                                Text("내비")
+                            }
+                            .foregroundColor(.representColor)
                         }
-                        .foregroundColor(.representColor)
-                    }
-                    .tag(Tab.one)
-                DrivingInfoListView()
-                    .tabItem {
-                        VStack{
-                            Image(systemName: "square.text.square.fill")
-                            Text("운행내역")
+                        .tag(Tab.one)
+                    DrivingInfoListView()
+                        .tabItem {
+                            VStack{
+                                Image(systemName: "square.text.square.fill")
+                                Text("운행내역")
+                            }
+                            .foregroundColor(.representColor)
                         }
-                        .foregroundColor(.representColor)
-                    }
-                    .tag(Tab.two)
-                DrivingHistoryView()
-                    .tabItem {
-                        VStack{
-                            Image(systemName: "doc.on.clipboard")
-                            Text("운행일지")
+                        .tag(Tab.two)
+                    DrivingHistoryView()
+                        .tabItem {
+                            VStack{
+                                Image(systemName: "doc.on.clipboard")
+                                Text("운행일지")
+                            }
+                            .foregroundColor(.representColor)
                         }
-                        .foregroundColor(.representColor)
-                    }
-                    .tag(Tab.three)
+                        .tag(Tab.three)
+                }
             }
         }
     }
@@ -52,6 +55,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: AppViewModel())
+        ContentView(viewModel: AppViewModel(), mainVM: MainViewModel())
     }
 }

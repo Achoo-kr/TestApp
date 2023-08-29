@@ -8,64 +8,80 @@
 import SwiftUI
 
 struct CarRegistrationView: View {
-    @StateObject var carRegVM: CarRegistrationViewModel
-    @StateObject var mainViewModel: MainViewModel
+    @ObservedObject var carRegVM: CarRegistrationViewModel
+    @ObservedObject var mainViewModel: MainViewModel
     @State private var userId: String = ""
     @State private var carNum: String = ""
     @State private var ownerName: String = ""
+    @State private var isShowingAlert: Bool = false
     @AppStorage("carName") var carName: String = ""
     
     var body: some View {
-        ScrollViewReader { proxy in
-            VStack(spacing: 50){
-                Text("차량을 등록해주세요")
-                    .bold()
-                    .font(.title)
-                    .padding(.top, 80)
-                Spacer()
-                Image("Car")
-                    .resizable()
-                    .frame(width: 240, height: 140)
-                VStack(spacing: 20){
-                    HStack{
-                        Image(systemName: "car")
-                            .foregroundColor(Color.representColor)
-                        Text("차량번호")
-                        TextField("23사5678", text: $carNum)
-                            .disableAutocorrection(true)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    
-                    HStack{
-                        Image(systemName: "car")
-                            .foregroundColor(Color.representColor)
-                        Text("소유주명")
-                        TextField("홍길동", text: $ownerName)
-                            .disableAutocorrection(true)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                }
-                .padding(.horizontal, 50)
-                Spacer()
-                CustomButton(action: {
-                    carRegVM.getCarInfo(registratedNum: carNum, ownerName: ownerName) { carName in
-                        if let name = carName {
-                            print("차이름: \(name)")
-                        } else {
-                            print("차 이름을 가져오지 못했습니다.")
+        ZStack{
+            ScrollViewReader { proxy in
+                VStack(spacing: 50){
+                    Text("차량을 등록해주세요")
+                        .bold()
+                        .font(.title)
+                        .padding(.top, 80)
+                    Spacer()
+                    Image("Car")
+                        .resizable()
+                        .frame(width: 240, height: 140)
+                    VStack(spacing: 20){
+                        HStack{
+                            Image(systemName: "car")
+                                .foregroundColor(Color.representColor)
+                            Text("차량번호")
+                            TextField("23사5678", text: $carNum)
+                                .disableAutocorrection(true)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        
+                        HStack{
+                            Image(systemName: "car")
+                                .foregroundColor(Color.representColor)
+                            Text("소유주명")
+                            TextField("홍길동", text: $ownerName)
+                                .disableAutocorrection(true)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                     }
-//                    mainViewModel.createUser(user: UserInfo(id: UUID().uuidString,
-//                                                            ownerName: ownerName,
-//                                                            carNumber: carNum))
-                }) {
-                    Text("등록하기")
+                    .padding(.horizontal, 50)
+                    Spacer()
+                    CustomButton(action: {
+                        carRegVM.getCarInfo(registratedNum: carNum, ownerName: ownerName) { carName in
+                            if let name = carName {
+                                print("차이름: \(name)")
+                                self.carName = name
+                            } else {
+                                print("차 이름을 가져오지 못했습니다.")
+                            }
+                        }
+                        mainViewModel.createUser(user: UserInfo(id: UUID().uuidString,
+                                                                ownerName: ownerName,
+                                                                carNumber: carNum))
+                    }) {
+                        Text("등록하기")
+                    }
+                    .padding(.bottom, 50)
                 }
-                .padding(.bottom, 50)
+            }
+            if carRegVM.isLoadingData == true {
+                Color.gray.opacity(0.7)
+                    .edgesIgnoringSafeArea(.all)
+                ProgressView()
             }
         }
         .onTapGesture {
             hideKeyboard()
+        }
+        .alert(isPresented: $carRegVM.isShowingAlert) {
+            Alert(
+                title: Text("확인되지 않은 차량!"),
+                message: Text("등록된 차를 찾을 수 없습니다."),
+                dismissButton: .default(Text("확인"))
+            )
         }
     }
 }
