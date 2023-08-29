@@ -89,7 +89,7 @@
                                 guidance.citsGuideDelegate = self;
 
                                 // 주행 UI 생성
-                                self->_naviView = [[KNNaviView alloc] initWithGuidance:guidance trip:nil routeOption:routePriority avoidOption:routeAvoidOption];
+                                self->_naviView = [[KNNaviView alloc] initWithGuidance:guidance trip:aTrip routeOption:routePriority avoidOption:routeAvoidOption];
                                 self->_naviView.frame = self.view.bounds;
                                 self->_naviView.guideStateDelegate = self;
                                 self->_naviView.stateDelegate = self;
