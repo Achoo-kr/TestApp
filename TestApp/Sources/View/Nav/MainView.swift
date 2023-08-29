@@ -22,6 +22,7 @@ struct TestNavigationView: View {
                     endDest: coordinator.address,
                     endX: coordinator.destination.1,
                     endY: coordinator.destination.0)
+            .toolbar(.hidden, for: .tabBar)
             .edgesIgnoringSafeArea(.all)
         } else {
             MapView()
