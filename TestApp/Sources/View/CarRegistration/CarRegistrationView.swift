@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CarRegistrationView: View {
-    
+    @StateObject var carRegVM: CarRegistrationViewModel
     @StateObject var mainViewModel: MainViewModel
     @State private var userId: String = ""
     @State private var carNum: String = ""
     @State private var ownerName: String = ""
+    @AppStorage("carName") var carName: String = ""
     
     var body: some View {
         ScrollViewReader { proxy in
@@ -47,10 +48,16 @@ struct CarRegistrationView: View {
                 .padding(.horizontal, 50)
                 Spacer()
                 CustomButton(action: {
-                    print("첫 번째 버튼이 눌렸습니다.")
-                    mainViewModel.createUser(user: UserInfo(id: UUID().uuidString,
-                                                            ownerName: ownerName,
-                                                            carNumber: carNum))
+                    carRegVM.getCarInfo(registratedNum: "328오4668", ownerName: "추재학") { carName in
+                        if let name = carName {
+                            print("차이름: \(name)")
+                        } else {
+                            print("차 이름을 가져오지 못했습니다.")
+                        }
+                    }
+//                    mainViewModel.createUser(user: UserInfo(id: UUID().uuidString,
+//                                                            ownerName: ownerName,
+//                                                            carNumber: carNum))
                 }) {
                     Text("첫 번째 버튼")
                 }
@@ -65,7 +72,7 @@ struct CarRegistrationView: View {
 
 struct CarRegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        CarRegistrationView(mainViewModel: MainViewModel())
+        CarRegistrationView(carRegVM: CarRegistrationViewModel(), mainViewModel: MainViewModel())
     }
 }
 

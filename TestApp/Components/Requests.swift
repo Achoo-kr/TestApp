@@ -62,4 +62,25 @@ class Requests {
             }
         }
     }
+    
+    static func carRequest<T: Codable>(_ url: String,
+                                       _ method: HTTPMethod,
+                                       params: [String: Any]? = nil,
+                                       completion: @escaping (Result<T, Error>) -> Void) {
+        
+        AF.request(url, method: method,
+                   parameters: params,
+                   encoding: JSONEncoding.default,
+                   headers: ["Authorization":"fb6628d276b645ef9cc662e997e0e2a54b520765", "Content-Type":"application/json;charset=UTF-8"])
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: T.self) { response in
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure(let err):
+                    completion(.failure(err))
+                }
+            }
+    }
 }
