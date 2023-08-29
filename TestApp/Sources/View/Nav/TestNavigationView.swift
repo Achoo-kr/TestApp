@@ -14,9 +14,15 @@ struct TestNavigationView: View {
     
     var body: some View {
         if viewModel.active {
-//            Text("내비 시작")
-            KakoNavWrapper()
-//            .edgesIgnoringSafeArea(.all)
+            NavView(startDest: coordinator.currentAddress[1],
+                    startX: coordinator.userLocation.1,
+                    startY: coordinator.userLocation.0,
+                    startAddress: coordinator.currentAddress[1],
+                    endAddress: coordinator.address,
+                    endDest: coordinator.address,
+                    endX: coordinator.destination.1,
+                    endY: coordinator.destination.0)
+            .edgesIgnoringSafeArea(.all)
         } else {
             MapView()
         }

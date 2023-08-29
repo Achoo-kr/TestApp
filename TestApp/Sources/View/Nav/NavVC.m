@@ -9,7 +9,7 @@
     #import <AVKit/AVKit.h>
     #import <KNSDK/KNSDK.h>
     #import <KNSDK/KNNaviView.h>
-
+    
     @interface NavVC : UIViewController
 
     @property KNNaviView *naviView;
@@ -24,13 +24,16 @@
     }
 
     - (void)startNavigateWithStartDest:(NSString *)startDest
-                                startX:(CGFloat)startX
-                                startY:(CGFloat)startY
+                                startX:(double)startX
+                                startY:(double)startY
+                          startAddress: (NSString *)startAddress
                                endDest:(NSString *)endDest
-                                  endX:(CGFloat)endX
-                                  endY:(CGFloat)endY
-                              activate:(void (^)(bool))activate {
-        self->_activate = activate;
+                                  endX:(double)endX
+                                  endY:(double)endY
+                          endAddress: (NSString *)endAddress
+//                              activate:(void (^)(bool))activate
+{
+//        self->_activate = activate;
         [[KNSDK sharedInstance] initializeWithAppKey:@"165dc5c6c3dfe3ac14491057c95a91bc" clientVersion:@"1.0" userKey:@"1" completion:^(KNError *error) {
             if (error)
             {
@@ -48,9 +51,12 @@
                 [session setActive:YES error:&error];
 
                 // 출발지 설정
-                KNPOI *start = [[KNPOI alloc] initWithName:startDest x:startX y:startY];
+                IntPoint startPos = [[KNSDK sharedInstance] convertWGS84ToKATECWithLongitude:startX latitude:startY];
+                IntPoint goalPos = [[KNSDK sharedInstance] convertWGS84ToKATECWithLongitude:endX latitude:endY];
+                
+                KNPOI *start = [[KNPOI alloc] initWithName:startDest pos:startPos address:startAddress];
                 // 목적지 설정
-                KNPOI *goal = [[KNPOI alloc] initWithName:endDest x:endX y:endY];
+                KNPOI *goal = [[KNPOI alloc] initWithName:endDest pos:goalPos address:endAddress];
                 // 경로 생성
                 [KNSDK.sharedInstance makeTripWithStart:start goal:goal vias:[NSArray new] completion:^(KNError * aError, KNTrip * aTrip) {
                     if(aError)
@@ -87,7 +93,7 @@
                                 self->_naviView.frame = self.view.bounds;
                                 self->_naviView.guideStateDelegate = self;
                                 self->_naviView.stateDelegate = self;
-                                self->_activate(true);
+//                                self->_activate(true);
                                 [self->_naviView sndVolume:1];
                                 [self.view addSubview:self->_naviView];
                             }

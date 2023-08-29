@@ -48,8 +48,24 @@ final class NaviCoordinator: NSObject, ObservableObject, KNSDKDelegate, KNGuidan
     }
     
     func getKakaoNaiView() -> KNNaviView {
-        
-        
+//        startNavigate(
+//            startDest: coordinator.currentAddress[1],
+//            startX: coordinator.userLocation.1,
+//            startY: coordinator.userLocation.0,
+//            endDest: coordinator.address,
+//            endX: coordinator.destination.1,
+//            endY: coordinator.destination.0,
+//            startAddress: coordinator.currentAddress[1],
+//            endAddress: coordinator.address)
+        startNavigate(
+            startDest: "출발",
+            startX: 127.046463,
+            startY: 37.518769,
+            endDest: "도착",
+            endX: 126.852548,
+            endY: 37.532725,
+            startAddress: "출발",
+            endAddress: "도착")
         return view
     }
     

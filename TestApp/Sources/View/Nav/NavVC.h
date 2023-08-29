@@ -10,11 +10,13 @@
 @interface NavVC : UIViewController
 
 - (void)startNavigateWithStartDest:(NSString *)startDest
-                            startX:(CGFloat)startX
-                            startY:(CGFloat)startY
+                            startX:(double)startX
+                            startY:(double)startY
+                      startAddress: (NSString *)startAddress
                            endDest:(NSString *)endDest
-                              endX:(CGFloat)endX
-                              endY:(CGFloat)endY
-                          activate:(void (^)(bool))activate;
+                              endX:(double)endX
+                              endY:(double)endY
+                        endAddress:(NSString *)endAddress;
+//                          activate:(void (^)(bool))activate;
 
 @end
