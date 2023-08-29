@@ -22,6 +22,7 @@ struct TestAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var mainViewModel = MainViewModel()
     @StateObject var appViewModel = AppViewModel()
+    @StateObject var carRegVM = CarRegistrationViewModel()
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color.white)

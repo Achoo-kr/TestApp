@@ -27,7 +27,7 @@ struct ContentView: View {
                         .foregroundColor(.representColor)
                     }
                     .tag(Tab.one)
-                CardView()
+                DrivingInfoListView()
                     .tabItem {
                         VStack{
                             Image(systemName: "square.text.square.fill")
