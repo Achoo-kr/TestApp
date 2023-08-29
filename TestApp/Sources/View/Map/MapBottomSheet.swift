@@ -9,45 +9,49 @@ import SwiftUI
 
 struct MapBottomSheet: View {
     
+    @EnvironmentObject var mainViewModel: MainViewModel
+    //@StateObject var mainViewModel: MainViewModel
+    
     var address: String
     var currentAddress: String
+    
     var body: some View {
-        ZStack {
-            Color(UIColor(.paneColor))
-            VStack(spacing: 0) {
-                HStack {
-                    Image("StartMapMarker")
-                        .padding(.trailing, -10)
-                    Text("현위치:")
-                        .bold()
-                    Text("\(currentAddress)")
-                    Spacer()
-                }
-                
-                HStack {
-                    Image("EndMapMarker")
-                        .padding(.trailing, -10)
-                    Text("목적지:")
-                        .bold()
-                    Text("\(address)")
-                    Spacer()
-                }
-                
-                HStack {
-                    CustomButton {
-                        //
-                    } content: {
-                        Text("안내시작")
+            ZStack {
+                Color(UIColor(.paneColor))
+                VStack(spacing: 0) {
+                    HStack {
+                        Image("StartMapMarker")
+                            .padding(.trailing, -10)
+                        Text("현위치:")
+                            .bold()
+                        Text("\(currentAddress)")
+                        Spacer()
                     }
+                    
+                    HStack {
+                        Image("EndMapMarker")
+                            .padding(.trailing, -10)
+                        Text("목적지:")
+                            .bold()
+                        Text("\(address)")
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        CustomButton {
+                            mainViewModel.active = true
+                        } content: {
+                            Text("안내시작")
+                        }
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .font(.title3)
+                .padding(10)
+                
             }
-            .font(.title3)
-            .padding(10)
-            
-        }
-        .cornerRadius(10)
-        .frame(width: UIScreen.main.bounds.width, height: 150, alignment: .leading)
+            .cornerRadius(10)
+            .frame(width: UIScreen.main.bounds.width, height: 150, alignment: .leading)
     }
 }
 

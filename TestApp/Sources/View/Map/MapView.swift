@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MapView: View {
-    
+    @EnvironmentObject var mainViewModel: MainViewModel
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var searchText: String = ""
     
@@ -38,6 +38,8 @@ struct MapView: View {
         }
         .onAppear {
             coordinator.checkIfLocationServicesIsEnabled()
+//            print("현재위치: \(coordinator.userLocation),\n 도착위치: \(coordinator.destination)")
+//            print("도착위치(CGFloat): \(CGFloat(coordinator.destination.0)), \(CGFloat(coordinator.destination.1)))")
         }
     }
 }

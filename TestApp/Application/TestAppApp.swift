@@ -32,8 +32,11 @@ struct TestAppApp: App {
         
         WindowGroup {
             ContentView(viewModel: appViewModel)
-//            CarRegistrationView(carRegVM: carRegVM, mainViewModel: mainViewModel)
+                .environmentObject(mainViewModel)
+//            CarRegistrationView(mainViewModel: mainViewModel)
 //            TestView()
+//            TestNaviView()
+//            TestNavigationView()
         }
     }
 }

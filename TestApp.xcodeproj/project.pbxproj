@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712FEB72A98D3C600795346 /* MapSearchBar.swift */; };
 		27162B7C2A9CB61600AEFD3A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27162B7B2A9CB61600AEFD3A /* TestView.swift */; };
+		27162B7E2A9CFDC100AEFD3A /* TestNaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27162B7D2A9CFDC100AEFD3A /* TestNaviView.swift */; };
 		2734BF782A8FCBFA0009FBA9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF772A8FCBFA0009FBA9 /* OpenGLES.framework */; };
 		2734BF7A2A8FCC050009FBA9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF792A8FCC050009FBA9 /* SystemConfiguration.framework */; };
 		2734BF7C2A8FCC0E0009FBA9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF7B2A8FCC0E0009FBA9 /* CoreLocation.framework */; };
@@ -24,6 +25,9 @@
 		276744272A97DF2200784C9D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 276744262A97DF2200784C9D /* FirebaseFirestoreSwift */; };
 		276744292A97DF2200784C9D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 276744282A97DF2200784C9D /* FirebaseStorage */; };
 		2767442B2A97DF2200784C9D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2767442A2A97DF2200784C9D /* FirebaseStorageCombine-Community */; };
+		27725F712A9D017D00C2C6CA /* KNSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 27725F702A9D017D00C2C6CA /* KNSDK */; };
+		27725F732A9D2B3F00C2C6CA /* KakaoNavWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27725F722A9D2B3F00C2C6CA /* KakaoNavWrapper.swift */; };
+		27725F752A9D2B8800C2C6CA /* TestNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27725F742A9D2B8800C2C6CA /* TestNavigationView.swift */; };
 		27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D752A879B04005E4856 /* Coordinate.swift */; };
 		27860E0E2A8FDBC000D76697 /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27860E0C2A8FDBB300D76697 /* DaumMap.framework */; };
 		278866D12A99E0FF00C4947C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278866D02A99E0FF00C4947C /* UserInfo.swift */; };
@@ -34,7 +38,6 @@
 		364B6D662A879A67005E4856 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D652A879A67005E4856 /* ContentView.swift */; };
 		364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D772A879B14005E4856 /* DrivingInfo.swift */; };
 		364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D7C2A879B5A005E4856 /* Requests.swift */; };
-		364B6D802A879BF5005E4856 /* KNSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 364B6D7F2A879BF5005E4856 /* KNSDK */; };
 		364B6D832A879C03005E4856 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 364B6D822A879C03005E4856 /* Alamofire */; };
 		364B6D8A2A879D0E005E4856 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D892A879D0E005E4856 /* MapView.swift */; };
 		364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D8D2A879EAC005E4856 /* NavVC.m */; };
@@ -79,6 +82,7 @@
 /* Begin PBXFileReference section */
 		2712FEB72A98D3C600795346 /* MapSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchBar.swift; sourceTree = "<group>"; };
 		27162B7B2A9CB61600AEFD3A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		27162B7D2A9CFDC100AEFD3A /* TestNaviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNaviView.swift; sourceTree = "<group>"; };
 		2734BF352A8FCBDF0009FBA9 /* map_pinup_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pinup_custom@3x.png"; sourceTree = "<group>"; };
 		2734BF362A8FCBDF0009FBA9 /* map_pin_custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_custom.png; sourceTree = "<group>"; };
 		2734BF372A8FCBDF0009FBA9 /* shadow_balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_balloon.png; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		2734BF832A8FCC2D0009FBA9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2734BF852A8FCD270009FBA9 /* KakaoMapVCWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapVCWrapper.swift; sourceTree = "<group>"; };
 		2734BF882A8FCE8C0009FBA9 /* TestApp_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestApp_Bridging_Header.h; sourceTree = "<group>"; };
+		27725F722A9D2B3F00C2C6CA /* KakaoNavWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoNavWrapper.swift; sourceTree = "<group>"; };
+		27725F742A9D2B8800C2C6CA /* TestNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationView.swift; sourceTree = "<group>"; };
 		27860E0C2A8FDBB300D76697 /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		278866D02A99E0FF00C4947C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		278866D42A9A37A300C4947C /* MapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomSheet.swift; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27725F712A9D017D00C2C6CA /* KNSDK in Frameworks */,
 				276744212A97DF2200784C9D /* FirebaseDatabaseSwift in Frameworks */,
 				27B2A3782A9A6D010070BB57 /* KakaoMapsSDK_SPM in Frameworks */,
 				276744232A97DF2200784C9D /* FirebaseFirestore in Frameworks */,
@@ -182,7 +189,6 @@
 				2734BF7C2A8FCC0E0009FBA9 /* CoreLocation.framework in Frameworks */,
 				2734BF7A2A8FCC050009FBA9 /* SystemConfiguration.framework in Frameworks */,
 				2734BF782A8FCBFA0009FBA9 /* OpenGLES.framework in Frameworks */,
-				364B6D802A879BF5005E4856 /* KNSDK in Frameworks */,
 				2767441F2A97DF2200784C9D /* FirebaseDatabase in Frameworks */,
 				27860E0E2A8FDBC000D76697 /* DaumMap.framework in Frameworks */,
 				364B6D832A879C03005E4856 /* Alamofire in Frameworks */,
@@ -197,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				27162B7B2A9CB61600AEFD3A /* TestView.swift */,
+				27162B7D2A9CFDC100AEFD3A /* TestNaviView.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -388,6 +395,8 @@
 				364B6D8F2A879EC4005E4856 /* NavVC.h */,
 				364B6D8D2A879EAC005E4856 /* NavVC.m */,
 				364B6D902A879EEB005E4856 /* NavView.swift */,
+				27725F722A9D2B3F00C2C6CA /* KakaoNavWrapper.swift */,
+				27725F742A9D2B8800C2C6CA /* TestNavigationView.swift */,
 			);
 			path = Nav;
 			sourceTree = "<group>";
@@ -479,7 +488,6 @@
 			);
 			name = TestApp;
 			packageProductDependencies = (
-				364B6D7F2A879BF5005E4856 /* KNSDK */,
 				364B6D822A879C03005E4856 /* Alamofire */,
 				2767441E2A97DF2200784C9D /* FirebaseDatabase */,
 				276744202A97DF2200784C9D /* FirebaseDatabaseSwift */,
@@ -489,6 +497,7 @@
 				276744282A97DF2200784C9D /* FirebaseStorage */,
 				2767442A2A97DF2200784C9D /* FirebaseStorageCombine-Community */,
 				27B2A3772A9A6D010070BB57 /* KakaoMapsSDK_SPM */,
+				27725F702A9D017D00C2C6CA /* KNSDK */,
 			);
 			productName = TestApp;
 			productReference = 364B6D602A879A67005E4856 /* TestApp.app */;
@@ -520,10 +529,10 @@
 			);
 			mainGroup = 364B6D572A879A67005E4856;
 			packageReferences = (
-				364B6D7E2A879BF5005E4856 /* XCRemoteSwiftPackageReference "KNSDK-UI" */,
 				364B6D812A879C03005E4856 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				27B2A3762A9A6D000070BB57 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
+				27725F6F2A9D017D00C2C6CA /* XCRemoteSwiftPackageReference "KNSDK-UI" */,
 			);
 			productRefGroup = 364B6D612A879A67005E4856 /* Products */;
 			projectDirPath = "";
@@ -564,6 +573,7 @@
 				278866D12A99E0FF00C4947C /* UserInfo.swift in Sources */,
 				364B6D8A2A879D0E005E4856 /* MapView.swift in Sources */,
 				366E1DB82A997AE700C8EB13 /* CarRegistrationViewModel.swift in Sources */,
+				27725F732A9D2B3F00C2C6CA /* KakaoNavWrapper.swift in Sources */,
 				278866D52A9A37A300C4947C /* MapBottomSheet.swift in Sources */,
 				364B6D952A87AA08005E4856 /* LocationManager.swift in Sources */,
 				366E1DBF2A99E03000C8EB13 /* DrivingHistoryView.swift in Sources */,
@@ -575,9 +585,11 @@
 				36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */,
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
+				27725F752A9D2B8800C2C6CA /* TestNavigationView.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
 				366E1DCB2A9A24A800C8EB13 /* AppViewModel.swift in Sources */,
 				364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */,
+				27162B7E2A9CFDC100AEFD3A /* TestNaviView.swift in Sources */,
 				366E1DB62A9976E700C8EB13 /* CarRegistrationView.swift in Sources */,
 				364B6D912A879EEB005E4856 /* NavView.swift in Sources */,
 				36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */,
@@ -837,20 +849,20 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		27725F6F2A9D017D00C2C6CA /* XCRemoteSwiftPackageReference "KNSDK-UI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakaomob/KNSDK-UI.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.8.6;
+			};
+		};
 		27B2A3762A9A6D000070BB57 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
-			};
-		};
-		364B6D7E2A879BF5005E4856 /* XCRemoteSwiftPackageReference "KNSDK-UI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakaomob/KNSDK-UI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
 			};
 		};
 		364B6D812A879C03005E4856 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -899,15 +911,15 @@
 			package = 2767441D2A97DF2200784C9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
 		};
+		27725F702A9D017D00C2C6CA /* KNSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27725F6F2A9D017D00C2C6CA /* XCRemoteSwiftPackageReference "KNSDK-UI" */;
+			productName = KNSDK;
+		};
 		27B2A3772A9A6D010070BB57 /* KakaoMapsSDK_SPM */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 27B2A3762A9A6D000070BB57 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */;
 			productName = KakaoMapsSDK_SPM;
-		};
-		364B6D7F2A879BF5005E4856 /* KNSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 364B6D7E2A879BF5005E4856 /* XCRemoteSwiftPackageReference "KNSDK-UI" */;
-			productName = KNSDK;
 		};
 		364B6D822A879C03005E4856 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
