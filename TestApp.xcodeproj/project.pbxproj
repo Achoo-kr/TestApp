@@ -10,6 +10,7 @@
 		2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712FEB72A98D3C600795346 /* MapSearchBar.swift */; };
 		27162B7C2A9CB61600AEFD3A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27162B7B2A9CB61600AEFD3A /* TestView.swift */; };
 		27162B7E2A9CFDC100AEFD3A /* TestNaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27162B7D2A9CFDC100AEFD3A /* TestNaviView.swift */; };
+		27170DA92A9E87B6005E38A4 /* DrivingInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27170DA82A9E87B6005E38A4 /* DrivingInfoViewModel.swift */; };
 		2734BF782A8FCBFA0009FBA9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF772A8FCBFA0009FBA9 /* OpenGLES.framework */; };
 		2734BF7A2A8FCC050009FBA9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF792A8FCC050009FBA9 /* SystemConfiguration.framework */; };
 		2734BF7C2A8FCC0E0009FBA9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2734BF7B2A8FCC0E0009FBA9 /* CoreLocation.framework */; };
@@ -79,6 +80,7 @@
 		2712FEB72A98D3C600795346 /* MapSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchBar.swift; sourceTree = "<group>"; };
 		27162B7B2A9CB61600AEFD3A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		27162B7D2A9CFDC100AEFD3A /* TestNaviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNaviView.swift; sourceTree = "<group>"; };
+		27170DA82A9E87B6005E38A4 /* DrivingInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoViewModel.swift; sourceTree = "<group>"; };
 		2734BF352A8FCBDF0009FBA9 /* map_pinup_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pinup_custom@3x.png"; sourceTree = "<group>"; };
 		2734BF362A8FCBDF0009FBA9 /* map_pin_custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_custom.png; sourceTree = "<group>"; };
 		2734BF372A8FCBDF0009FBA9 /* shadow_balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_balloon.png; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				364B6D922A87A846005E4856 /* MainViewModel.swift */,
+				27170DA82A9E87B6005E38A4 /* DrivingInfoViewModel.swift */,
 				366E1DCA2A9A24A800C8EB13 /* AppViewModel.swift */,
 				366E1DB72A997AE700C8EB13 /* CarRegistrationViewModel.swift */,
 			);
@@ -580,6 +583,7 @@
 				36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */,
 				366E1DD02A9DC61500C8EB13 /* DrivingInfoListView.swift in Sources */,
 				366E1DD62A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift in Sources */,
+				27170DA92A9E87B6005E38A4 /* DrivingInfoViewModel.swift in Sources */,
 				366E1DC72A9A195200C8EB13 /* DropDownMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,7 +727,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TestApp",
@@ -770,7 +774,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TestApp",

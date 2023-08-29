@@ -9,13 +9,21 @@ import SwiftUI
 
 struct MapBottomSheet: View {
     
-    @EnvironmentObject var mainViewModel: MainViewModel
+    @ObservedObject var mainViewModel: MainViewModel
+    @StateObject var drivingInfoViewModel = DrivingInfoViewModel()
     @StateObject var coordinator: Coordinator = Coordinator.shared
     //@StateObject var mainViewModel: MainViewModel
     
     var address: String
     var currentAddress: String
-    
+    let currentDate: Date = Date()
+    var currentTime: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let currentTime = formatter.string(from: currentDate)
+        return currentTime
+    }
+
     var body: some View {
             ZStack {
                 Color(UIColor(.paneColor))
@@ -41,6 +49,10 @@ struct MapBottomSheet: View {
                     HStack {
                         CustomButton {
                             mainViewModel.active = true
+                            mainViewModel.startAddress = coordinator.currentAddress[1]
+                            Task {
+                                await drivingInfoViewModel.saveStartDrivingInfo(userId: mainViewModel.getUserData(), drivingInfo: DrivingInfo(id: UUID().uuidString, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
+                            }
                         } content: {
                             Text("안내시작")
                         }
@@ -60,7 +72,7 @@ struct MapBottomSheet_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color(.systemGray)
-            MapBottomSheet(address: "Test", currentAddress: "Test")
+            MapBottomSheet(mainViewModel: MainViewModel(), address: "Test", currentAddress: "Test")
         }
         
     }

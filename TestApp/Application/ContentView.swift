@@ -20,7 +20,7 @@ struct ContentView: View {
         }else {
             VStack {
                 TabView(selection: self.$viewModel.selectedTab) {
-                    MainView()
+                    MainView(viewModel: mainVM)
                         .tabItem {
                             VStack{
                                 Image(systemName: "car")

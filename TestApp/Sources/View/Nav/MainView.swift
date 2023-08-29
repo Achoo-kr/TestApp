@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @StateObject private var coordinator: Coordinator = Coordinator.shared
-    @EnvironmentObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
         if viewModel.active {
@@ -25,13 +25,13 @@ struct MainView: View {
             .toolbar(.hidden, for: .tabBar)
             .edgesIgnoringSafeArea(.all)
         } else {
-            MapView()
+            MapView(mainViewModel: viewModel)
         }
     }
 }
 
 struct TestNavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(viewModel: MainViewModel())
     }
 }

@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct NavView: UIViewControllerRepresentable {
-//    @Binding var active: Bool
+    
     let startDest: String
     let startX, startY: Double
     let startAddress, endAddress: String
     let endDest: String
     let endX, endY: Double
-
-//    func activate(_ value: Bool) {
-//        self.active = value
-//    }
-
+    
     func makeUIViewController(context: Context) -> NavVC {
         let vc = NavVC()
+        
         vc.startNavigate(withStartDest: startDest,
                          startX: startX,
                          startY: startY,
@@ -28,12 +25,10 @@ struct NavView: UIViewControllerRepresentable {
                          endDest: endDest,
                          endX: endX,
                          endY: endY,
-                         endAddress: endAddress
-//                         activate: activate
-        )
+                         endAddress: endAddress)
         return vc
     }
-
+    
     func updateUIViewController(_ uiViewController: NavVC, context: Context) {
     }
 }

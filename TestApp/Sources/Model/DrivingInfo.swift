@@ -7,17 +7,29 @@
 
 import Foundation
 
-struct DrivingInfo: Codable {
-    let code, message, currentDateTime: Int?
-    let route: DrivingRoute
-}
-
-struct DrivingRoute: Codable {
-    let summary: DrivingSummary
-    let path, section, guide: Int?
-}
-
-struct DrivingSummary: Codable {
-    let start, goal, waypoints, bbox, tollFare, taxiFare, fuelPrice: Int?
-    let distance, duration: Int
+struct DrivingInfo: Identifiable, Codable {
+    let id: String
+    let startAddress: String
+    let startTime: String
+    let endAddress: String
+    let endTime: String
+    let fuelFee: Int
+    let tollFee: Int
+    let depreciation: Int
+    var dictionary: [String:Any] {
+        return ["id": id,
+                "startAddress": startAddress,
+                "startTime": startTime,
+                "endAddress": endAddress,
+                "endTime": endTime,
+                "tollFee": tollFee,
+                "fuelFee": fuelFee,
+                "depreciation": depreciation]
+    }
+    func calculateTime(_ date: Date) -> String {
+        let format = DateFormatter()
+        format.locale = Locale(identifier: "ko_KR")
+        format.dateFormat = "hh:mm"
+        return format.string(from: date)
+    }
 }

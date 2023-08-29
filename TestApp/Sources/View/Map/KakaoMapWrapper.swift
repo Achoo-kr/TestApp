@@ -37,6 +37,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
     @Published var destination: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
     @Published var address: String = ""
+    @Published var startAddress: String = ""
     @Published var currentAddress: [String] = ["서울 중구 태평로1가 31"]
     @Published var isLocationDataLoaded: Bool = false
 

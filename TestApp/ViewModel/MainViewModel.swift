@@ -16,11 +16,21 @@ class MainViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     @Published var active: Bool = false
-    @Published var endX: CGFloat = 0
-    @Published var endY: CGFloat = 0
+    
+    @Published var startX: Double = 0
+    @Published var startY: Double = 0
+    @Published var startAddress: String = ""
+    @Published var endX: Double = 0
+    @Published var endY: Double = 0
+    @Published var endAddress: String = ""
     
     @Published var userInfo: [UserInfo] = []
-    @Published var drivingInfo: [DrivingInfo] = []
+    
+    init() {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("GuideEnded"), object: nil, queue: .main) { [weak self] (_) in
+            self?.active = false
+        }
+    }
     
     // MARK: - User 생성
     func createUser(user: UserInfo) {
@@ -40,7 +50,8 @@ class MainViewModel: ObservableObject {
     }
     
     // MARK: - User Data 불러오기
-    func getUserData() async {
+    func getUserData() async -> String {
+        var userId: String = ""
         do {
             let documents = try await Firestore.firestore().collection("Users").getDocuments()
             for document in documents.documents {
@@ -61,10 +72,13 @@ class MainViewModel: ObservableObject {
                 let userData: UserInfo = UserInfo(id: id, ownerName: ownerName, carNumber: carNumber)
                 
                 self.userInfo.append(userData)
+                
+                userId = userData.id
             }
         } catch {
             print(error.localizedDescription)
         }
+        return userId
     }
     
     // MARK: - User Data 추가
