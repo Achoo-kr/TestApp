@@ -82,12 +82,10 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
             print("You have denied this app location permission. Go into setting to change it.")
         case .authorizedAlways, .authorizedWhenInUse:
             print("Success")
-            destination = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
-            print("LocationManager-coord: \(destination)")
             userLocation = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
             print("LocationManager-userLocation: \(userLocation)")
             fetchCurrentUserLocation()
-            isLocationDataLoaded = true
+//            isLocationDataLoaded = true
         @unknown default:
             break
         }
@@ -133,7 +131,10 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
                 longitude: mapCenterPoint.mapPointGeo().longitude)),
             with: self,
             withOpenAPIKey: "923b28d9b3a43a58017321fb76583ace")
-        
+        // 목적지 위도 경도 저장
+        destination = (mapCenterPoint.mapPointGeo().latitude,
+                       mapCenterPoint.mapPointGeo().longitude)
+        print(CGFloat(destination.0),CGFloat(destination.1))
         self.geoCoder = geoCoder
         
         geoCoder?.startFindingAddress()
@@ -146,6 +147,8 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
         // FIXME: - 임시적인 로직(리팩토링 필요)
         guard currentAddress.count == 3 else {
             currentAddress.insert(address, at: 1)
+            // 위치정보 데이터 로드 시(리팩토링)
+            isLocationDataLoaded = true
             return
         }
     }

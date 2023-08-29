@@ -30,9 +30,12 @@ struct TestAppApp: App {
     var body: some Scene {
         
         WindowGroup {
-//            ContentView(viewModel: appViewModel)
+            ContentView(viewModel: appViewModel)
+                .environmentObject(mainViewModel)
 //            CarRegistrationView(mainViewModel: mainViewModel)
-            TestView()
+//            TestView()
+//            TestNaviView()
+//            TestNavigationView()
         }
     }
 }

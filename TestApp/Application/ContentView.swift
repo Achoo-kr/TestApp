@@ -17,7 +17,8 @@ struct ContentView: View {
     var body: some View {
         VStack {            
             TabView(selection: self.$viewModel.selectedTab) {
-                MapView()
+//                MainView()
+                TestNavigationView()
                     .tabItem {
                         VStack{
                             Image(systemName: "car")
