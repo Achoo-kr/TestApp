@@ -9,11 +9,12 @@ import SwiftUI
 
 struct MapBottomSheet: View {
     
+    @StateObject var coordinator: Coordinator = Coordinator.shared
     @ObservedObject var mainViewModel: MainViewModel
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
-    @StateObject var coordinator: Coordinator = Coordinator.shared
-    //@StateObject var mainViewModel: MainViewModel
+    @Binding var tapSearchBar: Bool
     @State private var isStartedNavi: Bool = false
+    
     var address: String
     var currentAddress: String
     let currentDate: Date = Date()
@@ -51,6 +52,7 @@ struct MapBottomSheet: View {
                             .bold()
                         Button {
                             //검색 전체화면
+                            tapSearchBar = true
                         } label: {
                             Text("\(address)")
                                 .lineLimit(1)
@@ -118,8 +120,8 @@ struct MapBottomSheet: View {
                     }
                 }
             }
+            .padding(.bottom, 20)
         }
-        
     }
 }
 
@@ -127,7 +129,7 @@ struct MapBottomSheet_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color(.systemGray)
-            MapBottomSheet(mainViewModel: MainViewModel(), drivingInfoViewModel: DrivingInfoViewModel(), address: "Test", currentAddress: "Test")
+            MapBottomSheet(mainViewModel: MainViewModel(), drivingInfoViewModel: DrivingInfoViewModel(), tapSearchBar: Binding.constant(false), address: "Test", currentAddress: "Test")
         }
         
     }
