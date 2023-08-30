@@ -441,6 +441,7 @@
 				366E1DCF2A9DC61500C8EB13 /* DrivingInfoListView.swift */,
 				36E13B5C2A90EBBD001EA6AB /* SelectionBlockView.swift */,
 				36E13B5E2A90EBD9001EA6AB /* CardView.swift */,
+				36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */,
 			);
 			path = DrivingInfoListView;
 			sourceTree = "<group>";
@@ -458,7 +459,6 @@
 			children = (
 				3636F0632A9F6DA800012CC6 /* EditChargeView */,
 				366E1DCE2A9DC5EE00C8EB13 /* DrivingInfoListView */,
-				36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */,
 				36E13B602A90EBF8001EA6AB /* CustomButton.swift */,
 			);
 			path = DrivingInfoView;

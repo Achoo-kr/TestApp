@@ -12,7 +12,6 @@ struct MapBottomSheet: View {
     @ObservedObject var mainViewModel: MainViewModel
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @StateObject var coordinator: Coordinator = Coordinator.shared
-    //@StateObject var mainViewModel: MainViewModel
     @State private var isStartedNavi: Bool = false
     var address: String
     var currentAddress: String
@@ -81,7 +80,7 @@ struct MapBottomSheet: View {
                 Button {
                     let endAddress: String = coordinator.currentAddress[1]
                     Task {
-                        await drivingInfoViewModel.saveEndDrivingInfo(["endAddress":endAddress,"endTime":currentTime])
+                        await drivingInfoViewModel.updateDrivingInfo(["endAddress":endAddress,"endTime":currentTime])
                         
                     }
                 } label: {

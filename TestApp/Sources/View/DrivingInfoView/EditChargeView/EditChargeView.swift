@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct EditChargeView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
+    let drivingInfo: DrivingInfo
+    let type: String
     @State var charge: String = "0"
+    @State var chargeInfo: String = "법인카드"
     var body: some View {
         VStack(alignment: .center){
             VStack(alignment: .leading) {
@@ -28,7 +33,7 @@ struct EditChargeView: View {
                         Text("날짜")
                             .foregroundColor(.gray)
                             .padding(.trailing)
-                        Text("2023.08.18(금)")
+                        Text("\(drivingInfo.date)")
                             .font(.title3)
                             .bold()
                     }
@@ -38,14 +43,23 @@ struct EditChargeView: View {
                         Text("항목")
                             .foregroundColor(.gray)
                             .padding(.trailing)
-                        Image(systemName: "fuelpump")
-                            .bold()
-                        Text("유류비")
+                        if type == "유류비" {
+                            Image(systemName: "fuelpump")
+                                .bold()
+                        } else if type == "통행료" {
+                            Image(systemName: "mappin.and.ellipse")
+                                .bold()
+                        }
+                        
+                        Text(type)
                             .font(.title3)
                             .bold()
-                        Text("(차량 등록 연비 * 거리)")
-                            .font(.title3)
-                            .foregroundColor(.representColor)
+                        if type == "유류비" {
+                            Text("(차량 등록 연비 * 거리)")
+                                .font(.title3)
+                                .foregroundColor(.representColor)
+                        }
+                        
                     }
                     .padding()
                     Divider()
@@ -56,7 +70,9 @@ struct EditChargeView: View {
                             .foregroundColor(.black)
                             .padding(.trailing)
                         
-                        TextField("23사5678", text: $charge)
+                        TextField(type == "유류비" ? "\(drivingInfo.fuelFee)" : "\(drivingInfo.tollFee)",
+                                  text: $charge)
+                            .keyboardType(.numberPad)
                             .disableAutocorrection(true)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                         
@@ -77,7 +93,7 @@ struct EditChargeView: View {
                             .bold()
                             .foregroundColor(.black)
                             .padding(.trailing)
-                        DropDownMenu(menus: ["법인카드", "개인카드"])
+                        DropDownMenu(menus: ["법인카드", "개인카드"], selection: $chargeInfo)
                     }
                 }
                 .padding(.horizontal)
@@ -90,7 +106,7 @@ struct EditChargeView: View {
             
             HStack(spacing: 30) {
                 Button {
-                    //
+                    self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("취소")
                         .foregroundColor(.gray)
@@ -105,7 +121,17 @@ struct EditChargeView: View {
                 )
                 
                 Button {
-                    //
+                    if type == "유류비" {
+                        Task {
+                            await drivingInfoViewModel.updateDrivingInfo(["fuelFee":charge])
+                        }
+                        
+                    } else if type == "통행료" {
+                        Task {
+                            await drivingInfoViewModel.updateDrivingInfo(["tollFee":charge])
+                        }
+                    }
+                    self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("등록")
                         .font(.title2)
@@ -121,8 +147,8 @@ struct EditChargeView: View {
     }
 }
 
-struct EditChargeView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditChargeView()
-    }
-}
+//struct EditChargeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditChargeView()
+//    }
+//}

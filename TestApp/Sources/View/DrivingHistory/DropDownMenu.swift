@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DropDownMenu: View {
     let menus: [String]
-    @State private var selection: String = "출장"
-    @State private var isSelecting: Bool = false
+    @Binding var selection: String
+    @State var isSelecting: Bool = false
     var body: some View {
         Menu {
             ForEach(self.menus, id: \.self) { string in
@@ -21,7 +21,11 @@ struct DropDownMenu: View {
             }
         } label: {
             HStack{
-                Text("\(selection)")
+                if selection == "" {
+                    Text("미선택")
+                }else{
+                    Text("\(selection)")
+                }
                 Spacer()
                 Image("DropDownImage")
                 .rotationEffect(.degrees( isSelecting ? -180 : 0))
@@ -36,6 +40,6 @@ struct DropDownMenu: View {
 
 struct DropDownMenu_Previews: PreviewProvider {
     static var previews: some View {
-        DropDownMenu(menus: ["출장", "출퇴근", "몰라"])
+        DropDownMenu(menus: ["출장", "출퇴근", "몰라"], selection: Binding.constant("출장"))
     }
 }

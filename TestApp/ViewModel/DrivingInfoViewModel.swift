@@ -35,7 +35,7 @@ class DrivingInfoViewModel: ObservableObject {
             }
     }
     
-    func saveEndDrivingInfo(_ updatedField:[String:Any]) async {
+    func updateDrivingInfo(_ updatedField:[String:Any]) async {
         let documents = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo").document(recentRef)
         await documents.setData(updatedField, merge: true) { error in
             if let error = error {

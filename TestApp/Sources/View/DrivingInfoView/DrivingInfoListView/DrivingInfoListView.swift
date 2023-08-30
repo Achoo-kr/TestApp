@@ -11,6 +11,8 @@ struct DrivingInfoListView: View {
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @State var month: Int
     @State var year: Int
+    @State var totalKM = 0
+    @State var totalFee = 0
     var body: some View {
         NavigationStack {
             VStack{
@@ -22,7 +24,7 @@ struct DrivingInfoListView: View {
                     //TODO: filter
                 }
                 .padding()
-                SelectionBlockView(selectedMonth: $month, selectedYear: $year)
+                SelectionBlockView(selectedMonth: $month, selectedYear: $year, totalTrip: drivingInfoViewModel.drivingInfos.count, totalKM: totalKM, totalFee: totalFee)
                     .padding(.bottom, 5)
                 if drivingInfoViewModel.drivingInfos.isEmpty {
                     ZStack{
@@ -36,7 +38,7 @@ struct DrivingInfoListView: View {
                             ForEach(drivingInfoViewModel.drivingInfos) { info in
                                 
                                 NavigationLink {
-                                    DrivingInfoView(drivingInfoViewModel: drivingInfoViewModel, drivingInfo: info)
+                                    DrivingInfoView(drivingInfoViewModel: drivingInfoViewModel, purpose: info.purpose, drivingInfo: info)
                                 } label: {
                                     CardView(drivingInfoViewModel: drivingInfoViewModel, drivingInfo: info)
                                     
@@ -51,15 +53,27 @@ struct DrivingInfoListView: View {
         }
         .task {
             await drivingInfoViewModel.fetchDrivingInfos(targetYear: String(year), targetMonth: String(month))
+            for i in drivingInfoViewModel.drivingInfos {
+                totalKM += i.totalDistance
+                totalFee += (i.tollFee + i.fuelFee + i.depreciation)
+            }
         }
         .onChange(of: month) { newMonth in
             Task{
                 await drivingInfoViewModel.fetchDrivingInfos(targetYear: String(year), targetMonth: String(newMonth))
+                for i in drivingInfoViewModel.drivingInfos {
+                    totalKM += i.totalDistance
+                    totalFee += (i.tollFee + i.fuelFee + i.depreciation)
+                }
             }
         }
         .onChange(of: year) { newYear in
             Task{
                 await drivingInfoViewModel.fetchDrivingInfos(targetYear: String(newYear), targetMonth: String(month))
+                for i in drivingInfoViewModel.drivingInfos {
+                    totalKM += i.totalDistance
+                    totalFee += (i.tollFee + i.fuelFee + i.depreciation)
+                }
             }
         }
     }

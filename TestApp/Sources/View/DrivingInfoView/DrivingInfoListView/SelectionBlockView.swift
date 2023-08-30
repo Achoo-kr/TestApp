@@ -13,6 +13,10 @@ struct SelectionBlockView: View {
     let currentYear = Calendar.current.component(.year, from: Date())
     let currentMonth = Calendar.current.component(.month, from: Date())
     @State private var showDatePicker = false
+    let totalTrip: Int
+    let totalKM: Int
+    let totalFee: Int
+    
     let formatter = NumberFormatter()
 
     var body: some View {
@@ -74,9 +78,9 @@ struct SelectionBlockView: View {
                     .foregroundColor(.lightGray)
                     .padding(.trailing)
                     VStack(alignment: .leading) {
-                        Text("4 건")
-                        Text("100km")
-                        Text("15000원")
+                        Text("\(totalTrip)")
+                        Text("\(totalKM)")
+                        Text("\(totalFee)")
                     }.foregroundColor(.white)
                 }
                 .padding(.leading, 8)
@@ -109,7 +113,7 @@ struct SelectionBlockView: View {
 
 struct SelectionBlockView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionBlockView(selectedMonth: Binding.constant(10), selectedYear: Binding.constant(2023))
+        SelectionBlockView(selectedMonth: Binding.constant(10), selectedYear: Binding.constant(2023), totalTrip: 10, totalKM: 2000,totalFee: 15000)
     }
 }
 
