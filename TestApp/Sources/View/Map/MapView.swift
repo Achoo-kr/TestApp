@@ -11,17 +11,11 @@ struct MapView: View {
     @ObservedObject var mainViewModel: MainViewModel
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @StateObject var coordinator: Coordinator = Coordinator.shared
-    @State var searchText: String = ""
     
     var body: some View {
         ZStack {
             ZStack {
                 VStack(alignment: .leading) {
-                    TextField("도착지를 입력해주세요", text: $searchText)
-                        .textFieldStyle(.roundedBorder)
-                        .padding(.top, 30)
-                        .padding(.horizontal)
-                    Spacer()
                     MapBottomSheet(mainViewModel: mainViewModel, drivingInfoViewModel: drivingInfoViewModel, address: coordinator.address,
                                    currentAddress: coordinator.isLocationDataLoaded ? coordinator.currentAddress[1] : coordinator.currentAddress[0])
                 }
@@ -39,8 +33,6 @@ struct MapView: View {
         }
         .onAppear {
             coordinator.checkIfLocationServicesIsEnabled()
-//            print("현재위치: \(coordinator.userLocation),\n 도착위치: \(coordinator.destination)")
-//            print("도착위치(CGFloat): \(CGFloat(coordinator.destination.0)), \(CGFloat(coordinator.destination.1)))")
         }
     }
 }

@@ -12,7 +12,7 @@ struct DrivingInfoListView: View {
     var body: some View {
         NavigationStack {
             VStack{
-                HStack(alignment: .bottom){
+                HStack(alignment: .center){
                     Text("운행내역")
                         .font(.title2)
                         .bold()

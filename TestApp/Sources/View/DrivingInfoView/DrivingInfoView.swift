@@ -9,16 +9,10 @@ import SwiftUI
 
 struct DrivingInfoView: View {
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let drivingInfo: DrivingInfo
     var body: some View {
         VStack{
-            HStack(alignment: .bottom){
-                Text("운행정보")
-                    .font(.title2)
-                    .bold()
-                Spacer()
-            }
-            .padding()
             VStack(alignment: .leading) {
                 HStack {
                     Text("\(drivingInfo.date)")
@@ -174,6 +168,7 @@ struct DrivingInfoView: View {
                 
             }
             .padding(.horizontal)
+            Spacer()
             //TODO: 저장버튼
             CustomButton(action: {
                 Task {
@@ -188,7 +183,30 @@ struct DrivingInfoView: View {
             }
             .padding(.vertical)
         }
-        //        .navigationTitle("운행정보")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    self.presentationMode.wrappedValue.dismiss()
+                } label: {
+                    ZStack {
+                        Circle()
+                            .stroke(lineWidth: 1)
+                            .frame(width: 25, height: 25)
+                        
+                        Image(systemName: "chevron.left")
+                            .frame(width: 25, height: 25)
+                    }
+                    .foregroundColor(.gray)
+                    
+                }
+            }
+            ToolbarItem(placement: .navigationBarLeading) {
+                Text("운행정보")
+                    .font(.title2)
+                    .bold()
+            }
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 
