@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         if carName == ""{
             CarRegistrationView(carRegVM: carRegVM, mainViewModel: mainVM)
-        }else {
+        } else {
             VStack {
                 TabView(selection: self.$viewModel.selectedTab) {
                     MainView(viewModel: mainVM, drivingInfoViewModel: drivingInfoViewModel)

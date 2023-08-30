@@ -13,7 +13,7 @@ struct MapBottomSheet: View {
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @StateObject var coordinator: Coordinator = Coordinator.shared
     //@StateObject var mainViewModel: MainViewModel
-    
+    @State private var isStartedNavi: Bool = false
     var address: String
     var currentAddress: String
     let currentDate: Date = Date()
@@ -47,20 +47,31 @@ struct MapBottomSheet: View {
                 }
                 
                 HStack {
-                    CustomButton {
-                        mainViewModel.active = true
-                        mainViewModel.startAddress = coordinator.currentAddress[1]
-                        Task {
-                            let id = UUID().uuidString
-                            await drivingInfoViewModel.saveStartDrivingInfo(id: id, drivingInfo: DrivingInfo(id: id, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
-                            drivingInfoViewModel.recentRef = id
-                            
-                            print("시작시점 경로:\(drivingInfoViewModel.recentRef)")
+                    if isStartedNavi {
+                        CustomButton {
+                            mainViewModel.active = true
+                            mainViewModel.startAddress = coordinator.currentAddress[1]
+                            Task {
+                                let id = UUID().uuidString
+                                await drivingInfoViewModel.saveStartDrivingInfo(id: id, drivingInfo: DrivingInfo(id: id, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
+                                drivingInfoViewModel.recentRef = id
+                                
+                                print("시작시점 경로:\(drivingInfoViewModel.recentRef)")
+                            }
+                            isStartedNavi.toggle()
+                        } content: {
+                             Text("안내시작")
                         }
-                    } content: {
-                        Text("안내시작")
+                    } else {
+                        CustomButton {
+                            coordinator.createRoute()
+                            isStartedNavi.toggle()
+                        } content: {
+                            Text("길찾기")
+                        }
                     }
                 }
+                
                 Spacer()
             }
             .font(.title3)
@@ -75,7 +86,7 @@ struct MapBottomSheet: View {
                         print("alert 태스크 진입")
                         print("종료시점 경로:\(drivingInfoViewModel.recentRef)")
                         await drivingInfoViewModel.saveEndDrivingInfo(["endAddress":endAddress])
-
+                        
                     }
                 } label: {
                     Text("확인")

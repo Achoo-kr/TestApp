@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import UIKit
+import SwiftUI
+import CoreLocation
 import KakaoMapsSDK
 import KakaoMapsSDK_SPM
 
@@ -29,7 +31,7 @@ struct KakaoMapWrapper: UIViewRepresentable {
 final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapReverseGeoCoderDelegate, CLLocationManagerDelegate {
     static let shared = Coordinator()
     
-    let view = MTMapView(frame: .zero)
+    var view = MTMapView(frame: .zero)
     var locationManager: CLLocationManager?
     var geoCoder: MTMapReverseGeoCoder!
     var currentGeoCoder: MTMapReverseGeoCoder!
@@ -40,7 +42,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
     @Published var startAddress: String = ""
     @Published var currentAddress: [String] = ["서울 중구 태평로1가 31"]
     @Published var isLocationDataLoaded: Bool = false
-
+    
     override init() {
         super.init()
         view.showCurrentLocationMarker = true
@@ -86,7 +88,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
             userLocation = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
             print("LocationManager-userLocation: \(userLocation)")
             fetchCurrentUserLocation()
-//            isLocationDataLoaded = true
+            //            isLocationDataLoaded = true
         @unknown default:
             break
         }
@@ -163,6 +165,20 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
         mtMapReverseGeoCoder(geoCoder, foundAddress: address)
     }
     
+    // 경로 검색 결과 처리
+    func createRoute() {
+        if let startLocation = MTMapPoint(geoCoord: MTMapPointGeo(latitude: userLocation.0, longitude: userLocation.1)), let endLocation = MTMapPoint(geoCoord: MTMapPointGeo(latitude: destination.0, longitude: destination.1)) {
+            let patternPolyline = MTMapPolyline()
+            patternPolyline.add(startLocation)
+            patternPolyline.add(endLocation)
+            //            patternPolyline.drawType = .dash // 패턴 적용
+            //            patternPolyline.patternIcon = UIImage(named: "pattern_icon") // 패턴 이미지 설정
+            
+            view.addPolyline(patternPolyline)
+        }
+    }
+    
+    
     // MARK: - 마커 생성 메서드
     func makeMarker(at mapPoint: MTMapPoint) {
         //
@@ -172,7 +188,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
     func mapView(_ mapView: MTMapView!, touchedCalloutBalloonOf poiItem: MTMapPOIItem!) {
         //
     }
-    
-    // kakaomap://route?sp=37.537229,127.005515&ep=37.4979502,127.0276368&by=CAR
-    // https://roniruny.tistory.com/171
 }
+// kakaomap://route?sp=37.537229,127.005515&ep=37.4979502,127.0276368&by=CAR
+// https://roniruny.tistory.com/171
+
