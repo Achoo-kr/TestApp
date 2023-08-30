@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MapView: View {
     @ObservedObject var mainViewModel: MainViewModel
+    @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @State var searchText: String = ""
     
@@ -21,7 +22,7 @@ struct MapView: View {
                         .padding(.top, 30)
                         .padding(.horizontal)
                     Spacer()
-                    MapBottomSheet(mainViewModel: mainViewModel, address: coordinator.address,
+                    MapBottomSheet(mainViewModel: mainViewModel, drivingInfoViewModel: drivingInfoViewModel, address: coordinator.address,
                                    currentAddress: coordinator.isLocationDataLoaded ? coordinator.currentAddress[1] : coordinator.currentAddress[0])
                 }
             }
@@ -46,6 +47,6 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(mainViewModel: MainViewModel())
+        MapView(mainViewModel: MainViewModel(), drivingInfoViewModel: DrivingInfoViewModel())
     }
 }

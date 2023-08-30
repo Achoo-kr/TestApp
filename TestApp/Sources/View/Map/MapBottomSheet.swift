@@ -10,7 +10,7 @@ import SwiftUI
 struct MapBottomSheet: View {
     
     @ObservedObject var mainViewModel: MainViewModel
-    @StateObject var drivingInfoViewModel = DrivingInfoViewModel()
+    @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @StateObject var coordinator: Coordinator = Coordinator.shared
     //@StateObject var mainViewModel: MainViewModel
     
@@ -52,8 +52,10 @@ struct MapBottomSheet: View {
                         mainViewModel.startAddress = coordinator.currentAddress[1]
                         Task {
                             let id = UUID().uuidString
-                            await drivingInfoViewModel.saveStartDrivingInfo(drivingInfo: DrivingInfo(id: id, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
+                            await drivingInfoViewModel.saveStartDrivingInfo(id: id, drivingInfo: DrivingInfo(id: id, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
                             drivingInfoViewModel.recentRef = id
+                            
+                            print("시작시점 경로:\(drivingInfoViewModel.recentRef)")
                         }
                     } content: {
                         Text("안내시작")
@@ -65,12 +67,15 @@ struct MapBottomSheet: View {
             .padding(10)
             .alert(
                 "주행종료",
-                isPresented: $drivingInfoViewModel.showAlert
+                isPresented: $mainViewModel.showAlert
             ) {
                 Button {
                     let endAddress: String = coordinator.currentAddress[1]
                     Task {
+                        print("alert 태스크 진입")
+                        print("종료시점 경로:\(drivingInfoViewModel.recentRef)")
                         await drivingInfoViewModel.saveEndDrivingInfo(["endAddress":endAddress])
+
                     }
                 } label: {
                     Text("확인")
@@ -90,7 +95,7 @@ struct MapBottomSheet_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color(.systemGray)
-            MapBottomSheet(mainViewModel: MainViewModel(), address: "Test", currentAddress: "Test")
+            MapBottomSheet(mainViewModel: MainViewModel(), drivingInfoViewModel: DrivingInfoViewModel(), address: "Test", currentAddress: "Test")
         }
         
     }

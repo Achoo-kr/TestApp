@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel: AppViewModel
     @ObservedObject var mainVM: MainViewModel
+    @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @StateObject var carRegVM = CarRegistrationViewModel()
     @AppStorage("carName") var carName: String = ""
     
@@ -20,7 +21,7 @@ struct ContentView: View {
         }else {
             VStack {
                 TabView(selection: self.$viewModel.selectedTab) {
-                    MainView(viewModel: mainVM)
+                    MainView(viewModel: mainVM, drivingInfoViewModel: drivingInfoViewModel)
                         .tabItem {
                             VStack{
                                 Image(systemName: "car")
@@ -55,6 +56,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: AppViewModel(), mainVM: MainViewModel())
+        ContentView(viewModel: AppViewModel(), mainVM: MainViewModel(), drivingInfoViewModel: DrivingInfoViewModel())
     }
 }

@@ -11,6 +11,7 @@ struct MainView: View {
     
     @StateObject private var coordinator: Coordinator = Coordinator.shared
     @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     
     var body: some View {
         if viewModel.active {
@@ -25,13 +26,13 @@ struct MainView: View {
             .toolbar(.hidden, for: .tabBar)
             .edgesIgnoringSafeArea(.all)
         } else {
-            MapView(mainViewModel: viewModel)
+            MapView(mainViewModel: viewModel, drivingInfoViewModel: drivingInfoViewModel)
         }
     }
 }
 
 struct TestNavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: MainViewModel())
+        MainView(viewModel: MainViewModel(), drivingInfoViewModel: DrivingInfoViewModel())
     }
 }

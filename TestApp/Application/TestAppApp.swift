@@ -22,6 +22,7 @@ struct TestAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var mainViewModel = MainViewModel()
     @StateObject var appViewModel = AppViewModel()
+    @StateObject var drivingInfoViewModel = DrivingInfoViewModel()
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color.white)
@@ -30,7 +31,7 @@ struct TestAppApp: App {
     var body: some Scene {
         
         WindowGroup {
-            ContentView(viewModel: appViewModel, mainVM: mainViewModel)
+            ContentView(viewModel: appViewModel, mainVM: mainViewModel, drivingInfoViewModel: drivingInfoViewModel)
         }
     }
 }
