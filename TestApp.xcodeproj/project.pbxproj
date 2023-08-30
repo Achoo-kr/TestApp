@@ -25,6 +25,7 @@
 		276744272A97DF2200784C9D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 276744262A97DF2200784C9D /* FirebaseFirestoreSwift */; };
 		276744292A97DF2200784C9D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 276744282A97DF2200784C9D /* FirebaseStorage */; };
 		2767442B2A97DF2200784C9D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2767442A2A97DF2200784C9D /* FirebaseStorageCombine-Community */; };
+		277189602A9F92320075BEC9 /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771895F2A9F92320075BEC9 /* MapSearchView.swift */; };
 		27725F712A9D017D00C2C6CA /* KNSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 27725F702A9D017D00C2C6CA /* KNSDK */; };
 		27725F752A9D2B8800C2C6CA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27725F742A9D2B8800C2C6CA /* MainView.swift */; };
 		27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D752A879B04005E4856 /* Coordinate.swift */; };
@@ -125,6 +126,7 @@
 		2734BF812A8FCC260009FBA9 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		2734BF832A8FCC2D0009FBA9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2734BF882A8FCE8C0009FBA9 /* TestApp_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestApp_Bridging_Header.h; sourceTree = "<group>"; };
+		2771895F2A9F92320075BEC9 /* MapSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchView.swift; sourceTree = "<group>"; };
 		27725F742A9D2B8800C2C6CA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		27860E0C2A8FDBB300D76697 /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		278866D02A99E0FF00C4947C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				364B6D892A879D0E005E4856 /* MapView.swift */,
+				2771895F2A9F92320075BEC9 /* MapSearchView.swift */,
 				278866D42A9A37A300C4947C /* MapBottomSheet.swift */,
 				2712FEB72A98D3C600795346 /* MapSearchBar.swift */,
 				27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */,
@@ -591,6 +594,7 @@
 				27162B7E2A9CFDC100AEFD3A /* TestNaviView.swift in Sources */,
 				366E1DB62A9976E700C8EB13 /* CarRegistrationView.swift in Sources */,
 				364B6D912A879EEB005E4856 /* NavView.swift in Sources */,
+				277189602A9F92320075BEC9 /* MapSearchView.swift in Sources */,
 				36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */,
 				36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */,
 				366E1DD02A9DC61500C8EB13 /* DrivingInfoListView.swift in Sources */,
