@@ -46,28 +46,44 @@ class DrivingInfoViewModel: ObservableObject {
         }
     }
     
-    //TODO: 운행날짜도 포함시켜서 filter 넣어줘야함 + 운행목적 + 총운행거리
-    func fetchDrivingInfos() async {
+    func fetchDrivingInfos(targetYear: String, targetMonth: String) async {
         let documentRef = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
         
         documentRef.addSnapshotListener { snapshot, error in
             if let error = error {
                 print(error.localizedDescription)
+                return
             }
             
             guard let documents = snapshot?.documents else {
                 print("스냅샷 Nil")
                 return
             }
+            
             self.drivingInfos = []
             documents.forEach { content in
                 do {
                     var drivingInfo = try Firestore.Decoder().decode(DrivingInfo.self, from: content.data())
-                    self.drivingInfos.append(drivingInfo)
+                    
+                    // 여기서 date를 분리하여 년도와 월을 추출
+                    let dateComponents = drivingInfo.date.split(separator: ".")
+                    if dateComponents.count >= 2 {
+                        let year = String(dateComponents[0])
+                        if let monthInt = Int(dateComponents[1]) { // Int로 변환
+                            let month = String(monthInt) // 다시 String으로 변환
+                            
+                            // 년도와 월이 일치하는지 확인
+                            if year == targetYear && month == targetMonth {
+                                self.drivingInfos.append(drivingInfo)
+                            }
+                        }
+                    }
+                    
                 } catch {
                     print("저장 실패")
                 }
             }
         }
     }
+
 }

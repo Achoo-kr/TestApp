@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct SelectionBlockView: View {
+    @Binding var selectedMonth: Int
+    @Binding var selectedYear: Int
+    let currentYear = Calendar.current.component(.year, from: Date())
+    let currentMonth = Calendar.current.component(.month, from: Date())
+    @State private var showDatePicker = false
+    let formatter = NumberFormatter()
+
     var body: some View {
         ZStack(alignment: .leading){
             Rectangle()
@@ -15,48 +22,49 @@ struct SelectionBlockView: View {
                 .foregroundColor(.representColor)
             
             HStack {
+                Spacer()
                 VStack {
-                    Text("2023")
+                    Text(formatter.string(from: NSNumber(value: selectedYear)) ?? "")
                         .foregroundColor(.white)
                         .padding(.bottom, 1)
                     HStack {
                         Button {
-                            //
+                            if selectedMonth > 1 {
+                                selectedMonth -= 1
+                            }
                         } label: {
                             Image(systemName: "arrowtriangle.left.fill")
                                 .foregroundColor(.lightGray)
                                 .frame(width: 8)
                         }
-                        .padding(8)
-                        
                         
                         Button {
-                            //
+                            showDatePicker = true
                         } label: {
-                            Text("8월")
+                            Text("\(selectedMonth)월")
                                 .font(.title)
                                 .bold()
                                 .foregroundColor(.white)
                         }
-                        .padding(8)
+                        .padding(.horizontal, 8)
                         
                         Button {
-                            //
+                            if selectedMonth < 12 {
+                                selectedMonth += 1
+                            }
                         } label: {
                             Image(systemName: "arrowtriangle.right.fill")
                                 .foregroundColor(.lightGray)
                                 .frame(width: 8)
                         }
-                        .padding(8)
                     }
                 }
-                .padding(.leading, 20)
-                
+                Spacer()
                 Rectangle()
                     .frame(width: 1, height: 60)
                     .foregroundColor(.gray)
-                    .padding()
-                
+                    .padding(.leading)
+                Spacer()
                 HStack {
                     VStack(alignment: .leading) {
                         Text("운행기록")
@@ -72,15 +80,62 @@ struct SelectionBlockView: View {
                     }.foregroundColor(.white)
                 }
                 .padding(.leading, 8)
+                Spacer()
             }
         }
         .frame(height: 100)
         .padding()
+        .sheet(isPresented: $showDatePicker) {
+            VStack{
+                CustomDatePicker(selectedMonth: $selectedMonth, selectedYear: $selectedYear)
+
+                    Button {
+                        showDatePicker = false
+                    } label: {
+                        Text("닫기")
+                    }
+
+            }
+            .presentationDetents([
+                .fraction(0.2), // 임의 비율
+            ])
+            // DragIndicatior 비활성화
+            .presentationDragIndicator(.hidden)
+            // 인터랙션 비활성화
+            .interactiveDismissDisabled()
+        }
     }
 }
 
 struct SelectionBlockView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionBlockView()
+        SelectionBlockView(selectedMonth: Binding.constant(10), selectedYear: Binding.constant(2023))
+    }
+}
+
+
+struct CustomDatePicker: View {
+    @Binding var selectedMonth: Int
+    @Binding var selectedYear: Int
+    
+    let currentYear = Calendar.current.component(.year, from: Date())
+    
+    var body: some View {
+        HStack {
+            Picker("Year", selection: $selectedYear) {
+                ForEach(currentYear - 10..<currentYear + 1) { year in
+                    Text(String(year)).tag(year)
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
+            
+            Picker("Month", selection: $selectedMonth) {
+                ForEach(1..<13) { month in
+                    Text(String(month)).tag(month)
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
+        }
+        
     }
 }

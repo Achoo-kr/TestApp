@@ -14,7 +14,7 @@ struct DownloadedHistoryView: View {
             DownloadedHistoryRow()
             DownloadedHistoryRow()
         }
-        
+        Spacer()
         CustomButton {
             //
         } content: {

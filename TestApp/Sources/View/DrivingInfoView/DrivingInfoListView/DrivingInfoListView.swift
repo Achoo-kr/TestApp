@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DrivingInfoListView: View {
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
+    @State var month: Int
+    @State var year: Int
     var body: some View {
         NavigationStack {
             VStack{
@@ -17,28 +19,48 @@ struct DrivingInfoListView: View {
                         .font(.title2)
                         .bold()
                     Spacer()
-                //TODO: filter
+                    //TODO: filter
                 }
                 .padding()
-                SelectionBlockView()
+                SelectionBlockView(selectedMonth: $month, selectedYear: $year)
                     .padding(.bottom, 5)
-                ScrollView {
-                    ForEach(drivingInfoViewModel.drivingInfos) { info in
-                        
-                        NavigationLink {
-                            DrivingInfoView(drivingInfoViewModel: drivingInfoViewModel, drivingInfo: info)
-                        } label: {
-                            CardView(drivingInfoViewModel: drivingInfoViewModel, drivingInfo: info)
-                            
-                        }
-                        .padding(.bottom, 5)
+                if drivingInfoViewModel.drivingInfos.isEmpty {
+                    ZStack{
+                        Color.gray.opacity(0.3)
+                        Text("작성된 운행기록이 없습니다")
+                            .foregroundColor(.gray)
                     }
+                } else {
+                    ScrollView {
+                        LazyVStack{
+                            ForEach(drivingInfoViewModel.drivingInfos) { info in
+                                
+                                NavigationLink {
+                                    DrivingInfoView(drivingInfoViewModel: drivingInfoViewModel, drivingInfo: info)
+                                } label: {
+                                    CardView(drivingInfoViewModel: drivingInfoViewModel, drivingInfo: info)
+                                    
+                                }
+                                .padding(.bottom, 5)
+                            }
+                        }
+                    }
+                    .foregroundColor(.black)
                 }
-                .foregroundColor(.black)
             }
         }
         .task {
-            await drivingInfoViewModel.fetchDrivingInfos()
+            await drivingInfoViewModel.fetchDrivingInfos(targetYear: String(year), targetMonth: String(month))
+        }
+        .onChange(of: month) { newMonth in
+            Task{
+                await drivingInfoViewModel.fetchDrivingInfos(targetYear: String(year), targetMonth: String(newMonth))
+            }
+        }
+        .onChange(of: year) { newYear in
+            Task{
+                await drivingInfoViewModel.fetchDrivingInfos(targetYear: String(newYear), targetMonth: String(month))
+            }
         }
     }
 }

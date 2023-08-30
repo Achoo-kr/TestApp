@@ -14,6 +14,8 @@ struct ContentView: View {
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @StateObject var carRegVM = CarRegistrationViewModel()
     @AppStorage("carName") var carName: String = ""
+    let currentYear = Calendar.current.component(.year, from: Date())
+    let currentMonth = Calendar.current.component(.month, from: Date())
     
     var body: some View {
         if carName == ""{
@@ -30,7 +32,7 @@ struct ContentView: View {
                             .foregroundColor(.representColor)
                         }
                         .tag(Tab.one)
-                    DrivingInfoListView(drivingInfoViewModel: drivingInfoViewModel)
+                    DrivingInfoListView(drivingInfoViewModel: drivingInfoViewModel, month: currentMonth, year: currentYear)
                         .tabItem {
                             VStack{
                                 Image(systemName: "square.text.square.fill")
