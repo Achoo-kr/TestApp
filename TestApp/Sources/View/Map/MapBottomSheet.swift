@@ -23,6 +23,12 @@ struct MapBottomSheet: View {
         let currentTime = formatter.string(from: currentDate)
         return currentTime
     }
+    var drivingDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd.(E)"
+        let drivingDate = formatter.string(from: currentDate)
+        return drivingDate
+    }
     
     var body: some View {
         ZStack {
@@ -53,7 +59,7 @@ struct MapBottomSheet: View {
                             mainViewModel.startAddress = coordinator.currentAddress[1]
                             Task {
                                 let id = UUID().uuidString
-                                await drivingInfoViewModel.saveStartDrivingInfo(id: id, drivingInfo: DrivingInfo(id: id, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
+                                await drivingInfoViewModel.saveStartDrivingInfo(id: id, drivingInfo: DrivingInfo(id: id, date: drivingDate, purpose: "", totalDistance: 0, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
                                 drivingInfoViewModel.recentRef = id
                                 
                                 print("시작시점 경로:\(drivingInfoViewModel.recentRef)")
@@ -85,7 +91,7 @@ struct MapBottomSheet: View {
                     Task {
                         print("alert 태스크 진입")
                         print("종료시점 경로:\(drivingInfoViewModel.recentRef)")
-                        await drivingInfoViewModel.saveEndDrivingInfo(["endAddress":endAddress])
+                        await drivingInfoViewModel.saveEndDrivingInfo(["endAddress":endAddress,"endTime":currentTime])
                         
                     }
                 } label: {

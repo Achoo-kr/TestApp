@@ -17,6 +17,11 @@ class DrivingInfoViewModel: ObservableObject {
     @Published var drivingInfos: [DrivingInfo] = []
     @Published var recentRef: String = ""
     
+    /*
+     let date: String
+     let purpose: String
+     let totalDistance: Int
+     */
     
     func saveStartDrivingInfo(id: String, drivingInfo: DrivingInfo) async {
         let documents = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
@@ -32,7 +37,7 @@ class DrivingInfoViewModel: ObservableObject {
     
     func saveEndDrivingInfo(_ updatedField:[String:Any]) async {
         let documents = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo").document(recentRef)
-        await documents.updateData(updatedField) { error in
+        await documents.setData(updatedField, merge: true) { error in
             if let error = error {
                 print(error.localizedDescription)
             } else {
@@ -40,6 +45,7 @@ class DrivingInfoViewModel: ObservableObject {
             }
         }
     }
+    
     //TODO: 운행날짜도 포함시켜서 filter 넣어줘야함 + 운행목적 + 총운행거리
     func fetchDrivingInfos() async {
         let documentRef = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
