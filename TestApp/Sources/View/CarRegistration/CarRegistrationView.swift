@@ -15,6 +15,7 @@ struct CarRegistrationView: View {
     @State private var ownerName: String = ""
     @State private var isShowingAlert: Bool = false
     @AppStorage("carName") var carName: String = ""
+    @AppStorage("carReg") var carReg: String = ""
     
     var body: some View {
         ZStack{
@@ -54,11 +55,12 @@ struct CarRegistrationView: View {
                             if let name = carName {
                                 print("차이름: \(name)")
                                 self.carName = name
+                                self.carReg = carNum
                             } else {
                                 print("차 이름을 가져오지 못했습니다.")
                             }
                         }
-                        mainViewModel.createUser(user: UserInfo(id: UUID().uuidString,
+                        mainViewModel.createUser(user: UserInfo(id: carNum,
                                                                 ownerName: ownerName,
                                                                 carNumber: carNum))
                     }) {
