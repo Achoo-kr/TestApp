@@ -30,7 +30,7 @@ struct ContentView: View {
                             .foregroundColor(.representColor)
                         }
                         .tag(Tab.one)
-                    DrivingInfoListView()
+                    DrivingInfoListView(drivingInfoViewModel: drivingInfoViewModel)
                         .tabItem {
                             VStack{
                                 Image(systemName: "square.text.square.fill")

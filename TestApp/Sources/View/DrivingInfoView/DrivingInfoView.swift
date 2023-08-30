@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DrivingInfoView: View {
+    @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
+    let drivingInfo: DrivingInfo
     var body: some View {
         VStack{
             VStack(alignment: .leading) {
@@ -54,13 +56,13 @@ struct DrivingInfoView: View {
                                 Text("출발지")
                                     .foregroundColor(.lightGray)
                                     .font(.subheadline)
-                                Text("서울특별시 양천구 목동서로 133-2")
+                                Text(drivingInfo.startAddress)
                                     .font(.subheadline)
                                     .padding(.bottom)
                                 Text("도착지")
                                     .foregroundColor(.lightGray)
                                     .font(.subheadline)
-                                Text("경기도 성남시 분당구 판교역로 152")
+                                Text(drivingInfo.endAddress)
                                     .font(.subheadline)
                             }
                             VStack{
@@ -119,7 +121,7 @@ struct DrivingInfoView: View {
                                     Image(systemName: "square.and.pencil")
                                 }
                                 .foregroundColor(.gray)
-                                Text("3,000원")
+                                Text("\(drivingInfo.tollFee)")
                                     .bold()
                                     .font(.title3)
                                     .foregroundColor(.black)
@@ -139,7 +141,7 @@ struct DrivingInfoView: View {
                                     Image(systemName: "square.and.pencil")
                                 }
                                 .foregroundColor(.gray)
-                                Text("3,000원")
+                                Text("\(drivingInfo.fuelFee)")
                                     .bold()
                                     .font(.title3)
                                     .foregroundColor(.black)
@@ -159,7 +161,7 @@ struct DrivingInfoView: View {
                                     Image(systemName: "square.and.pencil")
                                 }
                                 .foregroundColor(.gray)
-                                Text("0원")
+                                Text("\(drivingInfo.depreciation)")
                                     .bold()
                                     .font(.title3)
                                     .foregroundColor(.black)
@@ -171,11 +173,10 @@ struct DrivingInfoView: View {
                 
             }
             .padding()
-            //버튼 나중에 뿌려주는 식으로
+            //TODO: 저장버튼
             CustomButton(action: {
-                print("첫 번째 버튼이 눌렸습니다.")
             }) {
-                Text("첫 번째 버튼")
+                Text("저장하기")
             }
             .padding(.vertical)
         }
@@ -185,6 +186,6 @@ struct DrivingInfoView: View {
 
 struct DrivingInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DrivingInfoView()
+        DrivingInfoView(drivingInfoViewModel: DrivingInfoViewModel(), drivingInfo: DrivingInfo(id: "", startAddress: "출발", startTime: "15:33", endAddress: "도착", endTime: "13:33", fuelFee: 123, tollFee: 123, depreciation: 123))
     }
 }
