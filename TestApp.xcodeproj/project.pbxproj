@@ -33,6 +33,7 @@
 		278866D52A9A37A300C4947C /* MapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278866D42A9A37A300C4947C /* MapBottomSheet.swift */; };
 		27B2A3782A9A6D010070BB57 /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 27B2A3772A9A6D010070BB57 /* KakaoMapsSDK_SPM */; };
 		27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */; };
+		3636F0652A9F6DCB00012CC6 /* EditChargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636F0642A9F6DCB00012CC6 /* EditChargeView.swift */; };
 		364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D632A879A67005E4856 /* TestAppApp.swift */; };
 		364B6D662A879A67005E4856 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D652A879A67005E4856 /* ContentView.swift */; };
 		364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D772A879B14005E4856 /* DrivingInfo.swift */; };
@@ -129,6 +130,7 @@
 		278866D02A99E0FF00C4947C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		278866D42A9A37A300C4947C /* MapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomSheet.swift; sourceTree = "<group>"; };
 		27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapWrapper.swift; sourceTree = "<group>"; };
+		3636F0642A9F6DCB00012CC6 /* EditChargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChargeView.swift; sourceTree = "<group>"; };
 		364B6D602A879A67005E4856 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364B6D632A879A67005E4856 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
 		364B6D652A879A67005E4856 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -273,6 +275,14 @@
 				2734BF772A8FCBFA0009FBA9 /* OpenGLES.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3636F0632A9F6DA800012CC6 /* EditChargeView */ = {
+			isa = PBXGroup;
+			children = (
+				3636F0642A9F6DCB00012CC6 /* EditChargeView.swift */,
+			);
+			path = EditChargeView;
 			sourceTree = "<group>";
 		};
 		364B6D572A879A67005E4856 = {
@@ -446,6 +456,7 @@
 		36E13B562A90EB57001EA6AB /* DrivingInfoView */ = {
 			isa = PBXGroup;
 			children = (
+				3636F0632A9F6DA800012CC6 /* EditChargeView */,
 				366E1DCE2A9DC5EE00C8EB13 /* DrivingInfoListView */,
 				36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */,
 				36E13B602A90EBF8001EA6AB /* CustomButton.swift */,
@@ -552,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				366E1DD42A9DD93C00C8EB13 /* DownloadHistoryView.swift in Sources */,
+				3636F0652A9F6DCB00012CC6 /* EditChargeView.swift in Sources */,
 				366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */,
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,

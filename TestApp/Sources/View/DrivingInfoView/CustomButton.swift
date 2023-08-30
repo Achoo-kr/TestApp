@@ -22,7 +22,7 @@ struct CustomButton<Content: View>: View {
                 .font(.title2)
                 .bold()
         }
-        .frame(height: 70)
+        .frame(height: 60)
         .padding(.horizontal, 110)
         .background(Color.representColor)
         .foregroundColor(Color.white)
