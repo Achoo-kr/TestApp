@@ -32,6 +32,7 @@ struct TestAppApp: App {
         
         WindowGroup {
             ContentView(viewModel: appViewModel, mainVM: mainViewModel, drivingInfoViewModel: drivingInfoViewModel)
+//            RouteView()
         }
     }
 }
