@@ -13,6 +13,15 @@ struct DrivingHistoryView: View {
     var body: some View {
         
         VStack {
+            HStack(alignment: .bottom){
+                Text("운행일지")
+                    .font(.title2)
+                    .bold()
+                Spacer()
+            //TODO: filter
+            }
+            .padding()
+            
             CustomSegmentedControl(preselectedIndex: $selectedNum, options: options)
             
             if selectedNum == 0 {

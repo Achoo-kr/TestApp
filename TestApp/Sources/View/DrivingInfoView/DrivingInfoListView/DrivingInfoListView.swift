@@ -21,7 +21,7 @@ struct DrivingInfoListView: View {
                 }
                 .padding()
                 SelectionBlockView()
-                    .padding(.vertical, 5)
+                    .padding(.bottom, 5)
                 ScrollView {
                     ForEach(drivingInfoViewModel.drivingInfos) { info in
                         
@@ -31,7 +31,7 @@ struct DrivingInfoListView: View {
                             CardView(drivingInfoViewModel: drivingInfoViewModel, drivingInfo: info)
                             
                         }
-                        .padding(.vertical, 13)
+                        .padding(.bottom, 5)
                     }
                 }
                 .foregroundColor(.black)
@@ -43,8 +43,8 @@ struct DrivingInfoListView: View {
     }
 }
 
-struct DrivingInfoListView_Previews: PreviewProvider {
-    static var previews: some View {
-        DrivingInfoListView(drivingInfoViewModel: DrivingInfoViewModel())
-    }
-}
+//struct DrivingInfoListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DrivingInfoListView(drivingInfoViewModel: DrivingInfoViewModel())
+//    }
+//}

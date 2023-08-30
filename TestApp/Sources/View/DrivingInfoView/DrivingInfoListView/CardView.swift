@@ -49,10 +49,10 @@ struct CardView: View {
                                 .font(.subheadline)
                         }
                     }
-                    .padding(.bottom)
+                    .padding(.bottom, 7)
                     .padding(.horizontal, 20)
                     
-                    HStack {
+                    HStack(alignment: .center) {
                         HStack {
                             Image(systemName: "car.circle.fill")
                             Text("총 운행 " + "" + "km")
@@ -83,11 +83,10 @@ struct CardView: View {
                         .padding()
 
                     }
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 7)
                 }
             }
-            .frame(height: 214)
-            .padding()
+            .padding(.horizontal)
     }
 }
 

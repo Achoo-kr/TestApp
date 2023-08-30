@@ -14,6 +14,12 @@ struct DownloadedHistoryView: View {
             DownloadedHistoryRow()
             DownloadedHistoryRow()
         }
+        
+        CustomButton {
+            //
+        } content: {
+            Text("전송")
+        }
     }
 }
 

@@ -12,6 +12,13 @@ struct DrivingInfoView: View {
     let drivingInfo: DrivingInfo
     var body: some View {
         VStack{
+            HStack(alignment: .bottom){
+                Text("운행정보")
+                    .font(.title2)
+                    .bold()
+                Spacer()
+            }
+            .padding()
             VStack(alignment: .leading) {
                 HStack {
                     Text("2023.08.18(금)")
@@ -172,7 +179,7 @@ struct DrivingInfoView: View {
                 }
                 
             }
-            .padding()
+            .padding(.horizontal)
             //TODO: 저장버튼
             CustomButton(action: {
             }) {
