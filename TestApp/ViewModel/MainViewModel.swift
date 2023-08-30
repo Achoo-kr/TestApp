@@ -4,7 +4,7 @@
 //
 //  Created by 추현호 on 2023/08/12.
 //
-
+import SwiftUI
 import Foundation
 import Combine
 import CoreLocation
@@ -13,6 +13,8 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class MainViewModel: ObservableObject {
+    
+    @AppStorage("carReg") var carReg: String = ""
     
     @Published var searchText: String = ""
     @Published var active: Bool = false
@@ -35,9 +37,9 @@ class MainViewModel: ObservableObject {
     // MARK: - User 생성
     func createUser(user: UserInfo) {
         Firestore.firestore().collection("Users")
-            .document(user.id)
+            .document(user.carNumber)
             .setData([
-                "id": user.id,
+                "id": user.carNumber,
                 "ownerName": user.ownerName,
                 "carNumber": user.carNumber
             ]) { err in
@@ -50,36 +52,36 @@ class MainViewModel: ObservableObject {
     }
     
     // MARK: - User Data 불러오기
-    func getUserData() async -> String {
-        var userId: String = ""
-        do {
-            let documents = try await Firestore.firestore().collection("Users").getDocuments()
-            for document in documents.documents {
-                let docData = document.data()
-                // 있는지를 따져서 있으면 데이터 넣어주고, 없으면 옵셔널 처리
-                
-                let id : String = document.documentID
-                let ownerName: String = docData["ownerName"] as? String ?? ""
-                let carNumber : String = docData["carNumber"] as? String ?? ""
-                //                let start : GeoPoint = docData["start"] as? GeoPoint ?? GeoPoint(latitude: 0, longitude: 0)
-                //                let end : GeoPoint = docData["end"] as? GeoPoint ?? GeoPoint(latitude: 0, longitude: 0)
-                //                let route : String = docData["route"] as? String ?? ""
-                
-                // 날짜 데이터 포맷
-                //                let timeStampData : Timestamp = document["date"] as? Timestamp ?? Timestamp()
-                //                let date : Date = timeStampData.dateValue()
-                
-                let userData: UserInfo = UserInfo(id: id, ownerName: ownerName, carNumber: carNumber)
-                
-                self.userInfo.append(userData)
-                
-                userId = userData.id
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-        return userId
-    }
+//    func getUserData() async -> String {
+//        var userId: String = ""
+//        do {
+//            let documents = try await Firestore.firestore().collection("Users").document(carReg).getDocument()
+//
+//                let docData = document.data()
+//                // 있는지를 따져서 있으면 데이터 넣어주고, 없으면 옵셔널 처리
+//
+//                let id : String = document.documentID
+//                let ownerName: String = docData["ownerName"] as? String ?? ""
+//                let carNumber : String = docData["carNumber"] as? String ?? ""
+//                //                let start : GeoPoint = docData["start"] as? GeoPoint ?? GeoPoint(latitude: 0, longitude: 0)
+//                //                let end : GeoPoint = docData["end"] as? GeoPoint ?? GeoPoint(latitude: 0, longitude: 0)
+//                //                let route : String = docData["route"] as? String ?? ""
+//
+//                // 날짜 데이터 포맷
+//                //                let timeStampData : Timestamp = document["date"] as? Timestamp ?? Timestamp()
+//                //                let date : Date = timeStampData.dateValue()
+//
+//                let userData: UserInfo = UserInfo(id: id, ownerName: ownerName, carNumber: carNumber)
+//
+//                self.userInfo.append(userData)
+//
+//                userId = userData.id
+//
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//        return userId
+//    }
     
     // MARK: - User Data 추가
     func addUserData() {

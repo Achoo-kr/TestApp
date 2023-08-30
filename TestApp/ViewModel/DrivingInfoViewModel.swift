@@ -6,40 +6,45 @@
 //
 
 import Foundation
+import SwiftUI
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class DrivingInfoViewModel: ObservableObject {
     
+    @AppStorage("carReg") var carReg: String = ""
     @Published var drivingInfo: [DrivingInfo] = []
-    @Published var documentPath: DocumentReference?
+    @Published var recentRef: String = ""
+    @Published var showAlert: Bool = false
     
     init() {
         NotificationCenter.default.addObserver(forName: NSNotification.Name("GuideEnded"), object: nil, queue: .main) { [weak self] (_) in
-            Task {
-                await self?.saveEndDrivingInfo(["endAddress":Coordinator.shared.currentAddress[1]])
-            }
+            self?.showAlert = true
         }
     }
     
-    func saveStartDrivingInfo(userId: String, drivingInfo: DrivingInfo) async {
-        let documents = Firestore.firestore().collection("Users").document(userId).collection("DrivingInfo")
+    func saveStartDrivingInfo(drivingInfo: DrivingInfo) async {
+        let documents = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
         await documents.addDocument(data: drivingInfo.dictionary) { error in
             if let error = error {
                 print(error.localizedDescription)
             } else {
                 print("Success")
-                self.documentPath = documents.document(drivingInfo.id)
+//                self.documentPath = documents.document(drivingInfo.id)
             }
         }
     }
     
     func saveEndDrivingInfo(_ updatedField:[String:Any]) async {
-        do {
-            try? await self.documentPath?.updateData(updatedField)
-        } catch {
-            print(error.localizedDescription)
+        let documents = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo").document(recentRef)
+        await documents.updateData(updatedField) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Success")
+//                self.documentPath = documents.document(drivingInfo.id)
+            }
         }
     }
 }
