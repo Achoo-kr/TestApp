@@ -9,6 +9,9 @@ import Foundation
 
 struct DrivingInfo: Identifiable, Codable {
     let id: String
+    let date: String
+    let purpose: String
+    let totalDistance: Int
     let startAddress: String
     let startTime: String
     let endAddress: String
@@ -18,6 +21,9 @@ struct DrivingInfo: Identifiable, Codable {
     let depreciation: Int
     var dictionary: [String:Any] {
         return ["id": id,
+                "date": date,
+                "purpose": purpose,
+                "totalDistance": totalDistance,
                 "startAddress": startAddress,
                 "startTime": startTime,
                 "endAddress": endAddress,

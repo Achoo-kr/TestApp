@@ -19,13 +19,13 @@ struct CardView: View {
                     .foregroundColor(.paneColor)
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("2023.08.18(금)")
+                        Text("\(drivingInfo.date)")
                             .font(.title2)
                             .bold()
                         Spacer()
                         Text("운행목적")
                             .foregroundColor(.lightGray)
-                        Text("출장")
+                        Text(drivingInfo.purpose.isEmpty ? "미설정" : "\(drivingInfo.purpose)")
                             .foregroundColor(.representColor)
                     }
                     .padding(20)
@@ -92,6 +92,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(drivingInfoViewModel: DrivingInfoViewModel(), drivingInfo: DrivingInfo(id: "", startAddress: "출발", startTime: "15:33", endAddress: "도착", endTime: "13:33", fuelFee: 123, tollFee: 123, depreciation: 123))
+        CardView(drivingInfoViewModel: DrivingInfoViewModel(), drivingInfo: DrivingInfo(id: "", date: "2023.08.30.(수)", purpose: "출장", totalDistance: 0, startAddress: "출발", startTime: "15:33", endAddress: "도착", endTime: "13:33", fuelFee: 123, tollFee: 123, depreciation: 123))
     }
 }
