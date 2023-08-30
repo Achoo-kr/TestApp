@@ -113,7 +113,8 @@ struct MapBottomSheet: View {
                     }
                 } else {
                     CustomButton {
-                        coordinator.createRoute()
+//                        coordinator.createRoute()
+//                        KakaoMapCoordinator.shared.testRouteCreate(startCoordinate: (coordinator.userLocation.1,coordinator.userLocation.0), endCoordinate: (coordinator.destination.1,coordinator.destination.0))
                         isStartedNavi.toggle()
                     } content: {
                         Text("길찾기")

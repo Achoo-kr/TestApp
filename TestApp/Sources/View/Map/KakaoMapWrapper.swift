@@ -35,6 +35,7 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
     var locationManager: CLLocationManager?
     var geoCoder: MTMapReverseGeoCoder!
     var currentGeoCoder: MTMapReverseGeoCoder!
+    var controller: KMController?
     
     @Published var destination: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
@@ -185,7 +186,26 @@ final class Coordinator: NSObject, ObservableObject, MTMapViewDelegate, MTMapRev
         }
     }
     
-    
+    func createRoute(startCoordinate: (Double,Double), endCoordinate: (Double,Double)) {
+        let mapView = controller?.getView("mapview") as! KakaoMap
+        let manager = mapView.getRouteManager()
+        
+        // RouteLayer 생성
+        let layer = manager.addRouteLayer(layerID: "RouteLayer", zOrder: 0)
+        
+        // RouteSegment 생성
+        let segment = RouteSegment(points: [MapPoint(longitude: startCoordinate.1, latitude: startCoordinate.0), MapPoint(longitude: endCoordinate.1, latitude: endCoordinate.0)], styleIndex: 0)
+        // RouteLayer에 RouteSegment 추가
+        if let layer = layer {
+            let routeOptions = RouteOptions(routeID: "routes", styleID: "routeStyleSet1", zOrder: 0)
+            layer.addRoute(option: routeOptions) { route in
+                if let route = route {
+                    // 경로 생성에 성공했을 때, 생성된 경로를 표시합니다.
+                    route.show()
+                }
+            }
+        }
+    }
     // MARK: - 마커 생성 메서드
     func makeMarker(at mapPoint: MTMapPoint) {
         //
