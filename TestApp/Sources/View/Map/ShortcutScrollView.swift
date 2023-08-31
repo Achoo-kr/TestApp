@@ -37,6 +37,7 @@ struct CustomCardButton: View {
 }
 
 struct ShortcutScrollView: View {
+    @Binding var destinationSelected: Bool
     var body: some View {
         VStack{
             HStack{
@@ -55,7 +56,7 @@ struct ShortcutScrollView: View {
                 HStack(spacing: 8) {
                     ForEach(bookMarkList) { bookmark in
                         CustomCardButton(text: bookmark.bookMarkName, imageName: bookmark.bookMarkImage, action: {
-                            //바로 바텀시트 전환 할 수 있도록
+                            destinationSelected = true
                         })
                     }
                 }
@@ -67,6 +68,6 @@ struct ShortcutScrollView: View {
 }
 struct ShortcutScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        ShortcutScrollView()
+        ShortcutScrollView(destinationSelected: Binding.constant(true))
     }
 }

@@ -24,7 +24,7 @@ struct MapSearchView: View {
     // Combine - Debouncing
     @State var keywordPublisher = PassthroughSubject<String, Never>()
     @State var debounceCancellable: AnyCancellable?
-    
+        
     @FocusState var isFocused: Bool
     
     var body: some View {

@@ -36,6 +36,7 @@
 		27B2A3782A9A6D010070BB57 /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 27B2A3772A9A6D010070BB57 /* KakaoMapsSDK_SPM */; };
 		27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */; };
 		3610B7CF2AA07E080025D167 /* BookMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610B7CE2AA07E080025D167 /* BookMark.swift */; };
+		3610B7D12AA08E210025D167 /* MapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610B7D02AA08E210025D167 /* MapBottomSheet.swift */; };
 		3636F0652A9F6DCB00012CC6 /* EditChargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636F0642A9F6DCB00012CC6 /* EditChargeView.swift */; };
 		364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D632A879A67005E4856 /* TestAppApp.swift */; };
 		364B6D662A879A67005E4856 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D652A879A67005E4856 /* ContentView.swift */; };
@@ -46,7 +47,6 @@
 		364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D8D2A879EAC005E4856 /* NavVC.m */; };
 		364B6D912A879EEB005E4856 /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D902A879EEB005E4856 /* NavView.swift */; };
 		364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D922A87A846005E4856 /* MainViewModel.swift */; };
-		366929B42AA04D8800554334 /* AddShorCutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366929B32AA04D8800554334 /* AddShorCutView.swift */; };
 		366929B62AA04E0900554334 /* ShortcutScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366929B52AA04E0900554334 /* ShortcutScrollView.swift */; };
 		366929B82AA0534100554334 /* MapWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366929B72AA0534100554334 /* MapWrapperView.swift */; };
 		366E1DB62A9976E700C8EB13 /* CarRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DB52A9976E700C8EB13 /* CarRegistrationView.swift */; };
@@ -139,6 +139,7 @@
 		278866D02A99E0FF00C4947C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapWrapper.swift; sourceTree = "<group>"; };
 		3610B7CE2AA07E080025D167 /* BookMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMark.swift; sourceTree = "<group>"; };
+		3610B7D02AA08E210025D167 /* MapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomSheet.swift; sourceTree = "<group>"; };
 		3636F0642A9F6DCB00012CC6 /* EditChargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChargeView.swift; sourceTree = "<group>"; };
 		364B6D602A879A67005E4856 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364B6D632A879A67005E4856 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
@@ -154,7 +155,6 @@
 		364B6D8F2A879EC4005E4856 /* NavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavVC.h; sourceTree = "<group>"; };
 		364B6D902A879EEB005E4856 /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
 		364B6D922A87A846005E4856 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		366929B32AA04D8800554334 /* AddShorCutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShorCutView.swift; sourceTree = "<group>"; };
 		366929B52AA04E0900554334 /* ShortcutScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutScrollView.swift; sourceTree = "<group>"; };
 		366929B72AA0534100554334 /* MapWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWrapperView.swift; sourceTree = "<group>"; };
 		366E1DB52A9976E700C8EB13 /* CarRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRegistrationView.swift; sourceTree = "<group>"; };
@@ -421,13 +421,13 @@
 			children = (
 				364B6D892A879D0E005E4856 /* MapView.swift */,
 				366929B52AA04E0900554334 /* ShortcutScrollView.swift */,
-				366929B32AA04D8800554334 /* AddShorCutView.swift */,
 				2771895F2A9F92320075BEC9 /* MapSearchView.swift */,
 				2712FEB72A98D3C600795346 /* MapSearchBar.swift */,
 				27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */,
 				277A1CBC2A9FA81F000C469B /* RouteViewWrapper.swift */,
 				277A1CBE2A9FA839000C469B /* RouteView.swift */,
 				366929B72AA0534100554334 /* MapWrapperView.swift */,
+				3610B7D02AA08E210025D167 /* MapBottomSheet.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -599,6 +599,7 @@
 				3610B7CF2AA07E080025D167 /* BookMark.swift in Sources */,
 				366E1DD22A9DD6B800C8EB13 /* CustomSegmentedControl.swift in Sources */,
 				364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */,
+				3610B7D12AA08E210025D167 /* MapBottomSheet.swift in Sources */,
 				2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */,
 				27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */,
 				27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */,
@@ -606,7 +607,6 @@
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				27725F752A9D2B8800C2C6CA /* MainView.swift in Sources */,
-				366929B42AA04D8800554334 /* AddShorCutView.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
 				366E1DCB2A9A24A800C8EB13 /* AppViewModel.swift in Sources */,
 				364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */,

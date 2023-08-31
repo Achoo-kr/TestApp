@@ -16,9 +16,9 @@ struct MapView: View {
         ZStack {
             if tapSearchBar {
                 MapSearchView(tapSearchBar: $tapSearchBar)
-                    .toolbar(.hidden, for: .tabBar)
-                    .ignoresSafeArea(.all, edges: .bottom)
-                    .zIndex(2)
+                        .toolbar(.hidden, for: .tabBar)
+                        .ignoresSafeArea(.all, edges: .bottom)
+                        .zIndex(2)
                 
             } else {
                 ZStack {
