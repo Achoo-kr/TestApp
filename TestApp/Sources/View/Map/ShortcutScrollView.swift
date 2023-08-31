@@ -35,15 +35,31 @@ struct CustomCardButton: View {
 
 struct ShortcutScrollView: View {
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ForEach(0..<10) { index in
-                    CustomCardButton(text: "집", imageName: "MapMarker", action: {
-                        print("\(index) 버튼을 눌렀습니다.")
-                    })
+        VStack{
+            HStack{
+                Spacer()
+                Button {
+                    //
+                } label: {
+                    
+                    Image("BookMark")
+                        .resizable()
+                        .frame(width: 85, height: 85)
                 }
             }
-            .padding()
+            .offset(y: 10)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(0..<10) { index in
+                        CustomCardButton(text: "집", imageName: "MapMarker", action: {
+                            print("\(index) 버튼을 눌렀습니다.")
+                        })
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
+            }
         }
     }
 }

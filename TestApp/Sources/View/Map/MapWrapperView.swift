@@ -33,14 +33,16 @@ struct MapWrapperView: View {
     
     var body: some View {
         VStack {
-            HStack(spacing: 0) {
+            HStack(alignment: .center, spacing: 0) {
                 VStack(spacing: 0){
                     MapSearchBar()
+                        .onTapGesture {
+                            tapSearchBar = true
+                        }
                 }
             }
             .padding(7)
             .font(.subheadline)
-            .background(Color.paneColor)
             .cornerRadius(20)
             .padding(7)
             .shadow(radius: 10)

@@ -15,10 +15,11 @@ struct MapView: View {
     var body: some View {
         ZStack {
             if tapSearchBar {
-                    MapSearchView(tapSearchBar: $tapSearchBar)
-                        .toolbar(.hidden, for: .tabBar)
-                        .ignoresSafeArea(.all, edges: .bottom)
-                        .zIndex(2)
+                MapSearchView(tapSearchBar: $tapSearchBar)
+                    .toolbar(.hidden, for: .tabBar)
+                    .ignoresSafeArea(.all, edges: .bottom)
+                    .zIndex(2)
+                
             } else {
                 ZStack {
                     ZStack {
@@ -31,7 +32,7 @@ struct MapView: View {
                     }
                     .zIndex(1)
                     // FIXME: - 하단 탭바 이슈(가려짐)
-//                    .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
+                    //                    .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
                     
                     // 도착 이미지 마커
                     Image("MapMarker")
