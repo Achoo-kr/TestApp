@@ -37,19 +37,18 @@ struct MapWrapperView: View {
         VStack {
             if !destinationSelected {
                 
-                NavigationLink {
-                    MapSearchView(tapSearchBar: $tapSearchBar)
-                } label: {
-                    HStack(alignment: .center, spacing: 0) {
-                        VStack(spacing: 0){
-                            MapSearchBar()
-                        }
+                HStack(alignment: .center, spacing: 0) {
+                    VStack(spacing: 0){
+                        MapSearchBar()
                     }
-                    .padding(7)
-                    .font(.subheadline)
-                    .cornerRadius(20)
-                    .padding(7)
-                    .shadow(radius: 10)
+                }
+                .padding(7)
+                .font(.subheadline)
+                .cornerRadius(20)
+                .padding(7)
+                .shadow(radius: 10)
+                .onTapGesture {
+                    tapSearchBar = true
                 }
                 
             } else {
