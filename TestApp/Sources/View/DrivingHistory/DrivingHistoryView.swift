@@ -8,35 +8,35 @@
 import SwiftUI
 
 struct DrivingHistoryView: View {
-    @State private var selectedNum: Int = 0
-    let options = ["다운로드","저장된 파일"]
+    @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     var body: some View {
-        
         VStack {
             HStack(alignment: .bottom){
-                Text("운행일지")
+                Text("운행기록 전송")
                     .font(.title2)
                     .bold()
                 Spacer()
-            //TODO: filter
+                //TODO: filter
             }
             .padding()
-            
-            CustomSegmentedControl(preselectedIndex: $selectedNum, options: options)
-            
-            if selectedNum == 0 {
-                DownloadHistoryView()
-            } else if selectedNum == 1 {
-                DownloadedHistoryView()
-            }
-            
             Spacer()
+            LazyVStack{
+                ForEach(drivingInfoViewModel.drivingInfosAll) { info in
+                    Text("\(info.date) 운행기록")
+                }
+            }
+            Spacer()
+            SendEmailView(drivingInfo: DrivingInfo(id: "", date: "", purpose: "", totalDistance: 0, startAddress: "", startTime: "", endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
         }
+        .task {
+            drivingInfoViewModel.drivingInfosAll
+        }
+
     }
 }
 
 struct DrivingHistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        DrivingHistoryView()
+        DrivingHistoryView(drivingInfoViewModel: DrivingInfoViewModel())
     }
 }

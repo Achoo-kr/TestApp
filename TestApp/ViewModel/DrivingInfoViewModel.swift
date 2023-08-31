@@ -15,6 +15,7 @@ class DrivingInfoViewModel: ObservableObject {
     
     @AppStorage("carReg") var carReg: String = ""
     @Published var drivingInfos: [DrivingInfo] = []
+    @Published var drivingInfosAll: [DrivingInfo] = []
     @Published var recentRef: String = ""
     
     /*
@@ -67,6 +68,32 @@ class DrivingInfoViewModel: ObservableObject {
         }
     }
     
+    func fetchAllDrivingInfos() async {
+        let documentRef = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
+        
+        documentRef.addSnapshotListener { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let documents = snapshot?.documents else {
+                print("스냅샷 Nil")
+                return
+            }
+            
+            self.drivingInfos = []
+            documents.forEach { content in
+                do {
+                    var drivingInfo = try Firestore.Decoder().decode(DrivingInfo.self, from: content.data())
+                    self.drivingInfosAll.append(drivingInfo)
+                    
+                } catch {
+                    print("저장 실패")
+                }
+            }
+        }
+    }
     func fetchDrivingInfos(targetYear: String, targetMonth: String) async {
         let documentRef = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
         
