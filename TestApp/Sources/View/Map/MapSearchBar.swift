@@ -11,7 +11,7 @@ struct MapSearchBar: View {
     
     var body: some View {
         HStack {
-            Text("도착지를 입력해주세요")
+            Text("목적지를 입력해주세요")
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.gray)
             Spacer()
@@ -25,9 +25,3 @@ struct MapSearchBar: View {
         .cornerRadius(10)
     }
 }
-
-//struct MapSearchBar_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapSearchBar()
-//    }
-//}

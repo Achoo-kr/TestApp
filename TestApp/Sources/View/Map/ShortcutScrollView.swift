@@ -7,20 +7,24 @@
 
 import SwiftUI
 
-struct CardButton: View {
+struct CustomCardButton: View {
     var text: String
+    var imageName: String
+    var action: () -> Void
     
     var body: some View {
-        HStack{
-            Image("MapMarker")
-                .padding(.trailing, 8)
-            Text("집")
-                .bold()
-                .font(.title2)
+        Button(action: action) {
+            HStack {
+                Image(imageName)
+                    .padding(.trailing, 8)
+                Text(text)
+                    .bold()
+                    .font(.title2)
+            }
+            .foregroundColor(.black)
+            .padding(.vertical , 20)
+            .padding(.horizontal, 40)
         }
-        .foregroundColor(.black)
-        .padding(.vertical , 25)
-        .padding(.horizontal, 40)
         .background {
             Color.white
                 .cornerRadius(18)
@@ -34,10 +38,9 @@ struct ShortcutScrollView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 ForEach(0..<10) { index in
-                    CardButton(text: "Card \(index)")
-                        .onTapGesture {
-                            print("Card \(index) tapped!")
-                        }
+                    CustomCardButton(text: "집", imageName: "MapMarker", action: {
+                        print("\(index) 버튼을 눌렀습니다.")
+                    })
                 }
             }
             .padding()
