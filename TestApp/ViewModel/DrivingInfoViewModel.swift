@@ -46,6 +46,27 @@ class DrivingInfoViewModel: ObservableObject {
         }
     }
     
+    func updateDrivingInfoData() {
+        let documentRef = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
+        
+        documentRef.addSnapshotListener { (snapshot, error) in
+            if let error = error {
+                print("Error fetching driving info: \(error.localizedDescription)")
+                return
+            }
+            
+            // Process the received data from the snapshot
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    // Here, you can access individual document data using document.data()
+                    let drivingInfoData = document.data()
+                    // Process the driving info data as needed
+                    print("Received driving info: \(drivingInfoData)")
+                }
+            }
+        }
+    }
+    
     func fetchDrivingInfos(targetYear: String, targetMonth: String) async {
         let documentRef = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
         
@@ -85,5 +106,5 @@ class DrivingInfoViewModel: ObservableObject {
             }
         }
     }
-
+    
 }
