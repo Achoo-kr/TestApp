@@ -24,8 +24,9 @@ struct MapView: View {
                 ZStack {
                     ZStack {
                         VStack(alignment: .leading) {
-                            MapBottomSheet(mainViewModel: mainViewModel, drivingInfoViewModel: drivingInfoViewModel, tapSearchBar: $tapSearchBar, address: coordinator.address,
-                                           currentAddress: coordinator.isLocationDataLoaded ? coordinator.currentAddress[1] : coordinator.currentAddress[0])
+                            VStack(alignment: .leading) {
+                                MapWrapperView(mainViewModel: mainViewModel, drivingInfoViewModel: drivingInfoViewModel, tapSearchBar: $tapSearchBar, address: coordinator.address, currentAddress: coordinator.isLocationDataLoaded ? coordinator.currentAddress[1] : coordinator.currentAddress[0])
+                            }
                         }
                         
                     }
