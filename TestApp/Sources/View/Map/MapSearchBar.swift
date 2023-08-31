@@ -10,24 +10,21 @@ import SwiftUI
 struct MapSearchBar: View {
     
     var body: some View {
-        HStack {
-            Text("도착지를 입력해주세요")
+        HStack(alignment: .center, spacing: 0) {
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.gray)
+                .padding(.trailing, 8)
+            Text("목적지를 입력해주세요")
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.gray)
             Spacer()
-            Image("magnifyingglass")
         }
-        .padding(10)
-        .frame(width: 300)
-        .background{
-            Color.white
-        }
-        .cornerRadius(10)
+        .padding(.leading, 16)
+        .padding(.trailing, 56)
+        .padding(.vertical, 8)
+        .frame(height: 48, alignment: .leading)
+        .background(.white)
+        .cornerRadius(8)
+        .shadow(color: .black.opacity(0.24), radius: 7, x: 0, y: 4)
     }
 }
-
-//struct MapSearchBar_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapSearchBar()
-//    }
-//}
