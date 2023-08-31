@@ -46,6 +46,8 @@
 		364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D8D2A879EAC005E4856 /* NavVC.m */; };
 		364B6D912A879EEB005E4856 /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D902A879EEB005E4856 /* NavView.swift */; };
 		364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D922A87A846005E4856 /* MainViewModel.swift */; };
+		366929B42AA04D8800554334 /* AddShorCutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366929B32AA04D8800554334 /* AddShorCutView.swift */; };
+		366929B62AA04E0900554334 /* ShortcutScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366929B52AA04E0900554334 /* ShortcutScrollView.swift */; };
 		366E1DB62A9976E700C8EB13 /* CarRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DB52A9976E700C8EB13 /* CarRegistrationView.swift */; };
 		366E1DB82A997AE700C8EB13 /* CarRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DB72A997AE700C8EB13 /* CarRegistrationViewModel.swift */; };
 		366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DB92A997D1E00C8EB13 /* CarInfo.swift */; };
@@ -151,6 +153,8 @@
 		364B6D8F2A879EC4005E4856 /* NavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavVC.h; sourceTree = "<group>"; };
 		364B6D902A879EEB005E4856 /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
 		364B6D922A87A846005E4856 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		366929B32AA04D8800554334 /* AddShorCutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShorCutView.swift; sourceTree = "<group>"; };
+		366929B52AA04E0900554334 /* ShortcutScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutScrollView.swift; sourceTree = "<group>"; };
 		366E1DB52A9976E700C8EB13 /* CarRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRegistrationView.swift; sourceTree = "<group>"; };
 		366E1DB72A997AE700C8EB13 /* CarRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRegistrationViewModel.swift; sourceTree = "<group>"; };
 		366E1DB92A997D1E00C8EB13 /* CarInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfo.swift; sourceTree = "<group>"; };
@@ -412,6 +416,8 @@
 		364B6D882A879CFB005E4856 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				366929B52AA04E0900554334 /* ShortcutScrollView.swift */,
+				366929B32AA04D8800554334 /* AddShorCutView.swift */,
 				364B6D892A879D0E005E4856 /* MapView.swift */,
 				2771895F2A9F92320075BEC9 /* MapSearchView.swift */,
 				278866D42A9A37A300C4947C /* MapBottomSheet.swift */,
@@ -572,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				366E1DD42A9DD93C00C8EB13 /* DownloadHistoryView.swift in Sources */,
+				366929B62AA04E0900554334 /* ShortcutScrollView.swift in Sources */,
 				3636F0652A9F6DCB00012CC6 /* EditChargeView.swift in Sources */,
 				277A1CBF2A9FA83A000C469B /* RouteView.swift in Sources */,
 				366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */,
@@ -595,6 +602,7 @@
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				27725F752A9D2B8800C2C6CA /* MainView.swift in Sources */,
+				366929B42AA04D8800554334 /* AddShorCutView.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
 				366E1DCB2A9A24A800C8EB13 /* AppViewModel.swift in Sources */,
 				364B6D7D2A879B5A005E4856 /* Requests.swift in Sources */,
@@ -739,6 +747,7 @@
 		364B6D6F2A879A69005E4856 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -786,6 +795,7 @@
 		364B6D702A879A69005E4856 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;

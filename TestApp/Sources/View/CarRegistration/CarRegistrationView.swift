@@ -16,58 +16,76 @@ struct CarRegistrationView: View {
     @State private var isShowingAlert: Bool = false
     @AppStorage("carName") var carName: String = ""
     @AppStorage("carReg") var carReg: String = ""
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         ZStack{
-            ScrollViewReader { proxy in
-                VStack(spacing: 50){
-                    Text("차량을 등록해주세요")
-                        .bold()
-                        .font(.title)
-                        .padding(.top, 80)
-                    Spacer()
-                    Image("Car")
-                        .resizable()
-                        .frame(width: 240, height: 140)
-                    VStack(spacing: 20){
-                        HStack{
-                            Image(systemName: "car")
-                                .foregroundColor(Color.representColor)
-                            Text("차량번호")
-                            TextField("23사5678", text: $carNum)
-                                .disableAutocorrection(true)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
+            Color.white
+                .ignoresSafeArea()
+            VStack(spacing: 50){
+                Spacer()
+                Text("차량을 등록해주세요")
+                    .bold()
+                    .font(.title)
+                    .padding(.top, isFocused ? 0 : 50)
+                    .frame(width: 234, height: 34, alignment: .top)
+                Image("Car")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 240, height: 140)
+                    .padding(.top, 72)
+                VStack(spacing: 20){
+                    HStack{
+                        Image(systemName: "car")
+                            .foregroundColor(Color.representColor)
+                        Text("차량번호")
+                            .bold()
                         
-                        HStack{
-                            Image(systemName: "car")
-                                .foregroundColor(Color.representColor)
-                            Text("소유주명")
-                            TextField("홍길동", text: $ownerName)
-                                .disableAutocorrection(true)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
+                        TextField("23사5678", text: $carNum)
+                            .focused($isFocused)
+                            .padding(.leading)
+                            .disableAutocorrection(true)
+                            .frame(width: 213, height: 44)
+                            .overlay(RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.lightGray, lineWidth: 1.5)
+                            )
+                        
                     }
-                    .padding(.horizontal, 50)
-                    Spacer()
-                    CustomButton(action: {
-                        carRegVM.getCarInfo(registratedNum: carNum, ownerName: ownerName) { carName in
-                            if let name = carName {
-                                print("차이름: \(name)")
-                                self.carName = name
-                                self.carReg = carNum
-                            } else {
-                                print("차 이름을 가져오지 못했습니다.")
-                            }
-                        }
-                        mainViewModel.createUser(user: UserInfo(id: carNum,
-                                                                ownerName: ownerName,
-                                                                carNumber: carNum))
-                    }) {
-                        Text("등록하기")
+                    
+                    HStack{
+                        Image(systemName: "person.crop.circle.badge")
+                            .foregroundColor(Color.representColor)
+                        Text("소유주명")
+                            .bold()
+                        TextField("홍길동", text: $ownerName)
+                            .focused($isFocused)
+                            .padding(.leading)
+                            .disableAutocorrection(true)
+                            .frame(width: 213, height: 44)
+                            .overlay(RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.lightGray, lineWidth: 1.5)
+                            )
                     }
-                    .padding(.bottom, 50)
                 }
+                .padding(40)
+                Spacer()
+                CustomButton(action: {
+                    carRegVM.getCarInfo(registratedNum: carNum, ownerName: ownerName) { carName in
+                        if let name = carName {
+                            print("차이름: \(name)")
+                            self.carName = name
+                            self.carReg = carNum
+                        } else {
+                            print("차 이름을 가져오지 못했습니다.")
+                        }
+                    }
+                    mainViewModel.createUser(user: UserInfo(id: carNum,
+                                                            ownerName: ownerName,
+                                                            carNumber: carNum))
+                }) {
+                    Text("등록하기")
+                }
+                .padding(.bottom, 50)
             }
             if carRegVM.isLoadingData == true {
                 Color.gray.opacity(0.7)
