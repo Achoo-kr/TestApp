@@ -14,6 +14,8 @@ struct MapWrapperView: View {
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
     @Binding var tapSearchBar: Bool
     @State private var isStartedNavi: Bool = false
+    //선택시 분기처리 해줄 변수
+    @State private var destinationSelected: Bool = false
     
     var address: String
     var currentAddress: String
@@ -33,39 +35,62 @@ struct MapWrapperView: View {
     
     var body: some View {
         VStack {
-            HStack(alignment: .center, spacing: 0) {
-                VStack(spacing: 0){
-                    MapSearchBar()
-                        .onTapGesture {
-                            tapSearchBar = true
-                        }
-                }
-            }
-            .padding(7)
-            .font(.subheadline)
-            .cornerRadius(20)
-            .padding(7)
-            .shadow(radius: 10)
-            .alert(
-                "주행종료",
-                isPresented: $mainViewModel.showAlert
-            ) {
-                Button {
-                    let endAddress: String = coordinator.currentAddress[1]
-                    Task {
-                        await drivingInfoViewModel.updateDrivingInfo(["endAddress":endAddress,"endTime":currentTime])
-                        
-                    }
+            if !destinationSelected {
+                
+                NavigationLink {
+                    MapSearchView(tapSearchBar: $tapSearchBar)
                 } label: {
-                    Text("확인")
+                    HStack(alignment: .center, spacing: 0) {
+                        VStack(spacing: 0){
+                            MapSearchBar()
+                        }
+                    }
+                    .padding(7)
+                    .font(.subheadline)
+                    .cornerRadius(20)
+                    .padding(7)
+                    .shadow(radius: 10)
                 }
-            } message: {
-                Text("주행이 완료되었습니다")
+                
+            } else {
+                HStack{
+                    Button {
+                        destinationSelected = false
+                    } label: {
+                        Image("backButton")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .aspectRatio(contentMode: .fit)
+                            .offset(y: 5)
+                    }
+                    Spacer()
+                }
+
             }
             
             Spacer()
+            if !destinationSelected {
+                ShortcutScrollView(destinationSelected: $destinationSelected)
+            } else {
+                MapBottomSheet(mainViewModel: mainViewModel, drivingInfoViewModel: drivingInfoViewModel, address: address, currentAddress: currentAddress)
+            }
             
-            ShortcutScrollView()
+        }
+        .alert(
+            "주행종료",
+            isPresented: $mainViewModel.showAlert
+        ) {
+            Button {
+                let endAddress: String = coordinator.currentAddress[1]
+                Task {
+                    await drivingInfoViewModel.updateDrivingInfo(["endAddress":endAddress,"endTime":currentTime])
+                    
+                }
+            } label: {
+                Text("확인")
+            }
+        } message: {
+            Text("주행이 완료되었습니다")
         }
     }
 }

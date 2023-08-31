@@ -2,19 +2,18 @@
 //  MapBottomSheet.swift
 //  TestApp
 //
-//  Created by 강창현 on 2023/08/26.
+//  Created by 추현호 on 2023/08/31.
 //
 
 import SwiftUI
 
 struct MapBottomSheet: View {
     
-    @StateObject var coordinator: Coordinator = Coordinator.shared
     @ObservedObject var mainViewModel: MainViewModel
     @ObservedObject var drivingInfoViewModel: DrivingInfoViewModel
-    @Binding var tapSearchBar: Bool
+    @StateObject var coordinator: Coordinator = Coordinator.shared
+    //@StateObject var mainViewModel: MainViewModel
     @State private var isStartedNavi: Bool = false
-    
     var address: String
     var currentAddress: String
     let currentDate: Date = Date()
@@ -32,50 +31,57 @@ struct MapBottomSheet: View {
     }
     
     var body: some View {
-        VStack {
-            HStack(spacing: 0) {
-                VStack(spacing: 0){
-                    HStack(alignment: .center) {
-                        Image("StartMapMarker")
-                            .padding(.bottom, -8)
-                        Text("현위치:")
-                            .bold()
-                        Text("\(currentAddress)")
-                            .padding(.leading, 8)
-                        Spacer()
-                    }
-                    
-                    HStack(alignment: .center) {
-                        Image("EndMapMarker")
-                            .padding(.bottom, -8)
-                        Text("목적지:")
-                            .bold()
-                        Button {
-                            //검색 전체화면
-                            tapSearchBar = true
-                        } label: {
-                            Text("\(address)")
-                                .lineLimit(1)
-                                .foregroundColor(.black)
-                        }
-                        .frame(minWidth: 200, alignment: .leading)
-                        .padding(10)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.representColor, lineWidth: 3)
-                        }
-                        
-                        Spacer()
-                    }
-                    
+        ZStack {
+            Color(UIColor(.paneColor))
+            VStack(spacing: 0) {
+                HStack {
+                    Image("StartMapMarker")
+                        .padding(.trailing, -10)
+                    Text("현위치:")
+                        .bold()
+                    Text("\(currentAddress)")
+                    Spacer()
                 }
+                
+                HStack {
+                    Image("EndMapMarker")
+                        .padding(.trailing, -10)
+                    Text("목적지:")
+                        .bold()
+                    Text("\(address)")
+                    Spacer()
+                }
+                
+                HStack {
+                    if isStartedNavi {
+                        CustomButton {
+                            mainViewModel.active = true
+                            mainViewModel.startAddress = coordinator.currentAddress[1]
+                            Task {
+                                let id = UUID().uuidString
+                                await drivingInfoViewModel.saveStartDrivingInfo(id: id, drivingInfo: DrivingInfo(id: id, date: drivingDate, purpose: "", totalDistance: 0, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
+                                drivingInfoViewModel.recentRef = id
+                                
+                                print("시작시점 경로:\(drivingInfoViewModel.recentRef)")
+                            }
+                            isStartedNavi.toggle()
+                        } content: {
+                             Text("안내시작")
+                        }
+                    } else {
+                        CustomButton {
+                            coordinator.createRoute()
+                            isStartedNavi.toggle()
+                        } content: {
+                            Text("길찾기")
+                        }
+                    }
+                }
+                
+                Spacer()
             }
-            .padding(7)
-            .font(.subheadline)
-            .background(Color.paneColor)
-            .cornerRadius(20)
-            .padding(7)
-            .shadow(radius: 10)
+            .font(.title3)
+            .padding(10)
             .alert(
                 "주행종료",
                 isPresented: $mainViewModel.showAlert
@@ -83,6 +89,8 @@ struct MapBottomSheet: View {
                 Button {
                     let endAddress: String = coordinator.currentAddress[1]
                     Task {
+                        print("alert 태스크 진입")
+                        print("종료시점 경로:\(drivingInfoViewModel.recentRef)")
                         await drivingInfoViewModel.updateDrivingInfo(["endAddress":endAddress,"endTime":currentTime])
                         
                     }
@@ -93,36 +101,10 @@ struct MapBottomSheet: View {
                 Text("주행이 완료되었습니다")
             }
             
-            Spacer()
-            
-            HStack {
-                if isStartedNavi {
-                    CustomButton {
-                        mainViewModel.active = true
-                        mainViewModel.startAddress = coordinator.currentAddress[1]
-                        Task {
-                            let id = UUID().uuidString
-                            await drivingInfoViewModel.saveStartDrivingInfo(id: id, drivingInfo: DrivingInfo(id: id, date: drivingDate, purpose: "", totalDistance: 0, startAddress: coordinator.currentAddress[1], startTime: currentTime, endAddress: "", endTime: "", fuelFee: 0, tollFee: 0, depreciation: 0))
-                            drivingInfoViewModel.recentRef = id
-                            
-                            print("시작시점 경로:\(drivingInfoViewModel.recentRef)")
-                        }
-                        isStartedNavi.toggle()
-                    } content: {
-                        Text("안내시작")
-                    }
-                } else {
-                    CustomButton {
-//                        coordinator.createRoute()
-//                        KakaoMapCoordinator.shared.testRouteCreate(startCoordinate: (coordinator.userLocation.1,coordinator.userLocation.0), endCoordinate: (coordinator.destination.1,coordinator.destination.0))
-                        isStartedNavi.toggle()
-                    } content: {
-                        Text("길찾기")
-                    }
-                }
-            }
-            .padding(.bottom, 20)
         }
+        .cornerRadius(10)
+        .frame(width: UIScreen.main.bounds.width, height: 150, alignment: .leading)
+        
     }
 }
 
@@ -130,7 +112,7 @@ struct MapBottomSheet_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color(.systemGray)
-            MapBottomSheet(mainViewModel: MainViewModel(), drivingInfoViewModel: DrivingInfoViewModel(), tapSearchBar: Binding.constant(false), address: "Test", currentAddress: "Test")
+            MapBottomSheet(mainViewModel: MainViewModel(), drivingInfoViewModel: DrivingInfoViewModel(), address: "Test", currentAddress: "Test")
         }
         
     }
