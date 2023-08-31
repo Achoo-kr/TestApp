@@ -15,23 +15,24 @@ struct MapView: View {
     var body: some View {
         ZStack {
             if tapSearchBar {
-                    MapSearchView(tapSearchBar: $tapSearchBar)
-//                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                        .toolbar(.hidden, for: .tabBar)
-                        .ignoresSafeArea(.all, edges: .bottom)
-                        .zIndex(2)
+                MapSearchView(tapSearchBar: $tapSearchBar)
+                    .toolbar(.hidden, for: .tabBar)
+                    .ignoresSafeArea(.all, edges: .bottom)
+                    .zIndex(2)
+                
             } else {
                 ZStack {
                     ZStack {
                         VStack(alignment: .leading) {
-                            MapBottomSheet(mainViewModel: mainViewModel, drivingInfoViewModel: drivingInfoViewModel, tapSearchBar: $tapSearchBar, address: coordinator.address,
-                                           currentAddress: coordinator.isLocationDataLoaded ? coordinator.currentAddress[1] : coordinator.currentAddress[0])
+                            VStack(alignment: .leading) {
+                                MapWrapperView(mainViewModel: mainViewModel, drivingInfoViewModel: drivingInfoViewModel, tapSearchBar: $tapSearchBar, address: coordinator.address, currentAddress: coordinator.isLocationDataLoaded ? coordinator.currentAddress[1] : coordinator.currentAddress[0])
+                            }
                         }
                         
                     }
                     .zIndex(1)
                     // FIXME: - 하단 탭바 이슈(가려짐)
-//                    .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
+                    //                    .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
                     
                     // 도착 이미지 마커
                     Image("MapMarker")

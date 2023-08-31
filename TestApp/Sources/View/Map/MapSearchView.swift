@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct Place: Identifiable {
     let id: String
@@ -20,25 +21,45 @@ struct MapSearchView: View {
     @State private var places: [Place] = []
     @Binding var tapSearchBar: Bool
     
+    // Combine - Debouncing
+    @State var keywordPublisher = PassthroughSubject<String, Never>()
+    @State var debounceCancellable: AnyCancellable?
+    
+    @FocusState var isFocused: Bool
+    
     var body: some View {
         ZStack {
             Color(.white)
-            VStack(spacing: 0) {
-                HStack {
-                    Button("취소") {
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(alignment: .center) {
+                    
+                    Button {
                         tapSearchBar = false
+                    } label: {
+                        Image("backButton")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .aspectRatio(contentMode: .fit)
+                            .offset(y: 5)
                     }
-                    .padding()
+                    
                     TextField("목적지를 입력하세요", text: $keyword)
                         .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                    
-                    Button("검색") {
-                        searchPlaces()
-                    }
-                    .padding()
+                        .focused($isFocused)
+                        .padding(.leading)
+                        .disableAutocorrection(true)
+                        .frame(width: 250, height: 40)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.lightGray, lineWidth: 1.5)
+                        )
+                        .onChange(of: keyword) { newValue in
+                            keywordPublisher.send(newValue)
+                        }
+                        
+                    Spacer()
+                        
                 }
+                .padding()
                 .background(Color.white)
                 
                 List(places) { place in
@@ -62,6 +83,15 @@ struct MapSearchView: View {
                 }
                 .listStyle(PlainListStyle())
             }
+        }
+        .onAppear {
+            isFocused = true
+            // Debounce 설정
+            debounceCancellable = keywordPublisher
+                .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
+                .sink { keyword in
+                    self.searchPlaces()
+                }
         }
     }
     

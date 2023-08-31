@@ -7,32 +7,61 @@
 
 import SwiftUI
 
-struct CardButton: View {
+struct CustomCardButton: View {
     var text: String
+    var imageName: String
+    var action: () -> Void
     
     var body: some View {
-        Text(text)
-            .font(.headline)
-            .padding()
-            .foregroundColor(.white)
-            .frame(width: 200, height: 100)
-            .background(Color.blue)
-            .cornerRadius(10)
+        Button(action: action) {
+            HStack {
+                Image(imageName)
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .padding(.trailing, 8)
+                Text(text)
+                    .bold()
+                    .font(.title2)
+            }
+            .foregroundColor(.black)
+            .padding(.vertical , 10)
+            .padding(.horizontal, 25)
+        
+        }
+        .background {
+            Color.white
+                .cornerRadius(18)
+                .shadow(color: .black.opacity(0.24), radius: 8, x: 0, y: 4)
+        }
     }
 }
 
 struct ShortcutScrollView: View {
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20) {
-                ForEach(0..<10) { index in
-                    CardButton(text: "Card \(index)")
-                        .onTapGesture {
-                            print("Card \(index) tapped!")
-                        }
+        VStack{
+            HStack{
+                Spacer()
+                Button {
+                    //
+                } label: {
+                    Image("BookMark")
+                        .resizable()
+                        .frame(width: 85, height: 85)
                 }
             }
-            .padding()
+            .offset(y: 10)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(bookMarkList) { bookmark in
+                        CustomCardButton(text: bookmark.bookMarkName, imageName: bookmark.bookMarkImage, action: {
+                            //바로 바텀시트 전환 할 수 있도록
+                        })
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
+            }
         }
     }
 }
