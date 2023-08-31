@@ -29,6 +29,7 @@ struct SendEmailView: View {
                 Alert(title: Text("Cannot Send Email"), message: Text("Your device could not send e-mail. Please check e-mail configuration and try again."), dismissButton: .default(Text("OK")))
             }
         }
+        
     }
 }
 
