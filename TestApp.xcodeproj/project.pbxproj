@@ -37,6 +37,8 @@
 		27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */; };
 		3610B7CF2AA07E080025D167 /* BookMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610B7CE2AA07E080025D167 /* BookMark.swift */; };
 		3610B7D12AA08E210025D167 /* MapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610B7D02AA08E210025D167 /* MapBottomSheet.swift */; };
+		3610B7D52AA0A30A0025D167 /* SendEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610B7D42AA0A30A0025D167 /* SendEmailView.swift */; };
+		3610B7D72AA0A6520025D167 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610B7D62AA0A6520025D167 /* MailView.swift */; };
 		3636F0652A9F6DCB00012CC6 /* EditChargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636F0642A9F6DCB00012CC6 /* EditChargeView.swift */; };
 		364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D632A879A67005E4856 /* TestAppApp.swift */; };
 		364B6D662A879A67005E4856 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B6D652A879A67005E4856 /* ContentView.swift */; };
@@ -55,12 +57,8 @@
 		366E1DBC2A99DE1F00C8EB13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 366E1DBB2A99DE1F00C8EB13 /* GoogleService-Info.plist */; };
 		366E1DBF2A99E03000C8EB13 /* DrivingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DBE2A99E03000C8EB13 /* DrivingHistoryView.swift */; };
 		366E1DC72A9A195200C8EB13 /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DC62A9A195200C8EB13 /* DropDownMenu.swift */; };
-		366E1DC92A9A1E6800C8EB13 /* DownloadedHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DC82A9A1E6800C8EB13 /* DownloadedHistoryView.swift */; };
 		366E1DCB2A9A24A800C8EB13 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DCA2A9A24A800C8EB13 /* AppViewModel.swift */; };
 		366E1DD02A9DC61500C8EB13 /* DrivingInfoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DCF2A9DC61500C8EB13 /* DrivingInfoListView.swift */; };
-		366E1DD22A9DD6B800C8EB13 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DD12A9DD6B800C8EB13 /* CustomSegmentedControl.swift */; };
-		366E1DD42A9DD93C00C8EB13 /* DownloadHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DD32A9DD93C00C8EB13 /* DownloadHistoryView.swift */; };
-		366E1DD62A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366E1DD52A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift */; };
 		36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */; };
 		36C341FC2A98CE4E002EAC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364B6D672A879A69005E4856 /* Assets.xcassets */; };
 		36E13B582A90EB77001EA6AB /* DrivingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */; };
@@ -140,6 +138,8 @@
 		27EB77C12A8FDF5E009362CF /* KakaoMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoMapWrapper.swift; sourceTree = "<group>"; };
 		3610B7CE2AA07E080025D167 /* BookMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMark.swift; sourceTree = "<group>"; };
 		3610B7D02AA08E210025D167 /* MapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomSheet.swift; sourceTree = "<group>"; };
+		3610B7D42AA0A30A0025D167 /* SendEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailView.swift; sourceTree = "<group>"; };
+		3610B7D62AA0A6520025D167 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		3636F0642A9F6DCB00012CC6 /* EditChargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChargeView.swift; sourceTree = "<group>"; };
 		364B6D602A879A67005E4856 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364B6D632A879A67005E4856 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
@@ -163,12 +163,8 @@
 		366E1DBB2A99DE1F00C8EB13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		366E1DBE2A99E03000C8EB13 /* DrivingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingHistoryView.swift; sourceTree = "<group>"; };
 		366E1DC62A9A195200C8EB13 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
-		366E1DC82A9A1E6800C8EB13 /* DownloadedHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedHistoryView.swift; sourceTree = "<group>"; };
 		366E1DCA2A9A24A800C8EB13 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		366E1DCF2A9DC61500C8EB13 /* DrivingInfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoListView.swift; sourceTree = "<group>"; };
-		366E1DD12A9DD6B800C8EB13 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
-		366E1DD32A9DD93C00C8EB13 /* DownloadHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHistoryView.swift; sourceTree = "<group>"; };
-		366E1DD52A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedHistoryRow.swift; sourceTree = "<group>"; };
 		36C341F82A98BDB1002EAC8F /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		36C341FA2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		36E13B572A90EB77001EA6AB /* DrivingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingInfoView.swift; sourceTree = "<group>"; };
@@ -444,11 +440,9 @@
 			isa = PBXGroup;
 			children = (
 				366E1DBE2A99E03000C8EB13 /* DrivingHistoryView.swift */,
-				366E1DD32A9DD93C00C8EB13 /* DownloadHistoryView.swift */,
-				366E1DC82A9A1E6800C8EB13 /* DownloadedHistoryView.swift */,
+				3610B7D42AA0A30A0025D167 /* SendEmailView.swift */,
+				3610B7D62AA0A6520025D167 /* MailView.swift */,
 				366E1DC62A9A195200C8EB13 /* DropDownMenu.swift */,
-				366E1DD12A9DD6B800C8EB13 /* CustomSegmentedControl.swift */,
-				366E1DD52A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift */,
 			);
 			path = DrivingHistory;
 			sourceTree = "<group>";
@@ -580,14 +574,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				366E1DD42A9DD93C00C8EB13 /* DownloadHistoryView.swift in Sources */,
 				366929B62AA04E0900554334 /* ShortcutScrollView.swift in Sources */,
 				3636F0652A9F6DCB00012CC6 /* EditChargeView.swift in Sources */,
 				277A1CBF2A9FA83A000C469B /* RouteView.swift in Sources */,
 				366E1DBA2A997D1E00C8EB13 /* CarInfo.swift in Sources */,
 				36E13B5F2A90EBD9001EA6AB /* CardView.swift in Sources */,
 				364B6D662A879A67005E4856 /* ContentView.swift in Sources */,
-				366E1DC92A9A1E6800C8EB13 /* DownloadedHistoryView.swift in Sources */,
 				27162B7C2A9CB61600AEFD3A /* TestView.swift in Sources */,
 				36E13B612A90EBF8001EA6AB /* CustomButton.swift in Sources */,
 				366929B82AA0534100554334 /* MapWrapperView.swift in Sources */,
@@ -597,14 +589,15 @@
 				366E1DB82A997AE700C8EB13 /* CarRegistrationViewModel.swift in Sources */,
 				366E1DBF2A99E03000C8EB13 /* DrivingHistoryView.swift in Sources */,
 				3610B7CF2AA07E080025D167 /* BookMark.swift in Sources */,
-				366E1DD22A9DD6B800C8EB13 /* CustomSegmentedControl.swift in Sources */,
 				364B6D642A879A67005E4856 /* TestAppApp.swift in Sources */,
 				3610B7D12AA08E210025D167 /* MapBottomSheet.swift in Sources */,
+				3610B7D72AA0A6520025D167 /* MailView.swift in Sources */,
 				2712FEB82A98D3C600795346 /* MapSearchBar.swift in Sources */,
 				27860E072A8FDA1E00D76697 /* Coordinate.swift in Sources */,
 				27EB77C22A8FDF5E009362CF /* KakaoMapWrapper.swift in Sources */,
 				36E13B5B2A90EB9E001EA6AB /* Color.swift in Sources */,
 				364B6D782A879B14005E4856 /* DrivingInfo.swift in Sources */,
+				3610B7D52AA0A30A0025D167 /* SendEmailView.swift in Sources */,
 				364B6D932A87A846005E4856 /* MainViewModel.swift in Sources */,
 				27725F752A9D2B8800C2C6CA /* MainView.swift in Sources */,
 				364B6D8E2A879EAC005E4856 /* NavVC.m in Sources */,
@@ -617,7 +610,6 @@
 				36C341FB2A98BEA5002EAC8F /* CarPlaySceneDelegate.swift in Sources */,
 				36E13B5D2A90EBBD001EA6AB /* SelectionBlockView.swift in Sources */,
 				366E1DD02A9DC61500C8EB13 /* DrivingInfoListView.swift in Sources */,
-				366E1DD62A9DDA5E00C8EB13 /* DownloadedHistoryRow.swift in Sources */,
 				27170DA92A9E87B6005E38A4 /* DrivingInfoViewModel.swift in Sources */,
 				277A1CBD2A9FA81F000C469B /* RouteViewWrapper.swift in Sources */,
 				366E1DC72A9A195200C8EB13 /* DropDownMenu.swift in Sources */,
@@ -764,7 +756,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TestApp",
@@ -813,7 +805,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AU882HP6MX;
 				ENABLE_PREVIEWS = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TestApp",
