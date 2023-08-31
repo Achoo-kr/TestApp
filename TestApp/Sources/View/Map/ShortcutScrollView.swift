@@ -16,14 +16,17 @@ struct CustomCardButton: View {
         Button(action: action) {
             HStack {
                 Image(imageName)
+                    .resizable()
+                    .frame(width: 50, height: 50)
                     .padding(.trailing, 8)
                 Text(text)
                     .bold()
                     .font(.title2)
             }
             .foregroundColor(.black)
-            .padding(.vertical , 20)
-            .padding(.horizontal, 40)
+            .padding(.vertical , 10)
+            .padding(.horizontal, 25)
+        
         }
         .background {
             Color.white
@@ -41,7 +44,6 @@ struct ShortcutScrollView: View {
                 Button {
                     //
                 } label: {
-                    
                     Image("BookMark")
                         .resizable()
                         .frame(width: 85, height: 85)
@@ -51,9 +53,9 @@ struct ShortcutScrollView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(0..<10) { index in
-                        CustomCardButton(text: "집", imageName: "MapMarker", action: {
-                            print("\(index) 버튼을 눌렀습니다.")
+                    ForEach(bookMarkList) { bookmark in
+                        CustomCardButton(text: bookmark.bookMarkName, imageName: bookmark.bookMarkImage, action: {
+                            //바로 바텀시트 전환 할 수 있도록
                         })
                     }
                 }
