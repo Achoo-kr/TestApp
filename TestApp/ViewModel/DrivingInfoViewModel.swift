@@ -15,6 +15,7 @@ class DrivingInfoViewModel: ObservableObject {
     
     @AppStorage("carReg") var carReg: String = ""
     @Published var drivingInfos: [DrivingInfo] = []
+    @Published var drivingInfosAll: [DrivingInfo] = []
     @Published var recentRef: String = ""
     
     /*
@@ -42,6 +43,54 @@ class DrivingInfoViewModel: ObservableObject {
                 print(error.localizedDescription)
             } else {
                 print("Success")
+            }
+        }
+    }
+    
+    func updateDrivingInfoData() {
+        let documentRef = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
+        
+        documentRef.addSnapshotListener { (snapshot, error) in
+            if let error = error {
+                print("Error fetching driving info: \(error.localizedDescription)")
+                return
+            }
+            
+            // Process the received data from the snapshot
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    // Here, you can access individual document data using document.data()
+                    let drivingInfoData = document.data()
+                    // Process the driving info data as needed
+                    print("Received driving info: \(drivingInfoData)")
+                }
+            }
+        }
+    }
+    
+    func fetchAllDrivingInfos() async {
+        let documentRef = Firestore.firestore().collection("Users").document(carReg).collection("DrivingInfo")
+        
+        documentRef.addSnapshotListener { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let documents = snapshot?.documents else {
+                print("스냅샷 Nil")
+                return
+            }
+            
+            self.drivingInfos = []
+            documents.forEach { content in
+                do {
+                    var drivingInfo = try Firestore.Decoder().decode(DrivingInfo.self, from: content.data())
+                    self.drivingInfosAll.append(drivingInfo)
+                    
+                } catch {
+                    print("저장 실패")
+                }
             }
         }
     }
