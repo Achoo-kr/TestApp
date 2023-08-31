@@ -41,7 +41,7 @@ struct ContentView: View {
                             .foregroundColor(.representColor)
                         }
                         .tag(Tab.two)
-                    DrivingHistoryView()
+                    DrivingHistoryView(drivingInfoViewModel: drivingInfoViewModel)
                         .tabItem {
                             VStack{
                                 Image(systemName: "doc.on.clipboard")
